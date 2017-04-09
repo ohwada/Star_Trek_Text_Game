@@ -8,7 +8,7 @@ http://android.ohwada.jp/archives/7339
 
 Androidに移植しています。
 まだ未完成ですが、簡単な遊びは出来るようになったので。ソースコードを公開します。
-https://github.com/ohwada/Star_Trek_Text_Game/android
+https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek
 
 ゲームのルールは、作者の数だけあるようです。
 基本的なルールを下記にまとめました。
