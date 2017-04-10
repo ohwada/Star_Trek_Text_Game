@@ -8,8 +8,17 @@ http://android.ohwada.jp/archives/7339
 
 Androidに移植しています。
 まだ未完成ですが、簡単な遊びは出来るようになったので。ソースコードを公開します。
+フィードバックお待ちします。
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek
 
-ゲームのルールは、作者の数だけあるようです。
-基本的なルールを下記にまとめました。
+スクリーンショット
+長距離センサー
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/%E5%90%8Ddocs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  />
+短距離センサー
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/%E5%90%8Ddocs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  />
+光子魚雷でクリンゴン艦を破壊する。
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/%E5%90%8Ddocs/star_trek_android_screenshot_photon_torpedo.png" width="150"  />
+ゲームのルールは、作りながら考えています。
+オリジナル版の雰囲気を活かしつつ、操作が簡単で開発が安易になるようにしたいと思います。
+。
 http://android.ohwada.jp/archives/7358
