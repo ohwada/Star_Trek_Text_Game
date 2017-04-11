@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="0ecb4b595fa0f0f8018a149ace3ea6525624f94e">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-24.2.1_2e3df27277de8bb2e3d4f43543b6deda1d065358/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="935a969265b2a166b2d20415423f5f6e90fe16e0">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_e322ec652fc4bb6350123414bb3dc943a5dde378/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="09b462bbcb77650284bd6614f1a32f360ef369f8">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-24.2.1_0684c8a7b852f265047884000048bc8885ba7d1f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="9c4c3bc902450c39ed54de170db4fb12aea20a35">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-24.2.1_51a48869398866e25e307c7481777c4c957eea47/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="867dad63c33388ff8c7644b236579355036d075f">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_de62ce6351d5ab698806698d743ce46b600d86e5/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.2.1/support-annotations-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="8de3aafecbdf98a61db6427f008f2d515bcd2544">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.2.1_f056bc3daae5f8ec8374b1d04234a7ecf5b985e9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="35bc70d7aca86e707d14b7b7de2a96319787689c">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ea95856272adf60f0686fdfe48e90ac0f0c19327/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="94bc1dfb84dcc8b6f6f8f7cc726d7b2dd39c1574">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-24.2.1_4f16fa5b9843cbfb94d2790742b13e5a6daadfab/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="43b2dba6b5a0b14527961b75329d0b90025f15ea">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-24.2.1_516e7a0e5331d9e6c7a14e5eec1d1e768fbb4091/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="86cc049503dc73eafad2f2c0bdfaba77447e6e46">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_42df5de5583904d8365509e924fd84b7d36f7666/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="fbf8da429efd5ad21e02e3e5ecaa1efc4167878d">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_568db32a0a354b3cf9ad08de9c57ffdbd22768f9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-24.2.1_acdad25f1d95cfca82d69df7480074a5ef29dc19/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="e7f3132168957eefc46229fc32c3bd464642b71e">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-24.2.1_8a278a76dd9136cb99caf5be7902ec8bd0e2ebd4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="5f64d657e838e8375135c0f6057a7ff8fab6a50e">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_26c8fc90ba50c3e4bd676e20d504953da1c8a818/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-compat/24.2.1/jars/libs/internal_impl-24.2.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="7e4389bd133359a2ff88623ff1e4ff93d6e6f780">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.2.1_db6fcc390d7ec2bd4a50a287f9ec3eb43292b20d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-fragment/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="b9a1ac78ad7ef3abedc4a4b30cd92bcacb939d1f">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-24.2.1_9f50df7a79c425c4d4300b769efcff7babc19728/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/24.2.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="24.0.2"
+        sha1="d5c731fc64c03dfe04d51134955b483551c35849">
+        <dex dex="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-24.2.1_68775afda804aa86180ec68b241c261d7fb922ce/classes.dex" />
+    </item>
+
+</items>

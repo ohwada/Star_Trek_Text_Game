@@ -1,0 +1,7 @@
+#Tue Apr 11 17:21:38 JST 2017
+base.0=/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ea95856272adf60f0686fdfe48e90ac0f0c19327
+renamed.1=classes.dex
+renamed.0=classes2.dex
+file.1=/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_42df5de5583904d8365509e924fd84b7d36f7666/classes.dex
+base.1=/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_42df5de5583904d8365509e924fd84b7d36f7666
+file.0=/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_ea95856272adf60f0686fdfe48e90ac0f0c19327/classes.dex

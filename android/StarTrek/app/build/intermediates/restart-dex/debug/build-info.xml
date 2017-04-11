@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    abi="x86"
+    api-level="23"
+    density="xhdpi"
+    format="8"
+    plugin-version="2.2.2"
+    timestamp="27624515857475"
+    token="5826961124439549426"
+    verifier="COMPATIBLE" >
+
+    <task
+        name="javac"
+        duration="249" />
+    <task
+        name="instant-run-dex"
+        duration="73" />
+    <task
+        name="instant-run-transform"
+        duration="31" />
+    <task
+        name="verifier"
+        duration="11" />
+
+    <artifact
+        location="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
+
+    <build
+        timestamp="26940909703250"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/outputs/apk/app-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="27624515857475"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/ohwada/AndroidStudioProjects/StarTrek/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+
+</instant-run>
