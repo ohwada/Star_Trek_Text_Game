@@ -16,11 +16,11 @@ https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek <br/>
 
 スクリーンショット <br/>
 長距離センサー <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/Ddocs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  /> <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  /> <br/>
 短距離センサー <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/Ddocs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
 光子魚雷でクリンゴン艦を破壊する。<br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/Ddocs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
 ゲームのルールは、作りながら考えています。 <br/>
 オリジナル版の雰囲気を活かしつつ、ユーザーの操作がシンプルで開発が安易になるようにしたいと思います。 <br/>
 
