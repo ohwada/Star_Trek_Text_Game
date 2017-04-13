@@ -20,7 +20,14 @@ public class Course {
     private static final boolean D = Constant.DEBUG;
     private static final String TAG_SUB = "Course";
     
-      
+      private static final int COURSE_RIGHT = 1; 
+        private static final int COURSE_UP_RIGHT = 2; 
+             private static final int COURSE_UP = 3; 
+               private static final int COURSE_UP_LEFT = 4; 
+                             private static final int COURSE_LEFT = 5; 
+                                         private static final int COURSE_DOWN_LEFT = 6;          
+             private static final int COURSE_DOWN = 7; 
+                       private static final int COURSE_DOWN_RIGHT = 8;       
     /**
      * Course
      */
@@ -32,39 +39,45 @@ public static int[] getDelta( int course ) {
     log_d( "getDelta " + course );
 int xd = 0;
 int yd = 0;
-// up
-if ( course == 1 ) {
-  xd = -1;
- yd = 0; 
-// up right
-} else if ( course == 2 ) {
-  xd = -1;
- yd = 1;  
-//  right
-} else if ( course == 3 ) {
+// right
+if ( course == COURSE_RIGHT ) {
   xd = 0;
- yd = 1;  
-// down right
-} else if ( course == 4 ) {
-  xd = 1;
  yd = 1; 
-// down 
-} else if ( course == 5 ) {
+// up right
+} else if ( course == COURSE_UP_RIGHT ) {
+  xd = -1;
+ yd = 1;  
+//  up
+} else if ( course == COURSE_UP ) {
+  xd = -1;
+ yd = 0;  
+  xd = 0;
+ yd = 1; 
+ // up left
+} else if ( course == COURSE_UP_LEFT ) {
+  xd = -1;
+ yd = -1;  
+// down r// left 
+} else if ( course == COURSE_LEFT ) {
+  xd = 0;
+ yd = -1;  
+// down left
+} else if ( course ==  COURSE_DOWN_LEFT ) {
+  xd = 1;
+ yd = -1;
   xd = 1;
  yd = 0;  
-// down left
-// down left
-} else if ( course == 6 ) {
-  xd = 1;
- yd = -1; 
-// left
-} else if ( course == 7 ) {
-  xd = 0;
- yd = 1;  
-// up left 
-} else if ( course == 8 ) {
+// down l
   xd = -1;
  yd = -1; 
+ // down
+} else if ( course == COURSE_DOWN ) {
+  xd = 1;
+ yd = 0;  
+// down right 
+} else if ( course == COURSE_DOWN_RIGHT ) {
+  xd = 1;
+ yd = 1; 
 } // if
 int[] ret = new int[2];
 log_d( "delta " +xd + ", "+ yd );

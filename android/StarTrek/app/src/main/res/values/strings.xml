@@ -1,3 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- STAR TREK 2017-04-10 K.OHWADA -->
 <resources>
     <string name="app_name">StarTrek</string>
 <string name="cmd1">1: LONG RANGE SENSOR SCAN</string> 
@@ -7,12 +9,12 @@
     <string name="cmd5">５：IMPUＬSE　ENGINE</string>
     <string name="cmd6">６：ＷＡＲP　ENGINE</string>
 <string name="course0"> o </string>
-<string name="course1"> 1 up </string> 
+<string name="course1"> 1 right </string> 
 <string name="course2"> 2 up right</string>
-<string name="course3"> 3 right</string>
-<string name="course4"> 4 down right</string>
-<string name="course5"> 5 down </string> 
+<string name="course3"> 3 up</string>
+<string name="course4"> 4 up left</string>
+<string name="course5"> 5  left </string> 
 <string name="course6"> 6 down left</string>
-<string name="course7"> 7  left</string>
-<string name="course8"> 8 up left</string>
+<string name="course7"> 7  ldown</string>
+<string name="course8"> 8 down right</string>
 </resources>

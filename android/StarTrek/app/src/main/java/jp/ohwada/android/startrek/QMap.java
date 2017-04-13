@@ -148,140 +148,10 @@ log_map() ;
         } // end of scanLong 
 
 
-public List<Trace> fireTorpedoe( int course ) {
-    log_d( "fireTorpedoe " + course  );
-List<Trace>  list  = new ArrayList<Trace>();
-int xd = 0;
-int yd = 0;
-// up
-if ( course == 1 ) {
-  xd = -1;
- yd = 0; 
-// up right
-} else if ( course == 2 ) {
-  xd = -1;
- yd = 1;  
-//  right
-} else if ( course == 3 ) {
-  xd = 0;
- yd = 1;  
-// down right
-} else if ( course == 4 ) {
-  xd = 1;
- yd = 1; 
-// down 
-} else if ( course == 5 ) {
-  xd = 1;
- yd = 0;  
-// down left
-} else if ( course == 6 ) {
-  xd = 1;
- yd = -1; 
-// left
-} else if ( course == 7 ) {
-  xd = 0;
- yd = 1;  
-// up left 
-} else if ( course == 8 ) {
-  xd = -1;
- yd = -1; 
-} // if
-int xx = pos_x;
-int yy = pos_y;
-
-
-while (true) {
-
-   xx += xd;
-    yy += yd;
-    if ( xx<0 ) {
-            list.add( new Trace( C_OUT, xx, yy ) );
-        break;
-    } else if ( xx>7 ) {
-                list.add( new Trace( C_OUT, xx, yy ) );
-        break;
-     } else if ( yy<0 ) {
-          list.add( new Trace( C_OUT, xx, yy ) );
-        break;
-     } else if ( yy>7 ) {
-        list.add( new Trace( C_OUT, xx, yy ) );
-        break;
-    } else if ( mSectors[xx][yy] == C_KLINGON ) {
-        mSectors[xx][yy] = C_NONE;
-         list.add( new Trace( C_KLINGON, xx, yy ) );
-        break;     
-    } else if ( mSectors[xx][yy] == C_STARBASE ) {
-                mSectors[xx][yy] = C_NONE;
-         list.add( new Trace( C_STARBASE, xx, yy ) );
-        break;  
-            } else if ( mSectors[xx][yy] == C_STAR ) {
-                        mSectors[xx][yy] = C_NONE;
-         list.add( new Trace( C_STAR, xx, yy ) );
-        break;  
-        } // if        
-} // while
- return list;   
-} // fire
-
-
-private void log_map() {
-    log_d( " log_map" );
-         for ( int i=0; i<8; i++ ) {
-          for ( int j=0; j<8; j++ ) {
-            log_d( i + ", " + j + ": " +  mSectors[i][j] );   
-} } // for i j
-} // log_map
-
-
-private int[] getCourseDelta( int course ) {
-    log_d( "CourseDelta " + course );
-int xd = 0;
-int yd = 0;
-// up
-if ( course == 1 ) {
-  xd = -1;
- yd = 0; 
-// up right
-} else if ( course == 2 ) {
-  xd = -1;
- yd = 1;  
-//  right
-} else if ( course == 3 ) {
-  xd = 0;
- yd = 1;  
-// down right
-} else if ( course == 4 ) {
-  xd = 1;
- yd = 1; 
-// down 
-} else if ( course == 5 ) {
-  xd = 1;
- yd = 0;  
-// down left
-// down left
-} else if ( course == 6 ) {
-  xd = 1;
- yd = -1; 
-// left
-} else if ( course == 7 ) {
-  xd = 0;
- yd = 1;  
-// up left 
-} else if ( course == 8 ) {
-  xd = -1;
- yd = -1; 
-} // if
-int[] ret = new int[2];
-log_d( "delta " +xd + ", "+ yd );
-ret[0] = xd;
-ret[1] = yd;
-return ret;
-} // cousedelta
-
  public Trace startInpulse ( int course ) {
     log_d( "startInpulse " + course );
     Trace ret;
-    int[] delta = getCourseDelta( course );
+    int[] delta = Course.getDelta( course );
     int xd = delta[0];
         int yd = delta[1];
         int xx = pos_x + xd;
@@ -326,9 +196,83 @@ int yy = pos_y + yd;
      log_d( C_NONE + ":"+xx + ","+yy );
            return ret;   
 } // if
-
      return null; // dummy
 } // startInpulse
+
+
+public List<Trace> fireTorpedoe( int course ) {
+
+    log_d( "fireTorpedoe " + course  );
+        int[] delta = Course.getDelta( course );
+    int xd = delta[0];
+        int yd = delta[1];
+        
+List<Trace>  list  = new ArrayList<Trace>();
+
+int xx = pos_x;
+int yy = pos_y;
+
+while (true) {
+
+   xx += xd;
+    yy += yd;
+    
+             if ( xx>=0 && xx<=7 &&  yy>=0 && yy<=7) {
+
+                 if (mSectors[xx][yy] == C_NONE) {
+                     list.add(new Trace(C_NONE, xx, yy));
+
+                 } else if (mSectors[xx][yy] == C_KLINGON) {
+                     // klingon destroy
+                     mSectors[xx][yy] = C_NONE;
+                     list.add(new Trace(C_KLINGON, xx, yy));
+                     break;
+
+                 } else if (mSectors[xx][yy] == C_STARBASE) {
+                     // destroy starbase
+                     mSectors[xx][yy] = C_NONE;
+                     list.add(new Trace(C_STARBASE, xx, yy));
+                     break;
+
+                 } else if (mSectors[xx][yy] == C_STAR) {
+                     // can not destroy star
+                     list.add(new Trace(C_STAR, xx, yy));
+                     break;
+
+                 } // mSectors
+
+             } else if ( xx<0 ) {
+            list.add( new Trace( C_OUT, xx, yy ) );
+        break;
+        
+    } else if ( xx>7 ) {
+                list.add( new Trace( C_OUT, xx, yy ) );
+        break;
+        
+     } else if ( yy<0 ) {
+          list.add( new Trace( C_OUT, xx, yy ) );
+        break;
+        
+     } else if ( yy>7 ) {
+        list.add( new Trace( C_OUT, xx, yy ) );
+        break;
+   
+        } // if 
+               
+} // while
+
+ return list;
+
+} // fire
+
+
+private void log_map() {
+    log_d( " log_map" );
+         for ( int i=0; i<8; i++ ) {
+          for ( int j=0; j<8; j++ ) {
+            log_d( i + ", " + j + ": " +  mSectors[i][j] );   
+} } // for i j
+} // log_map
 
                 /**
                  * log_d

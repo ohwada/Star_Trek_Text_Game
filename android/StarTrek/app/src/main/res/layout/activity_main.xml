@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- STAR TREK 2017-04-10 K.OHWADA -->
 <LinearLayout 
 xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -441,18 +442,18 @@ xmlns:android="http://schemas.android.com/apk/res/android"
      android:layout_width="wrap_content"
         android:layout_height="wrap_content" >
         
-        <!-- row up: 8 1 2  -->
+        <!-- row up: 4 3 2  -->
         <TableRow >
 
         <Button
-        android:id="@+id/Button_course_8"
-        android:text="@string/course8"
+        android:id="@+id/Button_course_4"
+        android:text="@string/course4"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
 
         <Button
-        android:id="@+id/Button_course_1"
-        android:text="@string/course1"
+        android:id="@+id/Button_course_3"
+        android:text="@string/course3"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
 
@@ -462,11 +463,11 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
         </TableRow >
-                <!-- row middle : 7 o 3 -->
+                <!-- row middle : 5 o 1 -->
         <TableRow >
         <Button
-        android:id="@+id/Button_course_7"
-        android:text="@string/course7"
+        android:id="@+id/Button_course_5"
+        android:text="@string/course5"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
 
@@ -477,13 +478,13 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content" />
 
         <Button
-        android:id="@+id/Button_course_3"
-        android:text="@string/course3"
+        android:id="@+id/Button_course_1"
+        android:text="@string/course1"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
         </TableRow >
         
-                <!-- row down  :  6 5 4 -->
+                <!-- row down  :  6 7 8 -->
         <TableRow >
         <Button
         android:id="@+id/Button_course_6"
@@ -492,14 +493,14 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content" />
 
        <Button
-        android:id="@+id/Button_course_5"
-        android:text="@string/course5"
+        android:id="@+id/Button_course_7"
+        android:text="@string/course7"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
 
         <Button
-        android:id="@+id/Button_course_4"
-        android:text="@string/course4"
+        android:id="@+id/Button_course_8"
+        android:text="@string/course8"
         android:layout_width="match_parent" 
         android:layout_height="wrap_content" />
         </TableRow >
