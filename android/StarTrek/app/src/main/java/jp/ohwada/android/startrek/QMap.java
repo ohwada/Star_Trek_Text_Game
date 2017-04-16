@@ -3,6 +3,7 @@
  * 2017-03-01 K.OHWADA
  */
 
+// firePhaser
 // trace -> Coordinate
 
 package jp.ohwada.android.startrek; 
@@ -27,10 +28,11 @@ public class QMap {
     public static final int C_STARBASE = 2;
     public static final int C_KLINGON = 3;
     public static final int C_STAR = 4;
-    
-        public static final int C_KLINGON_DESTROY = 11;
-                public static final int C_STARBASE_DESTROY = 12;
-       public static final int C_OUT = 13; 
+
+  public static final int C_ENTERPRISE_MOVE = 11;
+        public static final int C_KLINGON_DESTROY = 12;
+                public static final int C_STARBASE_DESTROY = 13;
+       public static final int C_OUT = 14; 
        
        public static final int MOVE_OUT_LEFT = 21; 
         public static final int MOVE_OUT_RIGHT = 22; 
@@ -164,24 +166,30 @@ public class QMap {
         int xx = pos_x + xd;
 int yy = pos_y + yd;
     log_d( "xy " + xx + "," + yy );
+    // left
     if ( xx<0 ) {
-           ret =  new Coordinate( C_OUT, xx, yy );
-           log_d( C_OUT + ":"+xx + ","+yy );
+           ret =  new Coordinate( MOVE_OUT_LEFT, xx, yy );
+           log_d( MOVE_OUT_LEFT + ":"+xx + ","+yy );
            return ret;
 //        break;
+
+// right
     } else if ( xx>7 ) {
-           ret =  new Coordinate( C_OUT, xx, yy );
-                    log_d( C_OUT + ":"+xx + ","+yy );
+           ret =  new Coordinate( MOVE_OUT_RIGHT, xx, yy );
+                    log_d( MOVE_OUT_RIGHT + ":"+xx + ","+yy );
                       return ret;
 //        break;
+
+// up
      } else if ( yy<0 ) {
-                     ret =  new Coordinate( C_OUT, xx, yy );
-                    log_d( C_OUT + ":"+xx + ","+yy );
+                     ret =  new Coordinate( MOVE_OUT_UP, xx, yy );
+                    log_d( MOVE_OUT_UP + ":"+xx + ","+yy );
                       return ret;
 //        break;
+// down
      } else if ( yy>7 ) {
-                   ret =  new Coordinate( C_OUT, xx, yy );
-                      log_d( C_OUT + ":"+xx + ","+yy );
+                   ret =  new Coordinate( MOVE_OUT_DOWN, xx, yy );
+                      log_d( MOVE_OUT_DOWN + ":"+xx + ","+yy );
            return ret;
 //        break;
    } else if ( mSectors[xx][yy] == C_KLINGON ) {
@@ -204,7 +212,7 @@ int yy = pos_y + yd;
           mSectors[pos_x][pos_y] = C_NONE;
      mSectors[xx][yy] = C_ENTERPRISE;
        this.pos_x = xx;
-     this.pos_y = yy;                   ret =  new Coordinate( C_NONE, xx, yy );
+     this.pos_y = yy;                   ret =  new Coordinate( C_ENTERPRISE_MOVE, xx, yy );
      log_d( C_NONE + ":"+xx + ","+yy );
            return ret;   
 } // if
@@ -275,9 +283,44 @@ while (true) {
 
  return list;
 
-} // fire
+} // firefireTorpedoe
 
 
+/**  
+* firePhaser
+* @ return List<Coordinate>
+ */           
+public  List<Coordinate> firePhaser() {
+    
+    log_d( "firePhaser" );
+  List<Coordinate> list = new ArrayList<Coordinate>();
+ 
+  // search Klingon
+    for ( int i=0; i<8; i++ ) {
+            for ( int j=0; j<8; j++ ) {
+
+        if ( mSectors[i][j]  ==  C_KLINGON ) {
+    log_d( "KLINGON " + i + "," + j );
+                        // 80 %
+            if ( Math.random() > 0.2 ) {
+
+                // destroy KLINGON
+                    log_d( "KLINGON destroy " + i + "," + j );
+                // decrementKlingon();
+                mSectors[i][j] = C_NONE;
+           list.add( new Coordinate( C_KLINGON_DESTROY, i, j ) );              
+            } // if Math.random
+            } // mSectors
+            
+}} // for i,j
+ 
+ return list;
+ } // firePhaser
+
+
+                /**
+                 * log_map
+                 */
 private void log_map() {
     log_d( " log_map" );
          for ( int i=0; i<8; i++ ) {
@@ -285,6 +328,7 @@ private void log_map() {
             log_d( i + ", " + j + ": " +  mSectors[i][j] );   
 } } // for i j
 } // log_map
+
 
                 /**
                  * log_d

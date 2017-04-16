@@ -3,6 +3,8 @@
  * 2017-03-01 K.OHWADA
  */
 
+// change up course
+
 package jp.ohwada.android.startrek; 
 
 import android.util.Log;
@@ -51,8 +53,7 @@ if ( course == COURSE_RIGHT ) {
 } else if ( course == COURSE_UP ) {
   xd = -1;
  yd = 0;  
-  xd = 0;
- yd = 1; 
+
  // up left
 } else if ( course == COURSE_UP_LEFT ) {
   xd = -1;

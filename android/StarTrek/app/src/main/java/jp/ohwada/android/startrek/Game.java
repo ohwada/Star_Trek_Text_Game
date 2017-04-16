@@ -3,6 +3,7 @@
  * 2017-03-01 K.OHWADA
  */
  
+ // firePhaser
 // trace -> Coordinate
 
 package jp.ohwada.android.startrek; 
@@ -28,7 +29,8 @@ public class Game {
     private static final String TAG_SUB = "Game";
     
      private static final int CMD_NONE = 0;
-      private static final int CMD_TORPEDO = 4;     
+      private static final int CMD_TORPEDO = 3;  
+            private static final int CMD_PHASER = 4;     
       private static final int CMD_IMPULSE = 5;     
       private static final int CMD_WARP = 6;
  
@@ -81,6 +83,7 @@ public class Game {
      
            
 public void procCmd( int cmd ) {
+        log_d( "Cmd " + cmd );
     toast_short( "Cmd " + cmd );
      mCmd = CMD_NONE;
      mCmd = cmd;
@@ -95,7 +98,10 @@ public void procCmd( int cmd ) {
     log_d( "set fire " );
     } else if ( cmd == 5) {
                     isImpulse = true;
-    log_d( "set mpulse " );    
+    log_d( "set mpulse " ); 
+        } else if ( cmd == CMD_PHASER) {
+            firePhaser();  
+               
     } else if ( cmd == CMD_WARP) {
 //                    isWarp = true;
     log_d( "set warp " );
@@ -153,17 +159,21 @@ break;
  * firePhaser
  */ 
 private void firePhaser() {
+          log_d( "fire Phaser"  );
       toast_short( "fire Phaser"  );
-    List<Coordinate> list = new ArrayList<Coordinate>();
-  // List<Coordinate> list = mQMap.firePhaser();
+ //   List<Coordinate> list = new ArrayList<Coordinate>();
+   List<Coordinate> list = mQMap.firePhaser();
   //    saveQdrantEnterpriseNum();
       
    for ( Coordinate c: list ) {
     if ( c.code == QMap.C_KLINGON_DESTROY ) {
 //        displayklingonDestroy ( c.x, c.y );
+ toast_short( "KLINGON destroyed " );
+    setShortMapBackgroundColor( c.x, c.y, Color.RED );
     } // if
    } // for
 } // firePhaser
+
 
 
     private void displayMap( String [][] map ) {
@@ -202,34 +212,63 @@ public void procCourse( int n ) {
 } else if ( t.code == QMap.C_STARBASE ) {
         toast_short("dock in STARBASE ");
         dockinStarbase();
-        } else if ( t.code == QMap.C_OUT ) {
-        toast_short(" out of area ");
-    } // if
-    if ( isShortMap ) {
+        
+        } else if ( t.code == QMap.C_STAR ) {
+        toast_short("landed  STAR ");
+        
+        } else if ( t.code == QMap.C_ENTERPRISE_MOVE ) {
+
+// redraw map
+            if ( isShortMap ) {
         scanShort();
     }
+            toast_short("move to " + t.x + "," + t.y );
+
+//        } else if ( t.code == QMap.C_OUT ) {
+    
+//        toast_short(" out of area ");
+
+ } else {
+    //        log_d(" out of area " +  t.code );
+    int ret = mGalaxy.moveShort( t.code );
+    if ( ret == Galaxy.WARP_SUCCESS ) {
+        arriveQuadrant();  
+    }
+
+    } // if
+
  } // Inpulse
 
  private void moveLong( int course ) {
     toast_short( "warp " + course );
     int ret =  mGalaxy.moveLong(  course );
     if ( ret == Galaxy.WARP_SUCCESS ) {
-            String msg = "warp SUCCESS " + mGalaxy.pos_x + "," + mGalaxy.pos_y;    
-    log_d( msg );
+                arriveQuadrant();  
+   //         String msg = "warp SUCCESS " + mGalaxy.pos_x + "," + mGalaxy.pos_y;    
+ //   log_d( msg );
     log_d( " warp SUCCESS ");
-      toast_short( msg  );
+    //  toast_short( msg  );
    } else  if ( ret == Galaxy.WARP_OUT ) {
     log_d( " warp OUT ");  
          //  toast_short( "warp OUT "  );  
                         mGalaxy.setupPosition();
-                                    String msg = "warp  OUT " + mGalaxy.pos_x + "," + mGalaxy.pos_y; 
-      toast_short( msg  );
+                  arriveQuadrant();                  
+  //                                  String msg = "warp  OUT " + mGalaxy.pos_x + "," + mGalaxy.pos_y; 
+//      toast_short( msg  );
           } // if
 
     String msg = "warp to " + mGalaxy.pos_x + "," + mGalaxy.pos_y;    
     log_d( msg );
 } // moveLong
 
+
+private void arriveQuadrant() {
+          toast_short("arraive at " + mGalaxy.pos_x + "," + mGalaxy.pos_y ); 
+   mQMap.setupPosition();
+   Quadrant q =   mGalaxy.getQuadrantEnterprise( );
+           mQMap.setupSectors( q );                    
+    } // arriveQuadrant
+    
     private void dockinStarbase() {
       // dummy
     } //

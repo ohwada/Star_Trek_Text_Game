@@ -2,7 +2,8 @@
  * STAR TREK
  * 2017-03-01 K.OHWADA
  */
-
+  
+  // Button btnCmd4
 // cmd1 ok
 package jp.ohwada.android.startrek;
 
@@ -101,7 +102,15 @@ private TextView mTextViewTitle;
                        mGame.procCmd(3);
                    }
                }); 
-  
+                  Button btnCmd4 = (Button) findViewById( R.id.Button_cmd_4 );
+   btnCmd4.setOnClickListener( new View.OnClickListener() {
+                   @Override
+                   public void onClick( View v) {
+                       mGame.procCmd(4);
+                   }
+               }); 
+ 
+               
       Button btnCmd5 = (Button) findViewById( R.id.Button_cmd_5 );
    btnCmd5.setOnClickListener( new View.OnClickListener() {
                    @Override

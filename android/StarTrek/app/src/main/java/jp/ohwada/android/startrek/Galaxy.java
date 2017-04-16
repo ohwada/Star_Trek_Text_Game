@@ -123,6 +123,7 @@ int yy = pos_y + yd;
     } // if
     } //moveLong
  
+ 
  public int moveShort ( int code ) { 
  if (( code == QMap.MOVE_OUT_LEFT ) && ( pos_x >0 ) )  {
     pos_x --;  
