@@ -3,6 +3,8 @@
  * 2017-03-01 K.OHWADA
  */
 
+// trace -> Coordinate
+
 package jp.ohwada.android.startrek; 
 
 import android.util.Log;
@@ -25,7 +27,11 @@ public class QMap {
     public static final int C_STARBASE = 2;
     public static final int C_KLINGON = 3;
     public static final int C_STAR = 4;
-       public static final int C_OUT = 11; 
+    
+        public static final int C_KLINGON_DESTROY = 11;
+                public static final int C_STARBASE_DESTROY = 12;
+       public static final int C_OUT = 13; 
+       
        public static final int MOVE_OUT_LEFT = 21; 
         public static final int MOVE_OUT_RIGHT = 22; 
                public static final int MOVE_OUT_UP = 23; 
@@ -53,7 +59,8 @@ public class QMap {
             for ( int j = 0; j < 8; j++) {
                 mSectors[i][j] = C_NONE;
         }} // for i j end      
-log_map() ;
+  log_map() ;
+ 
     } // end of QMap
 
     /**
@@ -112,7 +119,7 @@ log_map() ;
           } // if
           } // for
           
-//          log_map() ;
+          log_map() ;
           
     } // end of setupsetupSectors
  
@@ -148,9 +155,9 @@ log_map() ;
         } // end of scanLong 
 
 
- public Trace startInpulse ( int course ) {
+ public Coordinate startInpulse ( int course ) {
     log_d( "startInpulse " + course );
-    Trace ret;
+    Coordinate ret =  new Coordinate( 0, 0, 0 );
     int[] delta = Course.getDelta( course );
     int xd = delta[0];
         int yd = delta[1];
@@ -158,41 +165,46 @@ log_map() ;
 int yy = pos_y + yd;
     log_d( "xy " + xx + "," + yy );
     if ( xx<0 ) {
-           ret =  new Trace( C_OUT, xx, yy );
+           ret =  new Coordinate( C_OUT, xx, yy );
            log_d( C_OUT + ":"+xx + ","+yy );
            return ret;
 //        break;
     } else if ( xx>7 ) {
-           ret =  new Trace( C_OUT, xx, yy );
+           ret =  new Coordinate( C_OUT, xx, yy );
                     log_d( C_OUT + ":"+xx + ","+yy );
                       return ret;
 //        break;
      } else if ( yy<0 ) {
-                     ret =  new Trace( C_OUT, xx, yy );
+                     ret =  new Coordinate( C_OUT, xx, yy );
                     log_d( C_OUT + ":"+xx + ","+yy );
                       return ret;
 //        break;
      } else if ( yy>7 ) {
-                   ret =  new Trace( C_OUT, xx, yy );
+                   ret =  new Coordinate( C_OUT, xx, yy );
                       log_d( C_OUT + ":"+xx + ","+yy );
            return ret;
 //        break;
    } else if ( mSectors[xx][yy] == C_KLINGON ) {
         mSectors[xx][yy] = C_NONE;
-                          ret =  new Trace( C_KLINGON, xx, yy );
+                          ret =  new Coordinate( C_KLINGON_DESTROY, xx, yy );
                      log_d( C_KLINGON + ":"+xx + ","+yy );
            return ret;
     
-      }  else if ( mSectors[xx][yy] == C_STARBASE ) {
-                          ret =  new Trace( C_STARBASE, xx, yy );
-           return ret;   
+      } else if ( mSectors[xx][yy] == C_STARBASE ) {
+                          ret =  new Coordinate( C_STARBASE, xx, yy );
+           return ret;
+              
+                 }  else if ( mSectors[xx][yy] == C_STAR ) {
+                          ret =  new Coordinate( C_STAR, xx, yy );
+           return ret; 
+           
  } else if ( mSectors[xx][yy] == C_NONE ) {
     // move 
 
           mSectors[pos_x][pos_y] = C_NONE;
      mSectors[xx][yy] = C_ENTERPRISE;
        this.pos_x = xx;
-     this.pos_y = yy;                   ret =  new Trace( C_NONE, xx, yy );
+     this.pos_y = yy;                   ret =  new Coordinate( C_NONE, xx, yy );
      log_d( C_NONE + ":"+xx + ","+yy );
            return ret;   
 } // if
@@ -200,14 +212,14 @@ int yy = pos_y + yd;
 } // startInpulse
 
 
-public List<Trace> fireTorpedoe( int course ) {
+public List<Coordinate> fireTorpedoe( int course ) {
 
     log_d( "fireTorpedoe " + course  );
         int[] delta = Course.getDelta( course );
     int xd = delta[0];
         int yd = delta[1];
         
-List<Trace>  list  = new ArrayList<Trace>();
+List<Coordinate>  list  = new ArrayList<Coordinate>();
 
 int xx = pos_x;
 int yy = pos_y;
@@ -220,41 +232,41 @@ while (true) {
              if ( xx>=0 && xx<=7 &&  yy>=0 && yy<=7) {
 
                  if (mSectors[xx][yy] == C_NONE) {
-                     list.add(new Trace(C_NONE, xx, yy));
+                     list.add(new Coordinate(C_NONE, xx, yy));
 
                  } else if (mSectors[xx][yy] == C_KLINGON) {
                      // klingon destroy
                      mSectors[xx][yy] = C_NONE;
-                     list.add(new Trace(C_KLINGON, xx, yy));
+                     list.add(new Coordinate(C_KLINGON_DESTROY, xx, yy));
                      break;
 
                  } else if (mSectors[xx][yy] == C_STARBASE) {
                      // destroy starbase
                      mSectors[xx][yy] = C_NONE;
-                     list.add(new Trace(C_STARBASE, xx, yy));
+                     list.add(new Coordinate(C_STARBASE_DESTROY, xx, yy));
                      break;
 
                  } else if (mSectors[xx][yy] == C_STAR) {
                      // can not destroy star
-                     list.add(new Trace(C_STAR, xx, yy));
+                     list.add(new Coordinate(C_STAR, xx, yy));
                      break;
 
                  } // mSectors
 
              } else if ( xx<0 ) {
-            list.add( new Trace( C_OUT, xx, yy ) );
+            list.add( new Coordinate( C_OUT, xx, yy ) );
         break;
         
     } else if ( xx>7 ) {
-                list.add( new Trace( C_OUT, xx, yy ) );
+                list.add( new Coordinate( C_OUT, xx, yy ) );
         break;
         
      } else if ( yy<0 ) {
-          list.add( new Trace( C_OUT, xx, yy ) );
+          list.add( new Coordinate( C_OUT, xx, yy ) );
         break;
         
      } else if ( yy>7 ) {
-        list.add( new Trace( C_OUT, xx, yy ) );
+        list.add( new Coordinate( C_OUT, xx, yy ) );
         break;
    
         } // if 

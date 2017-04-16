@@ -8,9 +8,9 @@ package jp.ohwada.android.startrek;
 	import  java.lang.Math;
 	
 /*
- * Quadrant
+ * Coordinate
  */ 
-public class Trace {
+public class Coordinate {
     public int code = 0;
     public int x = 0;
     public int y = 0;
@@ -18,11 +18,11 @@ public class Trace {
     /**
      * constructor
      */
-    public Trace( int _code, int _x, int _y ) {
+    public Coordinate( int _code, int _x, int _y ) {
        this.code = _code;
        this.x = _x;
               this.y = _y;
     }
 
-} //  end of Quadrant class
+} //  end of Coordinate class
 

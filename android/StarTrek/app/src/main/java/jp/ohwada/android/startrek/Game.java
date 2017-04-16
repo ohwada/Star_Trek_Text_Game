@@ -2,6 +2,8 @@
  * STAR TREK
  * 2017-03-01 K.OHWADA
  */
+ 
+// trace -> Coordinate
 
 package jp.ohwada.android.startrek; 
 
@@ -116,30 +118,52 @@ private void scanShort() {
  
  private void fireTorpedoe ( int course ) {
     toast_short( "fire " + course );
-   List<Trace> list = mQMap.fireTorpedoe(course);
-   for ( Trace t: list ) {
+   List<Coordinate> list = mQMap.fireTorpedoe(course);
+   for ( Coordinate t: list ) {
     log_d(  "trace " + t.code + ": " + t.x + ", " + t.y );
-if ( t.code == QMap.C_KLINGON ) {
+     if ( t.code == QMap.C_NONE ) {
+    toast_short( "trace " + t.x + "," + t.y );
+           setShortMapBackgroundColor( t.x, t.y, Color.YELLOW); 
+
+} else if ( t.code == QMap.C_STAR ) {
+    toast_short( " cannot destroy STAR" );
+        setShortMapBackgroundColor( t.x, t.y, Color.YELLOW ); 
+break;
+
+} else if ( t.code == QMap.C_KLINGON_DESTROY ) {
     toast_short( "KLINGON destroyed " );
     setShortMapBackgroundColor( t.x, t.y, Color.RED );
 break; 
-} else if ( t.code == QMap.C_STARBASE ) {
+
+} else if ( t.code == QMap.C_STARBASE_DESTROY ) {
     toast_short( "STARBASE destroyed " );
         setShortMapBackgroundColor( t.x, t.y, Color.RED ); 
 break;
-} else if ( t.code == QMap.C_STAR ) {
-    toast_short( "STAR destroyed " );
-        setShortMapBackgroundColor( t.x, t.y, Color.RED ); 
-break;
+
 } else if ( t.code == QMap.C_OUT ) {
-    toast_short( "out of area" );
+    toast_short( "miss" );
 break;
-} else if ( t.code == QMap.C_NONE ) {
-    toast_short( "trace " + t.x + "," + t.y );
-           setShortMapBackgroundColor( t.x, t.y, Color.YELLOW); 
 } // if
 } // for 
 } // fire
+
+
+
+/**
+ * firePhaser
+ */ 
+private void firePhaser() {
+      toast_short( "fire Phaser"  );
+    List<Coordinate> list = new ArrayList<Coordinate>();
+  // List<Coordinate> list = mQMap.firePhaser();
+  //    saveQdrantEnterpriseNum();
+      
+   for ( Coordinate c: list ) {
+    if ( c.code == QMap.C_KLINGON_DESTROY ) {
+//        displayklingonDestroy ( c.x, c.y );
+    } // if
+   } // for
+} // firePhaser
 
 
     private void displayMap( String [][] map ) {
@@ -166,8 +190,13 @@ public void procCourse( int n ) {
 
  private void startInpulse( int course ) {
     toast_short( "Inpulse " + course );
-    Trace t = mQMap.startInpulse ( course );
-    if ( t.code == QMap.C_KLINGON ) {
+    Coordinate t = mQMap.startInpulse ( course );
+     if ( t == null ) {
+     log_d( "t is null ");
+         return;
+     }
+
+    if ( t.code == QMap.C_KLINGON_DESTROY ) {
     toast_short( "KLINGON destroyed " );
     setShortMapBackgroundColor( t.x, t.y, Color.RED );
 } else if ( t.code == QMap.C_STARBASE ) {
