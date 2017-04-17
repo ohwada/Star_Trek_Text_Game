@@ -2,7 +2,9 @@
  * STAR TREK
  * 2017-03-01 K.OHWADA
  */
-
+ 
+ // decrementKlingon()
+// clearSectors
 // firePhaser
 // trace -> Coordinate
 
@@ -53,18 +55,24 @@ public class QMap {
      * QMap
      */
     public QMap() {
-
-// clear 
+ 
     mSectors = new int[8][8];
 
-        for ( int i = 0; i < 8; i++) {
-            for ( int j = 0; j < 8; j++) {
-                mSectors[i][j] = C_NONE;
-        }} // for i j end      
+clearSectors();
+
+//        for ( int i = 0; i < 8; i++) {
+ //           for ( int j = 0; j < 8; j++) {
+ //               mSectors[i][j] = C_NONE;
+//        }} // for i j end      
+
   log_map() ;
  
     } // end of QMap
 
+// clear 
+//    mSectors = new int[8][8];
+
+             
     /**
      * setupPosition
      */     
@@ -87,6 +95,8 @@ public class QMap {
    log_d(  "klingon "  + this.num_klingon );
       log_d(  "starbase "  + this.num_starbase );
          log_d(  "star "  + this.num_star );
+         
+clearSectors();
         
         // ENTERPRISE 
              mSectors[pos_x][pos_y] = C_ENTERPRISE;
@@ -192,7 +202,9 @@ int yy = pos_y + yd;
                       log_d( MOVE_OUT_DOWN + ":"+xx + ","+yy );
            return ret;
 //        break;
+
    } else if ( mSectors[xx][yy] == C_KLINGON ) {
+    decrementKlingon();
         mSectors[xx][yy] = C_NONE;
                           ret =  new Coordinate( C_KLINGON_DESTROY, xx, yy );
                      log_d( C_KLINGON + ":"+xx + ","+yy );
@@ -244,12 +256,14 @@ while (true) {
 
                  } else if (mSectors[xx][yy] == C_KLINGON) {
                      // klingon destroy
+                     decrementKlingon();
                      mSectors[xx][yy] = C_NONE;
                      list.add(new Coordinate(C_KLINGON_DESTROY, xx, yy));
                      break;
 
                  } else if (mSectors[xx][yy] == C_STARBASE) {
                      // destroy starbase
+                     decrementStarbase();
                      mSectors[xx][yy] = C_NONE;
                      list.add(new Coordinate(C_STARBASE_DESTROY, xx, yy));
                      break;
@@ -305,6 +319,7 @@ public  List<Coordinate> firePhaser() {
             if ( Math.random() > 0.2 ) {
 
                 // destroy KLINGON
+                    decrementKlingon();
                     log_d( "KLINGON destroy " + i + "," + j );
                 // decrementKlingon();
                 mSectors[i][j] = C_NONE;
@@ -317,7 +332,28 @@ public  List<Coordinate> firePhaser() {
  return list;
  } // firePhaser
 
+private void decrementKlingon() {
+if ( num_klingon >0 ) {
+    num_klingon --;
+}
+} //decrementKlingon
 
+private void decrementStarbase() {
+if ( num_starbase >0 ) {
+    num_starbase --;
+}
+} //decrementStarbase
+
+    /**
+     * clearSectors
+     */ 
+private void clearSectors() {
+        for ( int i = 0; i < 8; i++) {
+            for ( int j = 0; j < 8; j++) {
+                mSectors[i][j] = C_NONE;
+        }} // for i j end 
+        } //clearSectors
+  
                 /**
                  * log_map
                  */

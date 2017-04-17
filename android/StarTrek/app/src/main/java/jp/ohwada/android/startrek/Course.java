@@ -3,6 +3,7 @@
  * 2017-03-01 K.OHWADA
  */
 
+// change　down left
 // change up course
 
 package jp.ohwada.android.startrek; 
@@ -66,8 +67,6 @@ if ( course == COURSE_RIGHT ) {
 } else if ( course ==  COURSE_DOWN_LEFT ) {
   xd = 1;
  yd = -1;
-  xd = 1;
- yd = 0;  
 // down l
   xd = -1;
  yd = -1; 

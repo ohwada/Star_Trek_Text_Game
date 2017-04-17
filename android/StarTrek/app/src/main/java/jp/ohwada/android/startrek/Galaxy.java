@@ -3,6 +3,9 @@
  * 2017-03-01 K.OHWADA
  */
 
+// scanLong
+// setNumQuadrantEnterprise
+
 package jp.ohwada.android.startrek; 
 
 import android.util.Log;
@@ -25,10 +28,12 @@ public class Galaxy {
     private Quadrant[][] mQuadrants;
 
 
-
  public int pos_x =0;   
  public int pos_y =0;  
-      
+ 
+    public int num_klingon = 0;
+    public int num_starbase = 0;
+    public int num_star = 0;      
     /**
      * Galaxy
      */
@@ -71,17 +76,50 @@ public class Galaxy {
             }} // for end
 
     } // end of setupQuadrants
-   
+
+
+    /**
+     * getQuadrantEnterprise
+      * @ return Quadrant
+     */   
    public  Quadrant getQuadrantEnterprise( ) {
      return mQuadrants[pos_x][pos_y];
   } // end of getQuadrantEnterprise
 
 
+ /**
+ * setNumQuadrantEnterprise
+ * @ param int k
+ * @ param int starbase
+ * @ param int star
+ */
+ public void setNumQuadrantEnterprise( int k, int b, int s ) {
+    mQuadrants[pos_x][pos_y].setNum( k, b, s );
+} // setNumQuadrantEnterprise
+
+
+public void countNum() {
+    int k =0;
+    int b = 0;
+    int s=0;
+    
+    for ( int i=0; i<8; i++ ) {
+            for ( int j=0; j<8; j++ ) {
+     k += mQuadrants[i][j].num_klingon ;
+        b += mQuadrants[i][j].num_starbase ;
+           s += mQuadrants[i][j].num_star ;
+} } // for i,j
+ 
+    this.num_klingon = k;
+     this.num_starbase = b;
+         this.num_star = s;
+            
+} // countNum
 
     /**
      * scanLong
      */
-   public  String[][] scanLong( ) {
+   public  String[][] scanLong() {
 
        String[][] map = new String[8][8];
         for(int i=0; i<8; i++) {
@@ -90,7 +128,7 @@ public class Galaxy {
                 // near Enterprise
                 if ((i >= pos_x - 1) && (i <= pos_x + 1) &&
                         (j >= pos_y - 1) && (j <= pos_y + 1)) {
-                    str = mQuadrants[i][j].getString3Degit();
+                    str = mQuadrants[i][j].getString3Degit() + " ";
      
                     // // exist Enterprise
                     if ((i == pos_x) && (j == pos_y)) {

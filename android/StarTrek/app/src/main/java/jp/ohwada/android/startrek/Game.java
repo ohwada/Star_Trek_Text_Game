@@ -3,6 +3,9 @@
  * 2017-03-01 K.OHWADA
  */
  
+ // add remaining_days, but not use
+//        judgeWin();
+
  // firePhaser
 // trace -> Coordinate
 
@@ -28,12 +31,20 @@ public class Game {
     private static final boolean D = Constant.DEBUG;
     private static final String TAG_SUB = "Game";
     
+    
      private static final int CMD_NONE = 0;
-      private static final int CMD_TORPEDO = 3;  
+      private static final int CMD_LONG_SENSOR = 1; 
+private static final int CMD_SHORT_SENSOR = 2;
+                  private static final int CMD_TORPEDO = 3;  
             private static final int CMD_PHASER = 4;     
       private static final int CMD_IMPULSE = 5;     
       private static final int CMD_WARP = 6;
- 
+
+
+       private static final int ENERGY＿SUPPLY = 3000;
+       private static final int TORPEDO＿SUPPLY = 10;
+         private static final int SHIELD_LOW = 200;
+       
  private Activity mActivity;
 
  Galaxy mGalaxy;
@@ -43,12 +54,31 @@ public class Game {
 
     private TextView[][]  mTextViewMap = new TextView[8][8];
 
+
+private int  remaining_days = 0;
+private int  energy = 0;
+private int  shield = 0;
+private int num_torpedo = 0;
+
+
+private boolean is_available_long_sensor = true;
+private boolean is_available_short_sensor = true;
+private boolean is_available_torpedo = true;
+private boolean is_available_phaser = true;
+private boolean is_available_impulse = true;
+private boolean is_available_warp = true;
+
+
         private int mCmd = CMD_NONE;
         
         private boolean isFire = false;
  private boolean   isImpulse = false;
  //private boolean                        isWarp = false;
                 private boolean isShortMap = false;    
+
+
+        private boolean                 isDocked = false;
+        
     /**
      * == constructor ===
      */
@@ -73,40 +103,180 @@ public class Game {
          public void setup() {
               mGalaxy.setupPosition();
            mGalaxy.setupQuadrants();
-   
+           mGalaxy.countNum();
+              
    mQMap.setupPosition();
    Quadrant q =   mGalaxy.getQuadrantEnterprise( );
            mQMap.setupSectors( q );
 
+remaining_days = 30 + 2 * mGalaxy.num_klingon;
+log_d( "num_klingon " +mGalaxy.num_klingon );
+log_d( "remaining_days " +remaining_days );
+
+    supply();
          } // setup end
-          
-     
-           
+
+
+
+ private void supply(){
+         
+energy =  ENERGY＿SUPPLY;
+num_torpedo = TORPEDO＿SUPPLY;
+
+} // supply
+
+
+
 public void procCmd( int cmd ) {
         log_d( "Cmd " + cmd );
-    toast_short( "Cmd " + cmd );
-     mCmd = CMD_NONE;
+//    toast_short( "Cmd " + cmd );
+ //    mCmd = CMD_NONE;
      mCmd = cmd;
-     isImpulse = false;                    
+ //    isImpulse = false;                    
 //     isWarp = false;
-    if ( cmd == 1) {
+ 
+    equipment();
+    warning();
+    
+    if ( cmd == CMD_LONG_SENSOR ) {
         scanLong();
- } else if ( cmd == 2) {
+        
+ } else if ( cmd == CMD_SHORT_SENSOR ) {
         scanShort();
-} else if ( cmd == 3) {
-        isFire = true;
+        
+} else if ( cmd == CMD_TORPEDO ) {
+//        isFire = true;
     log_d( "set fire " );
-    } else if ( cmd == 5) {
-                    isImpulse = true;
+    
+            } else if ( cmd == CMD_PHASER ) {
+            firePhaser(); 
+             
+    } else if ( cmd ==  CMD_IMPULSE ) {
+   //                 isImpulse = true;
     log_d( "set mpulse " ); 
-        } else if ( cmd == CMD_PHASER) {
-            firePhaser();  
-               
+              
     } else if ( cmd == CMD_WARP) {
 //                    isWarp = true;
     log_d( "set warp " );
+    
     } //if 
+     judgeWin();
+     
 } // procCmd
+
+
+private void warning() {
+   Quadrant q =   mGalaxy.getQuadrantEnterprise( );
+    if ( q.num_klingon > 0 ) {
+     if ( shield < SHIELD_LOW ) {
+        toast_short( "SHIELD_is LOW" );
+    } // if
+    } // if
+       
+} // warning
+
+private void equipment() {
+    
+    if ( is_available_long_sensor ) {
+        // 20 %
+        if ( Math.random() > 0.8 ) {
+     is_available_long_sensor = false;
+     log_d( " long_sensor = false " );
+} // random
+
+} else {
+            // 80 %
+        if ( Math.random() > 0.2 ) {
+     is_available_long_sensor = true;
+       log_d( " long_sensor = true " );
+} // random
+
+} //  is_available
+
+    if ( is_available_short_sensor ) {
+        // 20 %
+        if ( Math.random() > 0.8 ) {
+     is_available_short_sensor = false;
+      log_d( " lshort_sensor = false " );
+     } // random
+     
+} else {
+            // 80 %
+        if ( Math.random() > 0.2 ) {
+     is_available_short_sensor = true;
+      log_d( " lshort_sensor = true " );
+} // random
+
+} //  is_available
+
+    if ( is_available_torpedo ) {
+        // 20 %
+        if ( Math.random() > 0.8 ) {
+     is_available_torpedo = false;
+           log_d( " torpedo = false " );
+     } // random
+     
+} else {
+            // 80 %
+        if ( Math.random() > 0.2 ) {
+     is_available_torpedo = true;
+                log_d( " torpedo = true " );
+} // random
+} // is_available
+
+    if ( is_available_phaser ) {
+        // 20 %
+        if ( Math.random() > 0.8 ) {
+     is_available_phaser = false;
+                log_d( " phaser = false " );
+     } // random
+
+} else {
+            // 80 %
+        if ( Math.random() > 0.2 ) {
+     is_available_phaser = true;
+            log_d( " phaser = true " );
+} // random
+
+} // is_available
+
+    if ( is_available_impulse ) {
+        // 20 %
+        if ( Math.random() > 0.8 ) {
+     is_available_impulse = false;
+            log_d( " impulse = false " );
+          } // random
+} else {
+            // 80 %
+        if ( Math.random() > 0.2 ) {
+     is_available_impulse = true;
+     log_d( " impulse = true " );
+          } // random
+          
+} //  is_available
+
+
+    if ( is_available_warp ) {
+        // 20 %
+        if ( Math.random() > 0.8 ) {
+      is_available_warp = false;
+          log_d( " warp = false " );
+     } // random
+
+} else {
+            // 80 %
+        if ( Math.random() > 0.2 ) {
+     is_available_warp = true;
+        log_d( " warp = true " );
+          } // random
+          
+} // ifis_available
+
+
+
+} //  equipment()
+
+
 
 private void scanLong() {
      isShortMap = false; 
@@ -124,7 +294,9 @@ private void scanShort() {
  
  private void fireTorpedoe ( int course ) {
     toast_short( "fire " + course );
-   List<Coordinate> list = mQMap.fireTorpedoe(course);
+   List<Coordinate> list = mQMap.fireTorpedoe( course );
+    saveNumQuadrantEnterprise();
+    
    for ( Coordinate t: list ) {
     log_d(  "trace " + t.code + ": " + t.x + ", " + t.y );
      if ( t.code == QMap.C_NONE ) {
@@ -163,8 +335,9 @@ private void firePhaser() {
       toast_short( "fire Phaser"  );
  //   List<Coordinate> list = new ArrayList<Coordinate>();
    List<Coordinate> list = mQMap.firePhaser();
-  //    saveQdrantEnterpriseNum();
-      
+   saveNumQuadrantEnterprise();
+
+
    for ( Coordinate c: list ) {
     if ( c.code == QMap.C_KLINGON_DESTROY ) {
 //        displayklingonDestroy ( c.x, c.y );
@@ -196,11 +369,15 @@ public void procCourse( int n ) {
        isFire = false;  
        isImpulse = false;
        mCmd = CMD_NONE;
+            judgeWin();
+    
 } // procCourse
 
  private void startInpulse( int course ) {
     toast_short( "Inpulse " + course );
     Coordinate t = mQMap.startInpulse ( course );
+     saveNumQuadrantEnterprise();
+     
      if ( t == null ) {
      log_d( "t is null ");
          return;
@@ -268,10 +445,27 @@ private void arriveQuadrant() {
    Quadrant q =   mGalaxy.getQuadrantEnterprise( );
            mQMap.setupSectors( q );                    
     } // arriveQuadrant
+
     
     private void dockinStarbase() {
-      // dummy
-    } //
+        isDocked = true;
+      supply();
+    } // dockinStarbase
+    
+private void saveNumQuadrantEnterprise() {
+    int k = mQMap.num_klingon ;
+    int b = mQMap.num_starbase;
+     int s = mQMap.num_star;
+mGalaxy.setNumQuadrantEnterprise( k, b, s );
+mGalaxy.countNum(); 
+
+}
+
+private void judgeWin() {
+       if ( mGalaxy.num_klingon == 0 ) {
+        toast_short( " You WIN" );
+    } // if
+} // jugdeWin
 
 private void setShortMapBackgroundColor( int x, int y, int color ) {
 if ( isShortMap ) {
