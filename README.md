@@ -24,6 +24,9 @@ https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek <br/>
 ゲームのルールは、作りながら考えています。 <br/>
 オリジナル版の雰囲気を活かしつつ、ユーザーの操作がシンプルで開発が安易になるようにしたいと思います。 <br/>
 
+情報交換用のFaceBookグループ <br/>
+https://www.facebook.com/groups/174928253035786/
+
 関連するブログ <br/>
 Androidへの移植 <br/>
 http://android.ohwada.jp/archives/7370 <br/>
