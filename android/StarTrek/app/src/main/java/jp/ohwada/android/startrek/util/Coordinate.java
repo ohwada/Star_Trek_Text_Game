@@ -3,7 +3,7 @@
  * 2016-11-01 K.OHWADA
  */
  
-package jp.ohwada.android.startrek; 
+package jp.ohwada.android.startrek.util; 
 
 	import  java.lang.Math;
 	

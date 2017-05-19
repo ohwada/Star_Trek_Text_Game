@@ -1,0 +1,89 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+                android:text="@string/cmd_list"
+        android:layout_marginTop="4dp"
+        android:textSize="20sp" 
+        android:layout_gravity="center"
+                android:layout_marginBottom="4dp"  /> 
+
+        <!-- command -->  
+        
+        <Button
+        android:id="@+id/Button_dialog_cmd_1"
+        android:text="@string/cmd1"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+     android:background="@android:drawable/btn_default_small" /> 
+            
+        <Button
+        android:id="@+id/Button_dialog_cmd_2"
+        android:text="@string/cmd2"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+          android:background="@android:drawable/btn_default_small" />
+             
+       <Button
+        android:id="@+id/Button_dialog_cmd_3"
+        android:text="@string/cmd3"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+             android:background="@android:drawable/btn_default_small" />
+             
+        <Button
+        android:id="@+id/Button_dialog_cmd_4"
+        android:text="@string/cmd4"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"       		
+     android:background="@android:drawable/btn_default_small" />
+       <Button
+        android:id="@+id/Button_dialog_cmd_5"
+        android:text="@string/cmd5"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+           android:background="@android:drawable/btn_default_small" />
+             
+          <Button
+        android:id="@+id/Button_dialog_cmd_6"
+        android:text="@string/cmd6"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+       android:background="@android:drawable/btn_default_small" />
+             
+              <Button
+        android:id="@+id/Button_dialog_cmd_7"
+        android:text="@string/cmd7"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"       
+      android:background="@android:drawable/btn_default_small" />
+              
+               <Button
+        android:id="@+id/Button_dialog_cmd_8"
+        android:text="@string/cmd8"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+            android:background="@android:drawable/btn_default_small" />
+             
+                <Button
+        android:id="@+id/Button_dialog_cmd_9"
+        android:text="@string/cmd9"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+     android:background="@android:drawable/btn_default_small" />
+                 
+             <Button 
+            android:id="@+id/Button_dialog_close" 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_button_close"
+      android:background="@android:drawable/btn_default_small"         
+        android:layout_marginTop="4dp"             
+                       android:layout_marginBottom="4dp"  />           	
+</LinearLayout>

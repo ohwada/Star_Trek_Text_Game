@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- 2015-12-01 K.OHWADA -->
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="4dp" >
+				
+    <TextView
+        android:text="@string/dialog_about_main"
+        android:textSize="@dimen/dialog_about_main_textsize"  
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/TextView_dialog_about_credit"
+        android:text="@string/dialog_about_credit"
+        android:textSize="@dimen/dialog_about_credit_textsize"   
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:layout_gravity="right" 
+        android:gravity="right" />
+
+    <Button 
+        android:id="@+id/Button_dialog_close" 
+        android:text="@string/dialog_button_close"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" 
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:background="@android:drawable/btn_default_small" />
+		
+</LinearLayout>

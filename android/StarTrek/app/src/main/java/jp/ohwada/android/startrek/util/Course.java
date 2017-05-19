@@ -3,16 +3,15 @@
  * 2017-03-01 K.OHWADA
  */
 
-// change　down left
-// change up course
-
-package jp.ohwada.android.startrek; 
+package jp.ohwada.android.startrek.util; 
 
 import android.util.Log;
 
 	import  java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.ohwada.android.startrek.Constant;
 
 /*
  * Course
@@ -23,6 +22,10 @@ public class Course {
     private static final boolean D = Constant.DEBUG;
     private static final String TAG_SUB = "Course";
     
+          public static final int COURSE_MIN = 1; 
+          public static final int COURSE_MAX = 8; 
+                    
+         private static final int COURSE_NONE = 0;  
       private static final int COURSE_RIGHT = 1; 
         private static final int COURSE_UP_RIGHT = 2; 
              private static final int COURSE_UP = 3; 
@@ -37,7 +40,12 @@ public class Course {
     public Course() {
     // dummy
     } // end of Course
-
+   
+    /**
+     * getDelta
+     * @ param int course
+     * @ return int[] delta  
+     */
 public static int[] getDelta( int course ) {
     log_d( "getDelta " + course );
 int xd = 0;
@@ -59,7 +67,7 @@ if ( course == COURSE_RIGHT ) {
 } else if ( course == COURSE_UP_LEFT ) {
   xd = -1;
  yd = -1;  
-// down r// left 
+// left 
 } else if ( course == COURSE_LEFT ) {
   xd = 0;
  yd = -1;  
@@ -67,9 +75,6 @@ if ( course == COURSE_RIGHT ) {
 } else if ( course ==  COURSE_DOWN_LEFT ) {
   xd = 1;
  yd = -1;
-// down l
-  xd = -1;
- yd = -1; 
  // down
 } else if ( course == COURSE_DOWN ) {
   xd = 1;
@@ -85,6 +90,55 @@ ret[0] = xd;
 ret[1] = yd;
 return ret;
 } // getdelta
+
+
+    /**
+     * getCourse
+     * @ param int orig_x. int orig_y, int x, int y
+     * @ return int course 
+     */
+public static int getCourse( int orig_x, int orig_y, int x, int y ) {
+   
+    log_d( "getCourse " + orig_x + ","+ orig_y + ","+ x + ","+ y );
+   int ret = COURSE_NONE;
+   
+    if( orig_x == x ){
+        
+        if( orig_y < y ) {
+  ret = COURSE_RIGHT;  
+  } else {
+  ret = COURSE_LEFT;            
+        } // if
+        
+           } else if( orig_y == y ){ 
+            
+         if( orig_x < x ) {
+  ret = COURSE_DOWN;  
+  } else {
+  ret = COURSE_UP;            
+        } // if          
+           
+   } else if( Math.abs( orig_x - x ) == Math.abs( orig_y - y ) ){        
+
+         if(( orig_x > x )&&( orig_y > y )) {
+  ret = COURSE_UP_LEFT;            
+ } else        if(( orig_x > x )&&( orig_y < y )) {
+  ret = COURSE_UP_RIGHT; 
+  
+ } else          if(( orig_x < x )&&( orig_y > y )) {
+  ret = COURSE_DOWN_LEFT;  
+            
+ } else        if(( orig_x > x )&&( orig_y < y )) {
+  ret = COURSE_DOWN_RIGHT;   
+       
+  } // if 
+        
+       } // if 
+      return ret;
+       
+    } // getCourse
+    
+        
                 /**
                  * log_d
                  */

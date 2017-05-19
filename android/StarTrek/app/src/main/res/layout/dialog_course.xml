@@ -1,0 +1,95 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+		   <TextView
+       android:id="@+id/TextView_dialog_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp" 
+                android:layout_marginBottom="4dp"  />
+
+                
+<TableLayout
+     android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        
+        <!-- row up: 4 3 2  -->
+        <TableRow>
+        
+           <Button
+        android:id="@+id/Button_dialog_course_4"
+        android:text="@string/course4"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />     
+        
+        <Button
+        android:id="@+id/Button_dialog_course_3"
+        android:text="@string/course3"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />        		
+
+            
+        <Button
+        android:id="@+id/Button_dialog_course_2"
+        android:text="@string/course2"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+        </TableRow >
+	              <!-- row middle : 5 o 1 -->
+        <TableRow >
+        <Button
+        android:id="@+id/Button_dialog_course_5"
+        android:text="@string/course5"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+        
+               <TextView
+        android:id="@+id/TextView_dialog_course_0"
+        android:text="@string/course0"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+        
+                <Button
+        android:id="@+id/Button_dialog_course_1"
+        android:text="@string/course1"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+        
+        </TableRow > 
+                <!-- row down  :  6 7 8 -->
+        <TableRow >
+        <Button
+        android:id="@+id/Button_dialog_course_6"
+        android:text="@string/course6"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+        
+               <Button
+        android:id="@+id/Button_dialog_course_7"
+        android:text="@string/course7"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+            <Button
+        android:id="@+id/Button_dialog_course_8"
+        android:text="@string/course8"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" />
+        </TableRow >
+ 
+       </TableLayout>
+       
+             <Button 
+            android:id="@+id/Button_dialog_close" 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_button_close"
+          android:layout_marginTop="4dp" 
+                android:layout_marginBottom="4dp"  /> 
+                               	
+</LinearLayout>

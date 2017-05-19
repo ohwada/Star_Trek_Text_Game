@@ -1,0 +1,50 @@
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+          <TextView
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content"
+                        android:text="@string/cmd9"
+        android:textSize="20sp" 
+        android:layout_gravity="center"
+        android:layout_marginTop="4dp" 
+                android:layout_marginBottom="4dp"  />
+                
+        <!-- command -->  
+   
+               <Button
+        android:id="@+id/Button_dialog_cmd_10"
+        android:text="@string/cmd10"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+            android:background="@android:drawable/btn_default_small" />
+            
+                 <Button
+        android:id="@+id/Button_dialog_cmd_11"
+        android:text="@string/cmd11"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+            android:background="@android:drawable/btn_default_small" />           
+      
+           
+              <Button
+        android:id="@+id/Button_dialog_cmd_12"
+        android:text="@string/cmd12"
+        android:layout_width="match_parent" 
+        android:layout_height="wrap_content" 
+              android:background="@android:drawable/btn_default_small" />
+                               
+             <Button 
+            android:id="@+id/Button_dialog_close" 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/dialog_button_close"
+      android:background="@android:drawable/btn_default_small"           
+        android:layout_marginTop="4dp" 
+                android:layout_marginBottom="4dp"  />              
+                 	
+</LinearLayout>

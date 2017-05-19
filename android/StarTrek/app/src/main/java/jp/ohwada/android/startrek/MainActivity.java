@@ -2,7 +2,12 @@
  * STAR TREK
  * 2017-03-01 K.OHWADA
  */
-  
+
+
+ // mTextViewReport
+ 
+//   btnCmd7
+   
   // Button btnCmd4
 // cmd1 ok
 package jp.ohwada.android.startrek;
@@ -13,6 +18,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.Log;
@@ -33,6 +39,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import jp.ohwada.android.startrek.dialog.*; 
+
 /**
 /* MainActivity
 */
@@ -41,176 +49,73 @@ public class MainActivity extends Activity {
    // debug
     private static final boolean D = Constant.DEBUG;
     private static final String TAG_SUB = "MainActivity";
-    
-
+   
+   // UI 
+      private static final int SIZE_X = 8;
+      private static final int SIZE_Y = 8;
+      
  private Game mGame;
  
-private TextView mTextViewTitle;
 
-    private TextView[][]  mTextViewMap = new TextView[8][8];
-
+    
 /**
 /* == onCreate ==
 */
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    
-    mGame = new Game( this );
-  mGame.setup();
       
-    // UI
- mTextViewTitle = (TextView) findViewById( R.id.TextView_title );
+         setContentView( R.layout.activity_main ); 
+         
+                 mGame = new Game( this );
+                 
+ TextView tvMapTitle = (TextView) findViewById( R.id.TextView_map_title );
+mGame.setTextViewMapTitle( tvMapTitle );
 
- mGame.setTextViewTitle( mTextViewTitle );
+TextView tvReportTitle = (TextView) findViewById( R.id.TextView_report_title );
+mGame.setTextViewReportTitle( tvReportTitle );
 
-  // map UI
-           for (int i=0; i<8; i++ ) {
-           for (int j=0; j<8; j++ ) {
+ TextView tvReport = (TextView) findViewById( R.id.TextView_report ); 
+ mGame.setTextViewReport( tvReport );
+ 
+                TextView[][]  tvMap = new TextView[SIZE_X][SIZE_Y];  
+                
+           for (int i=0; i<SIZE_X; i++ ) {
+           for (int j=0; j<SIZE_Y; j++ ) {
 
                String name = "TextView_map_" + Integer.toString(i) + "_" + Integer.toString(j) ;
-               int id = getResources().getIdentifier(name, "id", getPackageName() );
-                       mTextViewMap[i][j] = (TextView)          findViewById(id);
+               int id = getResources().getIdentifier( name, "id",
+               getPackageName() );
+                       TextView tv = (TextView)          findViewById(id);
+                       log_d( name + id + tv );
+                       if (tv != null ) {
+                              tvMap[i][j] = tv;
+                        } // if tv
 
 }} // for i j end
- 
- mGame.setTextViewMap( mTextViewMap );
 
-       Button btnCmd1 = (Button) findViewById( R.id.Button_cmd_1 );
-   btnCmd1.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCmd(1);
-                   }
-               }); 
+mGame.setTextViewMap( tvMap );
     
+                
+       Button btnCmdList = (Button) findViewById( R.id.Button_cmd_list );
+   btnCmdList.setOnClickListener( new View.OnClickListener() {
+                   @Override
+                   public void onClick( View v) {
+                    log_d( "  btnCmdList onClick" );
+                       mGame.showCommandDialog();
+                   }
+               });  // setOnClickListener
 
 
-              Button btnCmd2 = (Button) findViewById( R.id.Button_cmd_2 );
-   btnCmd2.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCmd(2);
-                   }
-               }); 
-               
-                  Button btnCmd3 = (Button) findViewById( R.id.Button_cmd_3 );
-   btnCmd3.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCmd(3);
-                   }
-               }); 
-                  Button btnCmd4 = (Button) findViewById( R.id.Button_cmd_4 );
-   btnCmd4.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCmd(4);
-                   }
-               }); 
- 
-               
-      Button btnCmd5 = (Button) findViewById( R.id.Button_cmd_5 );
-   btnCmd5.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCmd(5);
-                   }
-               });   
-
-        Button btnCmd6 = (Button) findViewById( R.id.Button_cmd_6 );
-   btnCmd6.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCmd(6);
-                   }
-               });  
-                                     
-              // course
-                      Button btnCourse1 = (Button) findViewById( R.id.Button_course_1 );
-   btnCourse1.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(1);
-                   }
-               });
-  
-                      Button btnCourse2 = (Button) findViewById( R.id.Button_course_2 );
-   btnCourse2.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(2);
-                   }
-               });    
-  
-                        Button btnCourse3 = (Button) findViewById( R.id.Button_course_3 );
-   btnCourse3.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(3);
-                   }
-               });               
-         
-                               Button btnCourse4 = (Button) findViewById( R.id.Button_course_4 );
-   btnCourse4.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(4);
-                   }
-               });   
-                                     Button btnCourse5 = (Button) findViewById( R.id.Button_course_5 );
-   btnCourse5.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(5);
-                   }
-               }); 
-               
+     mGame.startNewGame();               
       
               
-          
-                                    Button btnCourse6 = (Button) findViewById( R.id.Button_course_6 );
-   btnCourse6.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(6);
-                   }
-               });       
-               
-                                     Button btnCourse7 = (Button) findViewById( R.id.Button_course_7 );
-   btnCourse7.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(7);
-                   }
-               });   
-               
-                                     Button btnCourse8 = (Button) findViewById( R.id.Button_course_8 );
-   btnCourse8.setOnClickListener( new View.OnClickListener() {
-                   @Override
-                   public void onClick( View v) {
-                       mGame.procCourse(8);
-                   }
-               });  
-                          
+      
+
+                           
            } // end of onCreate
            
-private void procCmd( int n ) {
-    toast_short( "cmd " + n );
-}
 
-private void procCourse( int n ) {
-    toast_short( "course " + n );
-}
-
-        /*
-** scan long renge
-*/    
-    
-/**
-/* displayMap
-*/
 
       /**
      * toast short
@@ -226,6 +131,72 @@ private void procCourse( int n ) {
         
         if ( Constant.DEBUG ) Log.d( Constant.TAG, TAG_SUB + " " + msg );
     } // log_d end
+
+
+    /**
+     * === onCreateOptionsMenu ===
+     */
+    @Override
+    public boolean onCreateOptionsMenu( Menu menu ) {
+        log_d( "onCreateOptionsMenu" );
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+ 
+ 
+  
+    /**
+     * === onOptionsItemSelected ===
+     */
+    @Override
+    public boolean onOptionsItemSelected( MenuItem item ) {
+
+        log_d("onOptionsItemSelected");
+        int id = item.getItemId();
+        if (id == R.id.menu_about) {
+            showAboutDialog();
+            
+                   } else if ( id == R.id.menu_usage ) {
+                       startBrawser( Constant.URL_USAGE );
+                       
+                             } else if (id == R.id.menu_new_game) {  
+                 mGame.startNewGame();
+                 
+                   } else if (id == R.id.menu_cmd_list) {
+            mGame.showCommandDialog();
+        } // if
+
+        return true;
+    } // onOptionsItemSelected
+
+
+    /**
+     * showOptionDialog
+     */
+
+    
+    /**
+     * showAboutDialog
+     */
+    private void showAboutDialog() {
+
+        log_d("showAboutDialog");
+        AboutDialog dialog = new AboutDialog(this);
+        dialog.create();
+        dialog.show();
+
+    } // showAboutDialog
+
+
+    /**
+     * startBrawser
+     */
+    private void startBrawser( String url ) {
+        if (( url == null )|| url.equals("") ) return;
+        Uri uri = Uri.parse( url );
+        Intent intent = new Intent( Intent.ACTION_VIEW, uri );
+        startActivity(intent);
+    } // startBrawser
 
 
 } // end of MainActivity

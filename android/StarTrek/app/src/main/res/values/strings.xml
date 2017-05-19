@@ -2,12 +2,54 @@
 <!-- STAR TREK 2017-04-10 K.OHWADA -->
 <resources>
     <string name="app_name">StarTrek</string>
+    
+    <!-- Main Activity -->
+    <string name="cmd_list">Command List</string> 
+    
+      <!--  dialog --> 
+          <string name="dialog_button_yes">YES</string>
+              <string name="dialog_button_no">No</string>
+                  <string name="dialog_button_cansel">Cansel</string>  
+    <string name="dialog_button_close">Close</string>
+ 
+     <!-- mission dialog -->            
+        
+                                <string name="mission_title">MISSION</string>  
+                                                  <string name="mission_msg">YOU MUST DESTROY \%%d KLINGONS IN \%%d STARDATES WITH \%%d STARBASES</string> 
+                                                   <string name="dialog_button_start">Start game</string>
+                <string name="dialog_button_quit">Quit app</string>
+                
+       <!-- win dialog -->  
+          <string name="win_title">CONGRATTION</string>  
+                                                  <string name="win_msg">THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED
+THE FEDERATION HAS BEEN SAVED !!!
+YOUR ACTUAL TIME OF MISSION = \%%d STARDATTES"</string>  
+
+
+    <!-- Torpedo Data dialog -->  
+  <string name="dialog_button_fire_auto">FIRE AUTOMATICALLY</string>
+                
+    <!-- command dialog -->    
 <string name="cmd1">1: LONG RANGE SENSOR SCAN</string> 
 <string name="cmd2">2:SHORT RANGE SENSOR SCAN</string>    
-    <string name="cmd3">3 :FIRE PHOTON TORPEDOES</string>
-    <string name="cmd4">４：FIRE PHASERS</string>
-    <string name="cmd5">５：IMPUＬSE　ENGINE</string>
-    <string name="cmd6">６：ＷＡＲP　ENGINE</string>
+<string name="cmd3">3：FIRE PHASERS</string>
+    <string name="cmd4">4 :FIRE PHOTON TORPEDOES</string>
+            <string name="cmd5">5：SHIELD CONTROL</string>
+                    <string name="cmd6">6：DAMEGE　REPORT</string> 
+        <string name="cmd7">7：IMPUＬSE　ENGINE</string>
+    <string name="cmd8">8：ＷＡＲP　ENGINE</string>
+                    
+    <string name="cmd9">9：CALL ON LIBRARY COMPUTER</string>
+    
+    
+        <!-- computer dialog -->  
+                <string name="cmd10">10：STATUS　REPORT</string>
+ 
+                                <string name="cmd11">11：CUMULATIVE GALACTIC RECORD </string>
+                                                <string name="cmd12">12 PHOTON TORPEDO DATA</string> 
+           
+           
+         <!-- course dialog -->                                                             
 <string name="course0"> o </string>
 <string name="course1"> 1 right </string> 
 <string name="course2"> 2 up right</string>
@@ -15,6 +57,34 @@
 <string name="course4"> 4 up left</string>
 <string name="course5"> 5  left </string> 
 <string name="course6"> 6 down left</string>
-<string name="course7"> 7  ldown</string>
+<string name="course7"> 7  down</string>
 <string name="course8"> 8 down right</string>
+
+<!-- dialog option  -->
+    <string name="dialog_button_gps">GPS</string>
+
+<!-- dialog about -->
+    <string name="dialog_about_title">About</string>   
+    <string name="dialog_about_main">This application ported Star Trek Text Game to Android.</string>
+    <string name="dialog_about_credit">Author: Kenichi Ohwada</string>
+    
+      <!-- game -->    
+      <string name="map_title_long">ONG RENGE 
+      SENSOR</string> 
+          <string name="map_title_short">SHORT RENGE SENSOR</string> 
+               <string name="map_title_galaxy">CUMULATIVE GALACTIC RECORD</string>
+               <string name="map_title_torpedo">PHOTON TORPEDO DATA</string> 
+                  <string name="report_title_status">STSTUS REPORT</string>
+ <string name="report_title_damege">DAMEGE 
+ REPORT</string>
+           
+                                                
+ <!-- menu main -->
+    <string name="menu_about">About</string>  
+    <string name="menu_usage">Usage</string>
+    <string name="menu_new_game">New Game</string>
+    <string name="menu_cmd_list">Command List</string>
+    <string name="menu_setting">Setting</string>
+    
+           
 </resources>

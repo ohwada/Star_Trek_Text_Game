@@ -3,18 +3,15 @@
  * 2017-03-01 K.OHWADA
  */
  
- // decrementKlingon()
-// clearSectors
-// firePhaser
-// trace -> Coordinate
-
-package jp.ohwada.android.startrek; 
+package jp.ohwada.android.startrek.util; 
 
 import android.util.Log;
 
 	import  java.lang.Math;
 import java.util.ArrayList;
 import java.util.List;
+
+import jp.ohwada.android.startrek.Constant;
 
 /*
  * QMap
@@ -25,6 +22,10 @@ public class QMap {
     private static final boolean D = Constant.DEBUG;
     private static final String TAG_SUB = "QMap";
     
+         private  static final int SIZE_X = 8;
+                    private  static final int SIZE_Y = 8;
+
+         
     public static final int C_NONE = 0;
       public static final int C_ENTERPRISE = 1; 
     public static final int C_STARBASE = 2;
@@ -32,15 +33,18 @@ public class QMap {
     public static final int C_STAR = 4;
 
   public static final int C_ENTERPRISE_MOVE = 11;
-        public static final int C_KLINGON_DESTROY = 12;
-                public static final int C_STARBASE_DESTROY = 13;
-       public static final int C_OUT = 14; 
+          public static final int C_KLINGON_COLLIDE = 12;
+        public static final int C_KLINGON_DESTROY = 13;
+                public static final int C_STARBASE_DESTROY = 14;
+       public static final int C_OUT = 15; 
        
        public static final int MOVE_OUT_LEFT = 21; 
         public static final int MOVE_OUT_RIGHT = 22; 
                public static final int MOVE_OUT_UP = 23; 
                       public static final int MOVE_OUT_DOWN = 24; 
-                            
+         
+          private static final String LF = "\n";
+                                      
  public int pos_x = 0;   
  public int pos_y = 0;  
      
@@ -167,6 +171,46 @@ clearSectors();
         } // end of scanLong 
 
 
+    /**
+     * scanShort
+     */
+   public TorpedoData getTorpedoData( ) {
+
+log_d("getTorpedoData");
+
+     List<TorpedoTarget> list = new ArrayList<TorpedoTarget>();
+       String[][] map = new String[SIZE_X][SIZE_Y];
+       String report = "TorpedoData" + LF;
+       
+       String mark = "  ";
+    
+       for ( int i=0; i<SIZE_X; i++ ) {
+          for ( int j=0; j<SIZE_Y; j++ ) { 
+          
+  mark = "  ";
+  
+             if ( mSectors[i][j] == C_ENTERPRISE ) {
+            mark = "E ";
+            
+         }  else if ( mSectors[i][j] == C_KLINGON ) {
+            int course = Course.getCourse( pos_x, pos_y, i, j );
+            list.add( new TorpedoTarget(  C_KLINGON, i, j, course ) );
+            mark = "K ";
+       String msg = "x= "+ i + ", y= " + j + ", course= " + course + LF;
+       report += msg;
+       log_d(msg);
+           } // if     
+       
+       map[i][j] = mark;
+       
+          }} // for i j
+          
+          
+    TorpedoData ret = new TorpedoData( list, map, report );
+    return ret;      
+ } //    getTorpedoData      
+     
+          
  public Coordinate startInpulse ( int course ) {
     log_d( "startInpulse " + course );
     Coordinate ret =  new Coordinate( 0, 0, 0 );
@@ -232,18 +276,30 @@ int yy = pos_y + yd;
 } // startInpulse
 
 
-public List<Coordinate> fireTorpedoe( int course ) {
+/**
+ * fireTorpedoe
+ * @ param int course 
+ * @ return  List<Coordinate>
+ */
+public List<Coordinate> fireTorpedo( int course ) {
 
-    log_d( "fireTorpedoe " + course  );
+    log_d( "fireTorpedo " + course  );
+    List<Coordinate>  list  = new ArrayList<Coordinate>();
+    if (( course <  Course.COURSE_MIN ) || ( course > Course.COURSE_MAX )) {
+        log_d( " param error " );
+        return list;
+    } // if
+        
         int[] delta = Course.getDelta( course );
     int xd = delta[0];
         int yd = delta[1];
         
-List<Coordinate>  list  = new ArrayList<Coordinate>();
+
 
 int xx = pos_x;
 int yy = pos_y;
 
+// endless loop
 while (true) {
 
    xx += xd;
@@ -332,16 +388,42 @@ public  List<Coordinate> firePhaser() {
  return list;
  } // firePhaser
 
+
+
+public  List<Coordinate> getKlingons() {
+
+
+    log_d( "getKlingons" );
+  List<Coordinate> list = new ArrayList<Coordinate>();
+
+
+  // search Klingon
+    for ( int i=0; i<8; i++ ) {
+        for (int j = 0; j < 8; j++) {
+
+            if (mSectors[i][j] == C_KLINGON) {
+                log_d("KLINGON " + i + "," + j);
+                list.add( new Coordinate(C_KLINGON, i, j) );
+            } // if
+
+        } } // for i j
+        return list;
+
+
+    } // getKlingons
+
+
 private void decrementKlingon() {
 if ( num_klingon >0 ) {
     num_klingon --;
-}
+} // if
 } //decrementKlingon
+
 
 private void decrementStarbase() {
 if ( num_starbase >0 ) {
     num_starbase --;
-}
+} // if
 } //decrementStarbase
 
     /**
@@ -353,7 +435,8 @@ private void clearSectors() {
                 mSectors[i][j] = C_NONE;
         }} // for i j end 
         } //clearSectors
-  
+
+
                 /**
                  * log_map
                  */
