@@ -1,9 +1,9 @@
 # Star Trek Text Game
 
-## Overview </ br>
-Star Trek Star Trek Text Game is a computer game popular in the 1970s. </ br>
-Please see wikipedia, for Star Trek Text Game, </ br>
-https://en.wikipedia.org/wiki/Star_Trek_(text_game) </ br>
+## Overview <br/>
+Star Trek Star Trek Text Game is a computer game popular in the 1970s. <br/>
+Please see wikipedia, for Star Trek Text Game, <br/>
+https://en.wikipedia.org/wiki/Star_Trek_(text_game) <br/>
 
  概要 </ br>
  Star Trek Text Game は、1970年代に流行ったコンピュータゲームです。<br/>
@@ -34,7 +34,7 @@ https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek <br/>
 ゲームのルールは、作りながら考えています。 <br/>
 オリジナル版の雰囲気を活かしつつ、ユーザーの操作がシンプルで開発が安易になるようにしたいと思います。 <br/>
 現状版は下記にあります。
-Star_Trek_Text_Game/blob/master/game_rule.md </ br>
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
 ## 関連する情報 <br/>
 情報交換用のFaceBookグループ <br/>
