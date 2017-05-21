@@ -1,5 +1,5 @@
-# Usage
-<img src="/github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/star_trek_icon.png" width="300" /> < br/>
+# Usage < br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/star_trek_icon.png" width="300" /> < br/>
 
 ## Overview <br/>
 this application ported Star Trek Text Game to Android. <br /> Please see wikipedia, for Star Trek Text Game. <br/>
