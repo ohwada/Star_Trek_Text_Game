@@ -78,8 +78,13 @@ private void  initVariable() {
      * setupPosition
      */    
          public void setupPosition() {
-             this.pos_x = (int) (Math.random() * 7);
-             this.pos_y = (int) (Math.random() * 7);
+            
+            log_d("setupPosition" );
+            // 1 to 6
+             this.pos_x = (int) (Math.random() * (SIZE_X-3)) + 1;
+             this.pos_y = (int) (Math.random() * (SIZE_Y-3)) + 1;
+
+log_d("Position " + pos_x + "," + pos_y );
 
          } // end of setupPosition
 
@@ -95,21 +100,29 @@ private void  initVariable() {
         for (int i = 0; i < SIZE_X; i++) {
             for (int j = 0; j < SIZE_Y; j++) {
                 
-                                log_d( i +"," + j );
+                      
                                 
                           //      init 3x3 area 
                            //     because play time takes too much with 8x8 area
                                     is_random = false;
-                                if ( ( pos_x - INIT_DISTANCE <= i  ) &&
-                                ( pos_x + INIT_DISTANCE >= i  ) &&
-                                ( pos_y - INIT_DISTANCE <= j  ) &&
-                                 ( pos_y + INIT_DISTANCE >= i  ) ) {
+                                if ( ( i >=pos_x - INIT_DISTANCE  ) &&
+                                ( i <= pos_x + INIT_DISTANCE ) &&
+                                ( j >= pos_y - INIT_DISTANCE ) &&
+                                 ( j <= pos_y + INIT_DISTANCE ) ) {
                                     is_random = true;
-                                }
+                                        log_d( i +"," + j ); 
+                                        
+                                } // if
+                                
                               mQuadrants[i][j] = new Quadrant( is_random );
       
             }} // for i j 
-
+            
+        for ( int i = 0; i < SIZE_X; i++ ) {
+            for  ( int j = 0; j < SIZE_Y; j++ ) {
+               mGalaxyMap[i][j] =  SCAN_NOT_YET ;
+        }} // for i j 
+        
     } // end of setupQuadrants
 
 
@@ -136,6 +149,9 @@ private void  initVariable() {
      * countNum    
      */
 public void countNum() {
+    
+log_d("countNum");
+    
     int k =0;
     int b = 0;
     int s=0;
@@ -155,12 +171,15 @@ public void countNum() {
 } // countNum
 
 
+
     /**
      * scanLong     
      * @ param boolean is_computer_available
      * @ return  String[][]
      */
    public  String[][] scanLong( boolean is_computer_available ) {
+    
+    log_d("scanLong " + is_computer_available);
 
        String[][] map = new String[SIZE_X][SIZE_Y];
         for(int i=0; i<SIZE_X; i++) {
@@ -176,9 +195,10 @@ public void countNum() {
                     if ( is_computer_available ) {
                         // save
      mGalaxyMap[i][j] = str_3_degit;
-     } // if
-   
+     log_d( "save " + i +" , "+ j + " " + str_3_degit );
      
+     } // if
+      
                     // // exist Enterprise
                     if ((i == pos_x) && (j == pos_y)) {
                         str = "E" + str;
@@ -202,17 +222,21 @@ public void countNum() {
 
  log_d("getGalaxyMap ");
        String[][] map = new String[SIZE_X][SIZE_Y];
+
         for(int i=0; i<SIZE_X; i++) {
             for (int j = 0; j < SIZE_Y; j++) {
         String str =  mGalaxyMap[i][j];
-        log_d( i+ "," + j +  "" +  str );
+        log_d( i+ "," + j +  " " +  str );
                 if ((i == pos_x) && (j == pos_y)) {
                         str = "E" + str;
-                    } // if end  
-                      map[i][j] =  str;           
+                    } // if end 
+                     
+                      map[i][j] =  str;  
+                               
   }} // for i j  
   return map;           
 } //  getGalaxyMap
+  
          
     /**
      * moveLong 

@@ -3,6 +3,8 @@
  * 2017-03-01 K.OHWADA
  */
  
+// checkPhaserDestroy
+ 
 package jp.ohwada.android.startrek.util; 
 
 import android.util.Log;
@@ -41,9 +43,13 @@ public class QMap {
        public static final int MOVE_OUT_LEFT = 21; 
         public static final int MOVE_OUT_RIGHT = 22; 
                public static final int MOVE_OUT_UP = 23; 
-                      public static final int MOVE_OUT_DOWN = 24; 
+                      public static final int MOVE_OUT_DOWN = 24;
+                       
+         private double PHASER_DESTROY_PROBABILITY = 0.9; // 90 %
          
           private static final String LF = "\n";
+               
+               
                                       
  public int pos_x = 0;   
  public int pos_y = 0;  
@@ -81,9 +87,12 @@ clearSectors();
      * setupPosition
      */     
          public void setupPosition() {
+            
+// 1 to 6
+             this.pos_x = (int) (Math.random() * (SIZE_X-3)) + 1;
+             this.pos_y = (int) (Math.random() * (SIZE_Y-3)) + 1;
 
-             this.pos_x = (int) (Math.random() * 7);
-             this.pos_y = (int) (Math.random() * 7);
+log_d("Position " + pos_x + "," + pos_y );
 
          } // end of setupPosition
 
@@ -371,8 +380,10 @@ public  List<Coordinate> firePhaser() {
 
         if ( mSectors[i][j]  ==  C_KLINGON ) {
     log_d( "KLINGON " + i + "," + j );
+
                         // 80 %
-            if ( Math.random() > 0.2 ) {
+//            if ( Math.random() > 0.2 ) {
+if ( checkPhaserDestroy( i, j ) ) {
 
                 // destroy KLINGON
                     decrementKlingon();
@@ -389,7 +400,36 @@ public  List<Coordinate> firePhaser() {
  } // firePhaser
 
 
+/**  
+* checkPhaserDestroy
+ */           
+public  boolean checkPhaserDestroy( int x, int y ) {
 
+// it becomes hard to be destroyed if it is far
+// because the energy attenuates according to the distance
+int xd = x - pos_x ;
+int yd = y - pos_y ;
+double distance = xd *xd + yd* yd ;
+
+// 30 % when far
+ double probability = 0.3 ;
+    // 50 % when close
+ if ( distance < 18                  ) {
+    probability = 0.5;
+} // if
+
+            if ( Math.random() < probability  ) {
+                return true;
+            }// if
+            
+            return false;
+            
+} // checkPhaserDestroy
+    
+    /**  
+* getKlingons
+* @ return List<Coordinate>
+ */ 
 public  List<Coordinate> getKlingons() {
 
 

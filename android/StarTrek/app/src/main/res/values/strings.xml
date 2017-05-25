@@ -20,7 +20,8 @@
                 <string name="dialog_button_quit">Quit app</string>
                 
        <!-- win dialog -->  
-          <string name="win_title">CONGRATTION</string>  
+          <string name="win_title">
+CONGRATULATION</string>  
                                                   <string name="win_msg">THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED
 THE FEDERATION HAS BEEN SAVED !!!
 YOUR ACTUAL TIME OF MISSION = \%%d STARDATTES"</string>  
@@ -68,7 +69,21 @@ YOUR ACTUAL TIME OF MISSION = \%%d STARDATTES"</string>
     <string name="dialog_about_main">This application ported Star Trek Text Game to Android.</string>
     <string name="dialog_about_credit">Author: Kenichi Ohwada</string>
     
-      <!-- game -->    
+      <!-- game --> 
+            <string name="device_long_sensor">LONG RENGE 
+      SENSOR</string> 
+              <string name="device_short_sensor">SHORT RENGE 
+      SENSOR</string> 
+                   <string name="device_warp">WARP ENGINE</string> 
+                        <string name="device_impulse">IMPULSE ENGINE</string> 
+                                        <string name="device_phaser">PHASER</string> 
+                                                    <string name="device_torpedo_tube">TORPEDO_TUBE</string> 
+                                                        <string name="device_shield">SHIELD CNTRL</string> 
+                       
+                                   <string name="device_damege">DAMEGE REPORT CNTRL </string> 
+                                        <string name="device_computer">COMPUTER</string>                             
+                                                        
+                                                        
       <string name="map_title_long">ONG RENGE 
       SENSOR</string> 
           <string name="map_title_short">SHORT RENGE SENSOR</string> 
@@ -86,5 +101,7 @@ YOUR ACTUAL TIME OF MISSION = \%%d STARDATTES"</string>
     <string name="menu_cmd_list">Command List</string>
     <string name="menu_setting">Setting</string>
     
-           
+ <!-- debug -->   
+     <string name="menu_clear">Clear</string>
+               
 </resources>

@@ -3,6 +3,8 @@
  * 2017-03-01 K.OHWADA
  */
  
+// isDeviceAvailables-> mDeviceAvailables
+
 // counterAttack()
 
  // mTextViewReport
@@ -56,8 +58,10 @@ private static final int DEVICE_SHORT_SENSOR = 1;
       private static final int DEVICE_IMPULSE = 4;     
       private static final int DEVICE_WARP = 5;
       private static final int DEVICE_SHIELD = 6;
-      private static final int DEVICE_COMPUTER = 7;
-            private static final int MAX_DEVICE = 8;
+          private static final int DEVICE_DAMEGE = 7;
+      private static final int DEVICE_COMPUTER = 8;
+      
+            private static final int SIZE_DEVICE = 9;
             
 // command               
      private static final int CMD_NONE = 0;
@@ -104,7 +108,11 @@ private static final int MAP_MODE_TORPEDO_DATA = 4;
           private static final int TORPEDO_FIRE = 1;
        
          private static final int SHIELD_LOW = 200;
-         
+    
+     private static final int DEVICE_AVAILABLE_NORMAL = 0;
+    private static final int DEVICE_AVAILABLE_DAMEGE = -2;
+     
+          
                private static final double DEVICE_AVAILABLE_PROBABILITY_FAIL = 0.9; // 10 %
                  private static final double DEVICE_AVAILABLE_PROBABILITY_RECOVER = 0.2; // 80 %
 
@@ -145,11 +153,14 @@ private int mSupplyEnergy = 0;
 private int mSupplyTorpedo = 0;
 
 // device
-private boolean[] isDeviceAvailables = new boolean[MAX_DEVICE];
 
-private String[] mDeviceNames = new String[MAX_DEVICE];
+private int[] mDeviceAvailables = new int[SIZE_DEVICE];
 
+private String[] mDeviceNames = new String[ SIZE_DEVICE ];
 
+// map
+ private String[][] mPrevMapLong = new String[SIZE_X][SIZE_Y] ;
+ private String[][] mPrevMapShort = new String[SIZE_X][SIZE_Y] ;
 
         private int mCmd = CMD_NONE;
         
@@ -283,16 +294,21 @@ private String[] mDeviceNames = new String[MAX_DEVICE];
 
 
 private void initVariable() {
-    mDeviceNames[ DEVICE_LONG_SENSOR] = "LONG RENGE SENSOR";
-        mDeviceNames[ DEVICE_SHORT_SENSOR] = "SHORT RENGE SENSOR";
-        mDeviceNames[ DEVICE_TORPEDO] = "TORPEDO TUBE";
-                mDeviceNames[ DEVICE_PHASER] = "PHASER";
-                                mDeviceNames[ DEVICE_IMPULSE] = "IMPULSE ENGINE"; 
-                                                                mDeviceNames[ DEVICE_WARP] = "WARP ENGINE"; 
-                                                 mDeviceNames[ DEVICE_SHIELD] = "SHIELD CTRL";  
-                                                    mDeviceNames[ DEVICE_COMPUTER] = "COMPUTER";   
-  for ( int k=0; k< MAX_DEVICE; k++ ) {
-    isDeviceAvailables[k] = true;
+    mDeviceNames[ DEVICE_LONG_SENSOR] = getString ( R.string.device_long_sensor );
+        mDeviceNames[ DEVICE_SHORT_SENSOR] = getString ( R.string.device_short_sensor );
+         mDeviceNames[ DEVICE_WARP] = getString ( R.string.device_warp ) ; 
+                                         mDeviceNames[ DEVICE_IMPULSE] = getString ( R.string.device_impulse );
+                                          
+        mDeviceNames[ DEVICE_TORPEDO] = getString ( R.string.device_torpedo_tube );
+                mDeviceNames[ DEVICE_PHASER] = getString ( R.string.device_phaser );
+                     
+                                                            
+                                                 mDeviceNames[ DEVICE_DAMEGE] = getString ( R.string.device_damege );
+                                                                                         mDeviceNames[ DEVICE_SHIELD] = getString ( R.string.device_shield );
+                                                    mDeviceNames[ DEVICE_COMPUTER] = getString ( R.string.device_computer );
+                                                    
+  for ( int k=0; k< SIZE_DEVICE; k++ ) {
+    mDeviceAvailables[k] = DEVICE_AVAILABLE_NORMAL ;
   } // for
                                                            
 } // init
@@ -342,6 +358,7 @@ private void initVariable() {
      */
          public void startNewGame() {  
             setup();
+            clearMainScreen();
             showMission();
          } //startnewGame
          
@@ -366,9 +383,16 @@ log_d( "num_klingon " + mGalaxy.num_klingon );
 log_d( "num_starbase " + mGalaxy.num_starbase );
 
               log_d( "remaining_days " + mDaysRemain );
-             
-        double klingon_per_starbase = mGalaxy.num_klingon / mGalaxy.num_starbase;
-             
+              
+     int starbase = mGalaxy.num_starbase;
+
+// probide to divid by zero
+if ( starbase == 0 ) {
+    starbase = 1 ;
+          } // if
+              
+          double klingon_per_starbase = mGalaxy.num_klingon / starbase;
+          
   mSupplyEnergy = 1000 + (int)( 20 * klingon_per_starbase );
  mSupplyTorpedo =  10 + (int)( 10 * klingon_per_starbase );
            
@@ -376,6 +400,17 @@ log_d( "num_starbase " + mGalaxy.num_starbase );
               log_d( "SupplyTorpedo " + mSupplyTorpedo );
                            
     supply();
+    
+    //clear prev map
+    for (int i=0; i< SIZE_X; i ++ ) {
+     for (int j=0; j< SIZE_Y; j ++ ) {
+        mPrevMapLong[i][j] = "";
+                mPrevMapShort[i][j] = "";
+                
+    }       } // for i j
+    
+    
+    
          } // setup end
 
     /**
@@ -413,6 +448,23 @@ private void showWin() {
         mDialogWin.setMessage( msg );
             mDialogWin.show();
 } // showWin
+
+    /**
+     * clearMainScreen for debug
+     */
+public void clearMainScreen() {
+    
+   mTextViewMapTitle.setText( ""); 
+   mTextViewReportTitle.setText( ""); 
+      mTextViewReport.setText( "");
+         
+            for ( int i =0; i<SIZE_X; i++ ) {
+                    for ( int j =0; j<SIZE_Y; j++ ) {
+                     mTextViewMap[i][j].setText( "");
+                        mTextViewMap[i][j].setBackgroundColor(Color.TRANSPARENT );
+                        
+                    }} // for i j
+} // clearMainScreen
 
  // ====================  
   // command
@@ -525,9 +577,15 @@ mDialogPhaser.show();
      log_d(" procTorpedo " +  mTorpedo );
 
         if ( !check_tost_DeviceAvailable( DEVICE_TORPEDO, true ) ) {
+            
+            //   recover 50 %   
+ if ( Math.random() < 0.5  ) { 
+    mDeviceAvailables[DEVICE_TORPEDO] = DEVICE_AVAILABLE_NORMAL;
+} // if Math.random
+
 mCmd = CMD_NONE;
 return;
-} // if
+} // if check
 
          if ( mTorpedo < TORPEDO_FIRE ) {
                 toast_short(  "TORPEDO exceed  " ); 
@@ -545,8 +603,10 @@ return;
 private void procImpulse() {
 
         if( !check_tost_DeviceAvailable( DEVICE_IMPULSE, true ) ) {
-        mCmd = CMD_NONE; 
-        return;
+            // enterprise can move　one sector
+            // even if the pulse engine fails
+//        mCmd = CMD_NONE; 
+ //       return;
         } // if
         
          showCourseDialog( R.string.cmd7 );
@@ -601,9 +661,9 @@ private void procStatus() {
     }
     
      String msg = "";
-msg += "NUMBER OF KLINGONS LEFT = " + mGalaxy.num_klingon + LF;
-msg += "NUMBER OF STARDATES LEFT = " + mDaysRemain + LF;
-msg += "NUMBER OF STARBASES LEFT = " +mGalaxy.num_starbase + LF;
+msg += "NUMBER OF KLINGONS = " + mGalaxy.num_klingon + "  LEFT" + LF;
+msg += "NUMBER OF STARDATES = " + mDaysRemain  + "  LEFT" + LF;
+msg += "NUMBER OF STARBASES = " +mGalaxy.num_starbase + LF;
 msg+=  "Energy=" +  mEnergy + LF;
 msg+=  "Shield=" +  mShield + LF;
 msg+=  "NUMBER OF TORPEDO = " +  mTorpedo + LF;
@@ -620,13 +680,19 @@ toast_short("STATUS Reported");
  *  procDamege
  */
 private void procDamege() {
+    
      log_d("procDamege");
+                 if ( !check_tost_DeviceAvailable( DEVICE_DAMEGE, true ) ) {
+// mcmd = CMD_NONE;
+return;
+} // if
+
      String msg = "";
-       for ( int k=0; k< MAX_DEVICE; k++ ) {
+       for ( int k=0; k< SIZE_DEVICE; k++ ) {
         
         msg += mDeviceNames[k] + ": ";
-    if( isDeviceAvailables[k] ) {
-
+//    if( isDeviceAvailables[k] ) {
+    if( mDeviceAvailables[k] >= DEVICE_AVAILABLE_NORMAL ) {
         msg += "Normal" + LF;
 
     } else{
@@ -686,9 +752,9 @@ toast_short("Shield  on ");
 
   
 
-
-
-
+// ==========
+// senser command
+// ==========
 
 /**
  *  scanLong
@@ -696,24 +762,67 @@ toast_short("Shield  on ");
 private void scanLong() {
     
   if ( !check_tost_DeviceAvailable( DEVICE_LONG_SENSOR, true ) ) {
+    // shoe prev data, iff damege
+    displayPrevMapLong();
         return;
     } // if
        
-     mMapMode = MAP_MODE_LONG;
-                  mTextViewMapTitle.setText( R.string.map_title_long );
-    String[][] map = mGalaxy.scanLong( isDeviceAvailables[ DEVICE_COMPUTER ] );
-    displayMap( map );
+//     mMapMode = MAP_MODE_LONG;
+   //               mTextViewMapTitle.setText( R.string.map_title_long );
+ //   String[][] map =
+ // mGalaxy.scanLong( isDeviceAvailable( DEVICE_COMPUTER ) );
+    //displayMap( map );
+    
+    displayMapLong();
     toast_short( "Long Renge Sensor scaned"  );
     
     } // scanLong
     
 
+   /**
+ *  displayMapLong
+ */   
+    private void displayMapLong() {
+        
+     mMapMode = MAP_MODE_LONG;
+                  mTextViewMapTitle.setText( R.string.map_title_long );
+    String[][] map = mGalaxy.scanLong( isDeviceAvailable( DEVICE_COMPUTER ) );
+    mPrevMapLong = map;
+    displayMap( map );
+    toast_short( "Long Renge Sensor scaned"  );
+    
+    } // displayMapLong
+  
+  
+  
+  /**
+ *  displayPrevMapLong
+ */ 
+      private void displayPrevMapLong() {
+        
+     mMapMode = MAP_MODE_LONG;
+                  mTextViewMapTitle.setText( R.string.map_title_long );
+    displayMap( mPrevMapLong );
+    
+    } // displayMapLong  
+ 
+ 
+    
 /**
  *  scanShort
  */    
 private void scanShort() {
      
   if ( !check_tost_DeviceAvailable( DEVICE_SHORT_SENSOR, true ) ) {
+    
+    //  display PrevMap, if damege
+    displayPrevMapShort();
+    
+                //   recover 50 %   
+ if ( Math.random() < 0.5  ) { 
+    mDeviceAvailables[DEVICE_SHORT_SENSOR] = DEVICE_AVAILABLE_NORMAL;
+} // if Math.random
+
         return;
     } // if
     
@@ -731,9 +840,23 @@ private void displayMapShort() {
           mMapMode = MAP_MODE_SHORT;
               mTextViewMapTitle.setText( R.string.map_title_short );
     String[][] map = mQMap.scanShort();
+    mPrevMapShort = map;
     displayMap( map );
     
 } // displayMapShort
+
+
+/**
+ * displayMapShort
+ */    
+private void displayPrevMapShort() {
+    
+             mMapMode = MAP_MODE_SHORT;
+              mTextViewMapTitle.setText( R.string.map_title_short );
+    displayMap( mPrevMapShort ); 
+} // displayPrevMapShort
+
+
 
 
 /**
@@ -956,7 +1079,7 @@ private void arriveQuadrant() {
 // ==========  
 
 /**
- * firePhaser
+ *  fireTorpedo
  */ 
  private void fireTorpedo ( int course ) {
     
@@ -1012,6 +1135,7 @@ break;
    
 } // fireTorpedo
 
+
 /**
  * firePhaser
  */ 
@@ -1042,7 +1166,9 @@ private void firePhaser() {
 // because　game becomes too easy,   
 // 50 %
 if ( Math.random() > 0.5 ) {
-    isDeviceAvailables[ DEVICE_PHASER ] = false;
+//    isDeviceAvailables[ DEVICE_PHASER ] = false;
+    mDeviceAvailables[ DEVICE_PHASER ] = DEVICE_AVAILABLE_DAMEGE ;
+
 }  // if
 
     saveNumQuadrantEnterprise();
@@ -1061,9 +1187,7 @@ private void fightBack() {
      List<Coordinate> list = mQMap.getKlingons();
      for ( Coordinate c: list ) {
        if ( c.code == QMap.C_KLINGON ) { 
-       // 50 %
-       if ( Math.random()> 0.5 ){
-          int beam = (int)( Math.random() * 100 ); 
+          int beam = getBeem( c.x, c.y );
           if ( mShield > beam ) {
           this.mShield -=  beam;
                 } else{
@@ -1074,7 +1198,6 @@ private void fightBack() {
           toast_short(msg);
           log_d(msg);
  
-        } // if Math.random
         } // if c.code
         
     } // for
@@ -1083,10 +1206,36 @@ private void fightBack() {
 if ( mShield <=  0 ) {
             mShield =  0;
     setAllDeviceAvailable( false );
+    toast_short( "the enterprise damaged" );
+        log_d( "the enterprise damaged" );
 } // if mShield
  
 } //   fightBack
 
+
+/**  
+* getBeem
+ */           
+private  int getBeem( int x, int y ) {
+
+// it becomes hard to be destroyed if it is far
+// because the energy attenuates according to the distance
+int xd = x - mQMap.pos_x ;
+int yd = y - mQMap.pos_y ;
+double distance = xd *xd + yd* yd ;
+
+// 30 % when far
+ double probability = 0.3 ;
+           int beam = (int)( Math.random() * 100 ); 
+ // 50 % when close
+ if ( distance < 18                  ) {
+    probability = 0.5;
+    beam += 50;
+} // if
+
+return beam;
+
+} // getBeam
 
  
   /**
@@ -1128,6 +1277,7 @@ private void judgeWin() {
  *   displayMap
  */
     private void displayMap( String [][] map ) {
+        
         for ( int i =0; i<SIZE_X; i++ ) {
                     for ( int j =0; j<SIZE_Y; j++ ) {
                         String msg = i + "," + j + " " + map[i][j];
@@ -1155,6 +1305,24 @@ mTextViewMap[x][y].setBackgroundColor( color );
 // ====================
 
 /**
+ *   sDeviceAvailable
+ */
+private boolean isDeviceAvailable( int id ) {
+   
+   log_d(  "isDeviceAvailable " + id );
+ 
+  if (DEBUG_DEVICE_AVAILABLE ) {
+    return true;
+    
+ }   else if ( mDeviceAvailables[id] >= DEVICE_AVAILABLE_NORMAL ) {
+        return true;
+        
+    } // if
+                return false;
+    
+} // isDeviceAvailable
+    
+/**
  *   check_tost_DeviceAvailable
  */
 private boolean check_tost_DeviceAvailable( int id, boolean is_toast ) {
@@ -1164,13 +1332,15 @@ private boolean check_tost_DeviceAvailable( int id, boolean is_toast ) {
     return true;
  } 
  
-    if ( isDeviceAvailables[id] ) {
+    if ( isDeviceAvailable( id )) {
         return true;
+        
     } else {
     String msg = mDeviceNames[id] + " is dameged";
         log_d( msg );
      if ( is_toast ) {
     toast_short (msg );
+    
     } // if is_toast
 
     return false;
@@ -1184,12 +1354,20 @@ private boolean check_tost_DeviceAvailable( int id, boolean is_toast ) {
 private void setAllDeviceAvailable( boolean b ) {
 
 log_d( "setDeviceAvailable " + b );
-for( int k=0; k<MAX_DEVICE; k++ ) {
-     isDeviceAvailables[k] = b;
+
+int available = DEVICE_AVAILABLE_NORMAL ;
+
+if ( !b) {
+  available = DEVICE_AVAILABLE_DAMEGE ;  
+} // if
+
+for( int k=0; k<SIZE_DEVICE; k++ ) {
+     mDeviceAvailables[k] = available;
      
 } // for
 
 } // setAllDeviceAvailable
+
 
 /**
  *  changeDeviceAvailable
@@ -1197,27 +1375,33 @@ for( int k=0; k<MAX_DEVICE; k++ ) {
 private void changeDeviceAvailable() {
 
 log_d("changeDeviceAvailable ");
-for( int k=0; k<MAX_DEVICE; k++ ) {
+        
+        // choise device at random
+        int device_id = (int) ( Math.random() * ( SIZE_DEVICE - 1 ) );
 
+    // 1 ~ 5
+   int level = (int) ( Math.random() * 5 ) + 1;
+   
+//   10 %   
+ if ( Math.random() < 0.1 ) { 
 
+// fail 10%
+   mDeviceAvailables[ device_id ] -= level;
 
-    if ( isDeviceAvailables[k] ) {
-        // randomly fails,  if  normal
-        if ( Math.random() > DEVICE_AVAILABLE_PROBABILITY_FAIL ) {
-   isDeviceAvailables[k] = false;
-    } // if random
 } else {
-  // randomly recover, if  failure
-        if (Math.random() > DEVICE_AVAILABLE_PROBABILITY_RECOVER ) {
+    
+//  recover 90 %
+   mDeviceAvailables[ device_id ] += level;
+   
+} // if
 
-            isDeviceAvailables[k] = true;
-        } // if random
-
-    } // if is_available_devices
-
-} // for k
+String msg = mDeviceNames[ device_id ] + mDeviceAvailables[ device_id ] ;
+log_d( msg );
 
 } // changeDeviceAvailable
+
+
+
 
 
 // ====================

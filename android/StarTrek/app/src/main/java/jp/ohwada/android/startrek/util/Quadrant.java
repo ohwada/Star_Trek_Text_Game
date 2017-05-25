@@ -21,7 +21,7 @@ public class Quadrant {
     
         private int NUM_KLINGON = 5;
             private int NUM_STAR = 5;
-               private double NUM_PROBABILITY＿STARBASE = 0.5 ; // 50 %
+               private double NUM_PROBABILITY＿STARBASE = 0.6 ; // 60 %
                         
     public int num_klingon = 0;
     public int num_starbase = 0;
@@ -42,7 +42,7 @@ public class Quadrant {
         if (is_random) {
             int k = (int) ( Math.random() * NUM_KLINGON );
             // 10 %
-            int b = ( Math.random() > NUM_PROBABILITY＿STARBASE ) ? 1: 0;
+            int b = ( Math.random() < NUM_PROBABILITY＿STARBASE ) ? 1: 0;
             int s = (int) ( Math.random() * NUM_STAR );
             setNum(k, b, s);
         } // if end
