@@ -1,10 +1,9 @@
-# Android - Star Trek Text Game
+# python - Star Trek Text Game
 
-this application ported [Star Trek Text Game](https://en.wikipedia.org/wiki/Star_Trek_(text_game)) to Android.
-
-## note
-game leve is easy
-plese modify as you like
+## overview
+this is ported Star Trek Text Game to python.
+please see wikipedia, for Star Trek Text Game. <br/>
+https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
 
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
