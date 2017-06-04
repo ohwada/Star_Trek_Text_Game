@@ -5,6 +5,20 @@ this is ported Star Trek Text Game to python.
 please see wikipedia, for Star Trek Text Game. <br/>
 https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
 
+## screen shot < br/>
+
+mission
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_mission.png" width="300" />  < br/>
+
+long renge sensor
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_long_sensor.png" width="300" />  < br/>
+
+mission
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_mission.png" width="300" />  < br/>
+
+short renge sensor
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_short_sensor.png" width="300" />  < br/>
+
 ## usage
 
 Please read the rules of the game at first.  < br/>

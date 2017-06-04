@@ -20,18 +20,21 @@ I have nostalgia, I tried my own work with python and Android. <br/>
 ## python <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/python <br/>
 
+screen shot <br/>
+short renge sensor
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_short_sensor.png" width="300" />  < br/>
+
 ## Android <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/ <br/>
 
-スクリーンショット <br/>
-長距離センサー <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  /> <br/>
-短距離センサー <br/>
+screen shot <br/>
+short renge sensor <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
-光子魚雷でクリンゴン艦を破壊する。<br/>
+
+destroy KLINGON ships with a photon torpedo <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
 
-## ゲームのルール
+## rules ofgame
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
 ## 関連する情報 <br/>
