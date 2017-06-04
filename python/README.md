@@ -16,12 +16,10 @@ python 2.7 < br/>
 ### run < br/>
 python star_trek.py < br/>
 
-### note
-game leve is easy
-plese modify as you like
-
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+When you feel easy to play or difficult, please modify as you like <br/>
 
 ## Original
 HP-BASIC Author Mike Mayfield

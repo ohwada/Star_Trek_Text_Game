@@ -51,69 +51,51 @@ class Main():
 			if (cmd == 1):
 			# long reng sensor
 				self.cmd_long_sensor()
-				continue		
+						
 			elif (cmd == 2):	
 			# short reng sensor	
 				self.cmd_short_sensor()
-				continue
+				
 			elif (cmd == 3):
 			# fire phaser
 				self.cmd_phaser()
-				if ( self.check_win() ):
-					break		
+			
 				continue
 			elif (cmd == 4):
 			# fire torpedo
 				self.cmd_torpedo()
-				if ( self.check_win() ):
-					break
-				continue
-				
+								
 			elif (cmd == 5):	
 			# shield	 control
 				self.cmd_shield()
-				continue
 				
 			elif (cmd == 6):	
 			# damege report	
 				self.cmd_damege()
-				continue	
-		
+			
 			elif (cmd == 7):	
 			# warp engine
 				self.cmd_warp()
-				if ( self.check_win() ):
-					break
-				continue
 				
 			elif (cmd == 8):	
 			# impulse engine
 				self.cmd_impulse()
-				continue
 									
 			elif (cmd == 9):	
-			# computer
-				self.cmd_computer()
-				continue
+				self.cmd_status()
+				
+			elif (cmd == 10):
+				self.game.print_torpedo_data()
 			
+			elif (cmd == 11):
+				self.game.print_galaxy_record()
+### if end
+	
+			if ( self.check_win() ):
+				break	
 
 ## def
-				
-	def cmd_computer(self):
-		if not self.device.check_available(self.device.DEVICE_COMPUTER):
-			return
-			
-		cmd = self.game_input.input_computer_command()
-		if (cmd == 1):
-			self.cmd_status()
-			
-		elif (cmd == 2):
-			self.game.print_galaxy_record()
-			
-		elif (cmd == 3):
-			self.game.print_torpedo_data()
-## def											
-					
+
 					
 	def warning_shield(self):
 		# kingon
@@ -233,7 +215,8 @@ class Main():
 			
 		elif ( code == self.game.sector.MOVE_OUT_RIGHT ):
 			self.game.warp( self.course.COURSE_RIGHT, 1 )
-## def		
+		
+## def	
 
 	
 													
@@ -252,7 +235,10 @@ class Main():
 		print msg		
 	### def
 	
-	def cmd_status(self): 
+	def cmd_status(self):
+		if not self.device.check_available(self.device.DEVICE_COMPUTER):
+			return
+		 
 		print
 		print "STATUS REPORT"
 		msg1 = "NUMBER OF KLINGONS LEFT = %d" % self.game.quadrant.num_klingon

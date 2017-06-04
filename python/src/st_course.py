@@ -41,13 +41,13 @@ class Course():
 			ret = self.COURSE_DOWN
 		elif ( y_orig == y ) and ( x_orig > x ):				
 			ret = self.COURSE_UP	
-		elif ( abs_x == abs_y ) and ( x_orig > x ) ( y_orig > y ) :		
+		elif ( abs_x == abs_y ) and ( x_orig > x ) and ( y_orig > y ) :		
 			ret = self.COURSE_UP_LEFT
-		elif ( abs_x == abs_y ) and ( x_orig > x ) ( y_orig < y ):	
+		elif ( abs_x == abs_y ) and ( x_orig > x ) and  ( y_orig < y ):	
 			ret = self.COURSE_UP_RIGHT
-		elif ( abs_x == abs_y ) and ( x_orig < x ) ( y_orig > y ) :		
+		elif ( abs_x == abs_y ) and ( x_orig < x ) and ( y_orig > y ) :		
 			ret = self.COURSE_DOWN_LEFT						
-		elif ( abs_x == abs_y ) and ( x_orig < x ) ( y_orig < y ) :		
+		elif ( abs_x == abs_y ) and ( x_orig < x ) and ( y_orig < y ) :		
 			ret = SELF.COURSE_DOWN_RIGHT	 
 		return ret
 ### def end	

@@ -2,12 +2,10 @@
 
 this application ported [Star Trek Text Game](https://en.wikipedia.org/wiki/Star_Trek_(text_game)) to Android.
 
-## note
-game leve is easy
-plese modify as you like
-
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+When you feel easy to play or difficult, please modify as you like <br/>
 
 ## Original
 HP-BASIC Author Mike Mayfield

@@ -13,6 +13,12 @@ class Device():
 	DEVICES = [ "L.R. SENSOR",   "S.R. SENSOR", "PHASER CNTRL", "TORPEDO TUBES", "SHIELD CNTRL", "DAMAGE CNTRL", "WARP ENGINE", "IMPULSE ENGINE", "COMPUTER" ]
 	 
 	SIZE_D = 9
+	
+	# 30 %
+	DAMEGE_PROBABILITY = 0.3
+	
+# very easy : 50 %
+	SHORT_SENSOR_REPAIR_PROBABILITY = 0.5
 		
 	DEVICE_LONG_SENSOR = 0
 	DEVICE_SHORT_SENSOR = 1
@@ -69,11 +75,18 @@ class Device():
 	### 1 - 6
 		level = int(5*random.random() ) + 1
 		
-		if ( random.random() <  0.3 ):
+		if ( random.random() <  self.DAMEGE_PROBABILITY ):
 			self.d_arr[id] -= level
 		else:
 			self.d_arr[id] += level
+			
+# repair specially
+# because player can do nothing
+# when SR Sensor breaks
+		if ( random.random() <  	self.SHORT_SENSOR_REPAIR_PROBABILITY ):
+			self.d_arr[	self.DEVICE_SHORT_SENSOR ] = 0			
 ### def end			
+
 
 	def damege_all(self):	
 		self.set_available_all( -1)	

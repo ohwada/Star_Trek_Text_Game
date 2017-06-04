@@ -14,55 +14,33 @@ class Input():
 		cmd = 0
 		while(True):
 			print
-			print " COMMAND"
-			print " 0 = CANCEL"
-			print " 1 = LONG RANGE SENSOR SCAN"
-			print " 2 = SHORT RANGE SENSOR SCAN"
-			print " 3 = FIRE PHASERS"
-			print " 4 = FIRE PHOTON TORPEDOES"
-			print " 5 = SHIELD CONTROL"
-			print  " 6 = DAMAGE CONTROL REPORT"
-			print " 7 = WARP ENGINE"
-			print " 8 = IMPULSE ENGINE"
-			print " 9 = CALL ON LIBRARY COMPUTER"
-			cmd = input( 'command(1-9) >' )
-			if ( cmd >=0 ) and ( cmd <=9 ):
+			print "== SELECT COMMAND =="
+			print " 1 = L.R. SENSOR SCAN     2 = S.R. SENSOR SCAN"
+			print " 3 = FIRE PHASERS         4 = FIRE PHOTON TORPEDOES"
+			print " 5 = SHIELD CNTRL         6 = DAMAGE REPORT"
+			print " 7 = WARP ENGINE          8 = IMPULSE ENGINE"	
+			print " CALL ON LIBRARY COMPUTER"			
+			print " 9 = STATUS REPORT       10 = PHOTON TORPEDO DATA"
+			print " 11 = CUMULATIVE GALACTIC RECORD"	
+			print
+			cmd = input( 'command(1-11) >' )
+			if ( cmd >=0 ) and ( cmd <=11 ):
 				break
 ### while
 		return cmd
 ### def	
 
-	def input_computer_command(self):	
-		func = 0
-		print
-		print "FUNCTIONS AVAILABLE FROM COMPUTER"
-		print " 0 = CANCEL"
-		print " 1 = STATUS REPORT"
-		print	 " 2 = CUMULATIVE GALACTIC RECORD"
-		print " 3 = PHOTON TORPEDO DATA"
-		func = input(' commsnd(1-3) >')
-		return func
-### def	
-	
+		
 	def input_course(self):
 		course = 0
 		while(True):
 			print	
-			print " COURSE"
-			print " 0 = CANCEL"
-			print " 1 = LEFT"
-			print " 2 = UP LEFT"
-			print " 3 = UP"
-			print " 4 = UP RIGHT"
-			print " 5 = RIGHT"
-			print " 6 = DOWN RIGHT"
-												
-			print " 7 = DOWN"
-			print " 8 = DOWN LEFT"
+			print " === SELECT COURSE ==="
 			print
 			print " 4 3 2"
 			print " 5 E 1"
 			print " 6 7 8"
+			print
 			course = input('course(1-8) >')
 			if ( course >= 0  ) and ( course <=8 ):
 				break
@@ -73,7 +51,9 @@ class Input():
 	def input_distance(self):
 		distance = 0
 		while(True):
-			print " please enter DISTANCE"
+			print
+			print " === ENTER DISTANCE ==="
+			print
 			distance = input('distance(1-8)>')
 			if ( distance >=0 ) and ( distance <=8 ):
 				break
@@ -84,10 +64,12 @@ class Input():
 
 	def input_phaser_energy(self,energy):
 		e = 0
+		print
 		print "PHASERS LOCKED ON TARGET"
 		msg =  "ENERGY AVAILABLE= %d " % energy
 		print msg
 		print "ENTER NUMBER OF UNITS TO FIRE"
+		print
 		e= input( 'energy>')
 		return e
 		### def
@@ -96,9 +78,11 @@ class Input():
 		s = 0
 		msg1 = "YOU HAVE %5d UNITS OF ENERGY" % energy
 		msg2 = "YOUR SHIELDS HAVE %d UNITS LEFT" % shield
+		print
 		print msg1
 		print msg2			
-		print "ENTER NUMBER OF UNITS FOR SHIELD"	
+		print "ENTER NUMBER OF UNITS FOR SHIELD"
+		print	
 		s = input('nergy>')
 		return s
 ### def

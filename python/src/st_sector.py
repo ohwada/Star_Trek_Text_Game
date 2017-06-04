@@ -166,7 +166,7 @@ class Sector():
 			for j in range(self.SIZE_Y):
 				if ( self.s_arr[i][j] == self.C_KLINGON ):	
 					course = self.course.get_course( self.sx, self.sy, i, j )
-			 		msg = "x= %d, y= $d : course= %d " % ( i, j, course )
+			 		msg = "x= %d , y= %d : course= %d " % ( i, j, course )
 			 		print msg
 			 	
 ### def end	
