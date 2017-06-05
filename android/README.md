@@ -1,12 +1,18 @@
 # Android - Star Trek Text Game
 
-## Star Trek
+## Star Trek<br/>
 this application ported [Star Trek Text Game](https://en.wikipedia.org/wiki/Star_Trek_(text_game)) to Android.
 
-### apk
-https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/star_trek.apk
+## how to get app <br/> 
 
-screen shot <br/>
+アプリの入手方法 <br/>
+（１）ソースコードから自分でビルドする <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek
+
+(2)ビルド済みのアプリをダウンロードする
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/
+
+### screen shot <br/>
 long renge sensor <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  /> <br/>
 
