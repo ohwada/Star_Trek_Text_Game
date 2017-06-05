@@ -42,8 +42,7 @@ https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 https://www.facebook.com/groups/174928253035786/
 
 関連するブログ <br/>
-Androidへの移植 <br/>
-http://android.ohwada.jp/archives/7370 <br/>
-シナリオとルール <br/>
-http://android.ohwada.jp/archives/7358 <br/>
+http://android.ohwada.jp/archives/7339
+
+
 
