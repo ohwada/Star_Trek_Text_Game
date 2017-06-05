@@ -4,6 +4,8 @@
 this application ported [Star Trek Text Game](https://en.wikipedia.org/wiki/Star_Trek_(text_game)) to Android.
 
 ## how to get app <br/> 
+(1)Build yourself from the source code
+(2)download pre-built apps
 
 アプリの入手方法 <br/>
 （１）ソースコードから自分でビルドする <br/>
