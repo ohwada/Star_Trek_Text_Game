@@ -42,3 +42,6 @@ http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public
 ## suport <br/>
 FaceBook　Group in Japsnese <br/>
 https://www.facebook.com/groups/174928253035786/
+
+関連するブログ <br/>
+http://android.ohwada.jp/archives/7416 <br/>
