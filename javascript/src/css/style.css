@@ -1,0 +1,13 @@
+#left {
+  	display:inline-block;
+	vertical-align:top;
+	border: 3px black solid;
+	border-radius: 20px; 
+}
+
+#right {
+  	display:inline-block;
+	vertical-align:top;
+	border: 3px black solid;
+	border-radius: 20px; 
+}

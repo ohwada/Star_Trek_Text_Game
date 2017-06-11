@@ -13,9 +13,11 @@ https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%BF%E3%83%BC%E3%83%88%E3%83%AC%E3%8
 
 even now it still has a strong popularity. <br/>
 I have played with minicomputer in college days,  <br/>
-I have nostalgia, I tried my own work with python and Android. <br/>
+I have nostalgia, I tried my own work <br/>
+for python JavaScript, and Android. <br/>
 今でも根強い人気があります。<br/>
-私は、大学時代にミニコンで遊んだことがあり、懐かしさもあり、python と Android で自作してみました。<br/>
+私は、大学時代にミニコンで遊んだことがあり、懐かしさもあり自作してみました。<br/>
+Python と JavaScript とAndroid の３つを作りました。<br/>
 
 ## python <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/python <br/>
@@ -23,6 +25,12 @@ https://github.com/ohwada/Star_Trek_Text_Game/tree/master/python <br/>
 screen shot <br/>
 short renge sensor
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_short_sensor.png" width="300" />  < br/>
+
+## JavaScript <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/tree/master/javascript <br/>
+
+screen shot <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_javascript.png" width="300" />  < br/>
 
 ## Android <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/ <br/>

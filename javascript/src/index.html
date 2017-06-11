@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- parse the mesage from SAKURA IoT Platform -->
+<!-- 2016-06-20 K.OHWADA -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Star Trek Text Game</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/st_course.js"></script>
+<script type="text/javascript" src="js/st_quadrant.js"></script>
+<script type="text/javascript" src="js/st_sector.js"></script>
+<script type="text/javascript" src="js/st_game.js"></script>
+<script type="text/javascript" src="js/st_device.js"></script>
+<script type="text/javascript" src="js/st_main.js"></script>
+
+</head>
+<body>
+<h3>Star Trek Text Game</h3>
+<div id="left">
+<div id="map1"></div>
+<div id="map2"></div>
+<div id="report"></div>
+</div>
+
+<div id="right">
+<button type="button" id="start">
+START NEW GAME
+</button><br/><br/>
+<button type="button" id="cmd1">
+1 L.R. SENSER SCAN
+</button><br/>
+<button type="button" id="cmd2">
+2 S.R. SENSER SCAN
+</button><br/>
+<button type="button" id="cmd3">
+3 FIRE PHASERS
+</button><br/>
+<button type="button" id="cmd4">
+ 4 FIRE PHOTON TORPEDOES
+</button><br/>
+<button type="button" id="cmd5">
+5 SHIELD CNTRL
+</button><br/>
+<button type="button" id="cmd6">
+6 DAMAGE REPORT
+</button><br/>
+<button type="button" id="cmd7">
+7 WARP ENGINE
+</button><br/>
+<button type="button" id="cmd8">
+8 IMPULSE ENGINE	
+</button><br/>
+<button type="button" id="cmd9">
+ 9 STATUS REPORT	
+</button><br/>
+<button type="button" id="cmd10">
+10 PHOTON TORPEDO DATA	
+</button><br/>
+<button type="button" id="cmd11">
+11 = CUMULATIVE GALACTIC RECORD
+</button><br/>
+<table>
+<tr>
+<td>
+<button type="button" id="course4">
+course 4
+</button>
+</td>
+<td>
+<button type="button" id="course3">
+course 3
+</button>
+</td>
+<td>
+<button type="button" id="course2">
+course 2
+</button>
+</td>
+</tr>
+<tr>
+<td>
+<button type="button" id="course5">
+course 5
+</button>
+</td>
+<td>
+&nbsp; E &nbsp;
+</td>
+<td>
+<button type="button" id="course1">
+course 1
+</button>
+</td>
+</tr>
+<tr>
+<td>
+<button type="button" id="course6">
+course 6
+</button>
+</td>
+<td>
+<button type="button" id="course7">
+course 7
+</button>
+</td>
+<td>
+<button type="button" id="course8">
+course 8
+</button>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<script>
+	var main = new Main();
+$('#start').on('click', function() {
+	main.start_game();
+});	
+$('#cmd1').on('click', function() {
+  main.proc_cmd(1);
+});	
+$('#cmd2').on('click', function() {
+  main.proc_cmd(2);
+});	
+$('#cmd3').on('click', function() {
+  main.proc_cmd(3);
+});
+$('#cmd4').on('click', function() {
+  main.proc_cmd(4);
+});
+$('#cmd5').on('click', function() {
+  main.proc_cmd(5);
+});
+$('#cmd6').on('click', function() {
+  main.proc_cmd(6);
+});	
+$('#cmd7').on('click', function() {
+  main.proc_cmd(7);
+});	
+$('#cmd8').on('click', function() {
+  main.proc_cmd(8);
+});	
+$('#cmd9').on('click', function() {
+  main.proc_cmd(9);
+});	
+$('#cmd10').on('click', function() {
+  main.proc_cmd(10);
+});	
+$('#cmd11').on('click', function() {
+  main.proc_cmd(11);
+});
+$('#course1').on('click', function() {
+  main.proc_course(1);
+});
+$('#course2').on('click', function() {
+  main.proc_course(2);
+});
+$('#course3').on('click', function() {
+  main.proc_course(3);
+});
+$('#course4').on('click', function() {
+  main.proc_course(4);
+});
+$('#course5').on('click', function() {
+  main.proc_course(5);
+});
+$('#course6').on('click', function() {
+  main.proc_course(6);
+});
+$('#course7').on('click', function() {
+  main.proc_course(7);
+});
+$('#course8').on('click', function() {
+  main.proc_course(8);
+});
+alert("ready to start new game");
+</script>
+</body>
+</html>
