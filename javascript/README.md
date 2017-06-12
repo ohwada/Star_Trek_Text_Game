@@ -7,7 +7,7 @@ https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
 
 ## screen shot < br/>
 
-Command and result
+Long renge sensor and Command list
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_javascript.png" width="300" />  < br/>
 
 ## usage < br/>
@@ -19,8 +19,8 @@ https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md < br/>
 - jQuery < br/>
 
 ### run < br/>
-open the file index.html with Web Browser < br/>
-or double click on the file index.html < br/>
+open the file index.html with Web Brawser < br/>
+or double click on the file index.html with File Brawser< br/>
 
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
@@ -34,4 +34,4 @@ FaceBook　Group in Japsnese <br/>
 https://www.facebook.com/groups/174928253035786/
 
 blog (in Japsnese) <br/>
-htthttp://android.ohwada.jp/archives/7429 <br/>
+http://android.ohwada.jp/archives/7429 <br/>
