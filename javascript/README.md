@@ -9,7 +9,7 @@ https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
 
 Long renge sensor and Command list< br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_javascript.png" width="300" />  < br/>
-destroy Klingon ships with photon torpedo< br/>
+destroy Klingon ships with photon torpedo < br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_torpedo.png" width="300" />  < br/>
 
 ## usage < br/>
