@@ -21,7 +21,7 @@ long renge sensor <br/>
 short renge sensor <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
 
-DESTROY Klingon ships with photon torpedo　<br/>
+destroy Klingon ships with photon torpedo　<br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
 
 

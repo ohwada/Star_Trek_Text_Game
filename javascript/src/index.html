@@ -1,12 +1,14 @@
 <!DOCTYPE html>
-<!-- parse the mesage from SAKURA IoT Platform -->
-<!-- 2016-06-20 K.OHWADA -->
+<!-- STAR TREK Text Game -->
+<!-- 2017-06-01 K.OHWADA -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Star Trek Text Game</title>
 <link rel="stylesheet" type="text/css" href="css/style.css" />
+  <link rel="stylesheet" href="css/msgBoxLight.css" />
 <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type='text/javascript' src='js/jquery.msgBox.js'></script>
 <script type="text/javascript" src="js/st_course.js"></script>
 <script type="text/javascript" src="js/st_quadrant.js"></script>
 <script type="text/javascript" src="js/st_sector.js"></script>
@@ -18,8 +20,178 @@
 <body>
 <h3>Star Trek Text Game</h3>
 <div id="left">
-<div id="map1"></div>
-<div id="map2"></div>
+<div id="map1_title"></div><br />
+<table id ="map1" >
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><br />
+<div id="map1_footer"></div><br />
+<div id="map2_title"></div><br />
+<table id ="map2">
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table><br />
+<div id="map2_report"></div><br />
 <div id="report"></div>
 </div>
 
@@ -175,7 +347,7 @@ $('#course7').on('click', function() {
 $('#course8').on('click', function() {
   main.proc_course(8);
 });
-alert("ready to start new game");
+alert("please start new game");
 </script>
 </body>
 </html>

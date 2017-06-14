@@ -240,7 +240,8 @@ for(i=0;i < 8;i++){
 			return;
 		} // if
 			
-		alert("warp ...");
+	//	alert("warp ...");
+	
 	var d = this.course.get_delta(course);
 		
 				// distance is 1
@@ -254,7 +255,7 @@ for(i=0;i < 8;i++){
 				
 		} else { 
 		
-			this.etup_position();
+			this.setup_position();
 			return false;
 			
 		} // if

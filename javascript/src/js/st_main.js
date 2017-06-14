@@ -10,6 +10,7 @@ var Main  = function () {
 	this.device = new Device();
 	this.course = new Course();	
 				this.cmd = 0;	
+				this.is_map_short = false;
 } // constractor
 
 
@@ -17,6 +18,7 @@ Main.prototype.start_game = function () {
 
 		this.game.setup();
 		this.device.setup();
+		this.clear_display();
 		this.alert_mission();
 		
 } // start_game
@@ -25,9 +27,9 @@ Main.prototype.start_game = function () {
 Main.prototype.alert_mission = function () {	
 
 
-		var msg = "=== MISSION === \n\n";
-		msg += "YOU MUST DESTROY " + this.game.quadrant.num_klingon + " KLINGONS IN " + this.game.days_left + " STARDATES WITH " + this.game.quadrant.num_starbase + " STARBASES";
-		alert(msg);
+		var title = "=== MISSION ===";
+		var msg = "YOU MUST DESTROY " + this.game.quadrant.num_klingon + " KLINGONS IN " + this.game.days_left + " STARDATES WITH " + this.game.quadrant.num_starbase + " STARBASES";
+		this.alert(title,msg);
 		
 } // mission
 
@@ -111,16 +113,29 @@ Main.prototype.proc_course = function (course) {
 
 
 	Main.prototype.cmd_torpedo_data = function () {	
+	
+			if ( !this.check_available(this.device.DEVICE_COMPUTER)) {
+			return;
+	} // if
+	
 				var msg = this.game.torpedo_data();
 						 $("#report").html(msg);
 						 
 	} // cmd_torpedo_data
 	
 
-	Main.prototype.cmd_galaxy_record = function () {		
+	Main.prototype.cmd_galaxy_record = function () {
+	
+				if ( !this.check_available(this.device.DEVICE_COMPUTER)) {
+			return;
+	} // if
+				
 					var map = this.game.galaxy_record();
-					$("#map1").html(map);
 					
+			$("#map1_title").html("CUMULATIVE GALACTIC RECORD");
+			this.display_map1(map);
+				this.display_map1_footer();
+								
 			} // md_galaxy_record
 							
 							 				
@@ -129,7 +144,7 @@ Main.prototype.proc_course = function (course) {
 		// kingon
 		if (( this.game.sector.num_klingon > 0 ) && ( this.game.shield < 200 )) {
 		
- 				alert( "SHIELDS DANGEROUSLY LOW" );
+ 				this.error( "SHIELDS DANGEROUSLY LOW" );
 		} // if
 		
 		} // warning_shield		
@@ -137,7 +152,7 @@ Main.prototype.proc_course = function (course) {
 	
 		Main.prototype.cmd_long_sensor = function () {
 
-		if ( !this.device.check_available(this.device.DEVICE_LONG_SENSOR)) {
+		if ( !this.check_available(this.device.DEVICE_LONG_SENSOR)) {
 			return;
 	} // if	
 	
@@ -145,36 +160,69 @@ Main.prototype.proc_course = function (course) {
 
 	
 		var map = this.game.long_sensor( is_computer_available );
-			 $("#map1").html(map);
 			 
+			$("#map1_title").html("LONG RENGE SENSOR");
+			this.display_map1(map);
+			this.display_map1_footer();
+						 
 } // cmd_long_sensor
 
 
 		Main.prototype.cmd_short_sensor = function () {
 
-		if ( ! this.device.check_available(this.device.DEVICE_SHORT_SENSOR) ) {
+		if ( ! this.check_available(this.device.DEVICE_SHORT_SENSOR) ) {
 			return;
 	} // if	
 			
-		var msg =this.game.short_sensor();
-		msg += this.short_sensor_report();
-		$("#map2").html(msg);
-		
+		var map =this.game.short_sensor();
+		var report = this.short_sensor_report();
+
+			$("#map2_title").html("SHORT RENGE SENSOR");
+			this.display_map2(map);
+			$("#map2_report").html( report );
+				
 } // cmd_short_sensor	
 
 
 		Main.prototype.cmd_phaser = function () {
-		if(! this.device.check_available(this.device.DEVICE_PHASER)) {
+		if(! this.check_available(this.device.DEVICE_PHASER)) {
 			return;
 			} // if
 				
 		if ( this.game.energy < 500 ) {	
 	var msg = "require	 500 unit of energy to fire phaser";
-	alert (msg);
+	this.alarm(msg);
 		return;
 		} // if
 		
-		this.game.fire_phaser(500);
+		list = this.game.fire_phaser(500);
+		
+		var length = list.length;
+		if( length == 0 ) {
+			// no result
+			return;
+		} // if
+		
+		var k= 0;
+		var param = []
+		var x = 0;
+		var y = 0;
+		var msg = "";
+		
+		for (k=0;k<length; k++ ) {
+			param = list[k];
+			code = param[0];
+			x = param[1];		
+			y = param[2];
+			if ( code == this.game.sector.C_KLINGON ) {
+				this.set_map2_backgroundColor( x,y, "red" );
+						  msg = "KLINGON DESTROYED at " +String(x) + " , "+String(y);
+						  this.info(msg);
+					continue;
+					
+			} // if	
+				
+		} // for k
 		
 		this.fight_back();
 		
@@ -190,35 +238,69 @@ Main.prototype.proc_course = function (course) {
 			
 Main.prototype.cmd_torpedo = function () {
 
-		if ( ! this.device.check_available(this.device.DEVICE_TORPEDO)) {
+		if ( ! this.check_available(this.device.DEVICE_TORPEDO)) {
 			return;
 	} // if	
 			
 		if ( this.game.torpedo < 1 ) {
 	 		var msg = "ALL PHOTON TORPEDOES EXPENDED";
-	 		alert(msg);
+	 		this.alarm(msg);
 	 		return;
 	 } // if
 	 
-	 alert("please select course");	
+	 this.alert("COMMAND", "please select course");	
 	 
 	} // 	cmd_torpedo
 	
 		
 Main.prototype.proc_torpedo = function (course) {	 					
-		var code = this.game.fire_torpedo(course);
-						if ( code == this.game.sector.C_KLINGON ) {
-							
-					alert( "KLINGON DESTROYED ");
-					
+		var list = this.game.fire_torpedo(course);
+		var length = list.length;
+		if(length == 0) {
+			// no result
+			return;
+		}
+		
+		var k = 0;
+		var param = [];
+		var code = 0;
+		var x = 0;
+		var y=0;
+		
+		
+		for ( k=0; k<length; k++ ) {
+		
+			param = list[k];
+			code = param[0];
+			x = param[1];
+			y = param[2];	
+			
+								if ( code == this.game.sector.C_NONE ) {
+						this.set_map2_backgroundColor( x,y, "yellow" );
+						this.sleep(1000); // todo
+						continue;
+									
+						} else if ( code == this.game.sector.C_KLINGON ) {
+						this.set_map2_backgroundColor( x,y, "red" );		
+					this.info( "KLINGON DESTROYED ");
+					break;
+				
 				} else if ( code == this.game.sector.C_STARBASE ) {
-					alert( "STAR BASE DESTROYED" );					
-					} else if ( code == this.game.sector.C_STAR )	{		
-					alert( "YOU CAN'T DESTROY STARS" );			
+								this.set_map2_backgroundColor( x,y, "red" );
+					this.info( "STAR BASE DESTROYED" );	
+										break;
+														
+					} else if ( code == this.game.sector.C_STAR )	{	
+								this.set_map2_backgroundColor( x,y, "yellow" );	
+					this.info( "YOU CAN'T DESTROY STARS" );			break;
+					
 					} else if ( code == this.game.sector.TORPEDO_OUT )	{							
-							  		alert( "TORPEDO MISSED" );
-			} // if		  		
-							  		
+							  this.info( "TORPEDO MISSED" );
+							  	break;
+			} // if
+					  		
+} // for k
+				  		
 		this.fight_back();
 		
 	} // roc_torpedo	
@@ -226,23 +308,24 @@ Main.prototype.proc_torpedo = function (course) {
 	
 		Main.prototype.cmd_shield = function () {	
 	
-		if ( !this.device.check_available(this.device.DEVICE_SHIELD)) {
+		if ( !this.check_available(this.device.DEVICE_SHIELD)) {
 			return;
 	} // if	
 			
 			if ( this.game.energy < 200 ) {	
 	var msg = "require	 200 unit of energy to shield";
-	allert (msg);
+	this.alarm(msg);
 		} // if		
 
 		this.game.shield_control( 200 );
+		this.info( "shield on" );
 		
 } // cmd_shield
 
 
 	Main.prototype.cmd_damege = function () {
 
-		if (! this.device.check_available(this.device.DEVICE_DAMAGE)) {
+		if (! this.check_available(this.device.DEVICE_DAMAGE)) {
 			return;
 	} // if	
 			
@@ -254,16 +337,16 @@ Main.prototype.proc_torpedo = function (course) {
 
 	Main.prototype.cmd_warp = function () {
 
-		if ( ! this.device.check_available(this.device.DEVICE_WARP) ) {
+		if ( ! this.check_available(this.device.DEVICE_WARP) ) {
 			return;
 	} // if	
 	
 			if ( this.game.energy < 20 ) {	
 	var msg = "require	 20 unit of energy to warp";
-	allert (msg);
+	this.alarm(msg);
 		} // if	
 			
-		 alert("please select course");
+		 this.alert("COMMAND", "please select course");
 		 
 } // cmd_warp	 
 			
@@ -273,15 +356,16 @@ Main.prototype.proc_torpedo = function (course) {
 //		alert("proc_warp");
 	
 		this.game.warp(course);
+		this.is_map_short = false;
 		
 } // proc_warp
 
 
 	Main.prototype.cmd_impulse = function () {
 
-		 this.device.check_available(this.device.DEVICE_IMPULSE);
+		 this.check_available(this.device.DEVICE_IMPULSE);
 		 
-			 alert("please select course");
+			 this.alert("COMMAND","please select course");
 			 		
 	} // md_impulse
 	
@@ -292,22 +376,22 @@ Main.prototype.proc_torpedo = function (course) {
 		var code = this.game.move(course);
 			if ( code == this.game.sector.MOVE_TO ) {
 				msg = "move to " + String(this.game.sector.sx) + " , " + String(this.game.sector.sy);
-				alert( msg );			
+				this.info( msg );			
 				
 		} else if ( code == this.game.sector.C_KLINGON ) {
-			alert ( "onflicted with KLINGON" );
+			this.info ( "onflicted with KLINGON" );
 		// damege
 			this.game.shield = 0;
 			this.device.damege_all();	
 							
 		} else if ( code == this.game.sector.C_STARBASE ) {
-				alert( "docked in STARBASE" );
+				this.info( "docked in STARBASE" );
 		// repair	
 			this.game.dockin();
 			this.device.repair_all();
 			
 			} else if ( code == this.game.sector.C_STAR )	{
-					alert( "landed on STAR" );
+					this.info( "landed on STAR" );
 		
 		} else if ( code == this.game.sector.MOVE_OUT_UP ) {
 			this.game.warp( this.course.COURSE_UP, 1 );
@@ -340,19 +424,20 @@ Main.prototype.check_win = function (course) {
 } // check_win
 		
 
-Main.prototype.alert_win = function (course) {	    
-            var msg ="=== CONGRATULATIONS === \n\"                             
-		var msg = "THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED \n";
-		msg += "THE FEDERATION HAS BEEN SAVED !!!\n";
+Main.prototype.alert_win = function (course) {
+	
+	var title = "=== CONGRATULATIONS ===";                            
+	var msg = "THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED \n";
+		msg += "THE FEDERATION HAS BEEN SAVED !!! \n";
 		msg += "YOUR ACTUAL TIME OF MISSION = " + this.game.days_elapsed + " STARDATTES\n"; 
-		alert( msg );
+		this.alert( title, msg );
 				
 } // alert_win
 	
 	
 	Main.prototype.cmd_status = function () {
 
-		if ( ! this.device.check_available(this.device.DEVICE_COMPUTER) ) {
+		if ( ! this.check_available(this.device.DEVICE_COMPUTER) ) {
 			return;
 	} // if	
 		 
@@ -406,12 +491,198 @@ Main.prototype.alert_win = function (course) {
 					
 Main.prototype.fight_back = function () {
 
-		this.game.fight_back();
+		var list = this.game.fight_back();
+			var length = list.length;
+		if ( length == 0) {
+			// no result
+			return;
+	} // if
 		
+		var k = 0;
+		var param = [];
+		var x = 0;
+		var y = 0;
+		var beam = 0;
+		var msg = "";
+		
+		for(k=0;k < length;k++){
+			
+			param = list[k];
+			x = param[0];
+			y  = param[1];
+			beam = param[2];
+			this.game.decrease_shield( beam );
+			msg =  String(beam) + " UNIT HIT ON ENTERPRISE AT SECTOR " + String(x) + " , " + String(y) + " ( " + String(this.game.shield) + "  LEFT)";
+			this.error(msg);
+		} // for
+
 		if ( this.game.shield <= 0) {
 		// damege	
 			this.device.damege_all();
 			} // if					
 
 } // fight_back
-						
+
+
+Main.prototype.display_map1 = function (map) {						
+var table = document.getElementById("map1");
+var cell;
+
+for (i=0; i<8; i++ ) {
+	for ( j=0; j<8; j++ ) {
+cell = table.rows[i].cells[j];
+cell.innerHTML = map[i][j] + "&nbsp;";
+
+}} // for i j
+
+} // display_map1
+
+
+Main.prototype.display_map2 = function (map) {						
+var table = document.getElementById("map2");
+var cell;
+
+for (i=0; i<8; i++ ) {
+	for ( j=0; j<8; j++ ) {
+cell = table.rows[i].cells[j];
+cell.innerHTML = map[i][j] + "&nbsp;";
+cell.style.backgroundColor = "white";
+}} // for i j
+
+this.is_map_short = true;
+} // display_map2
+
+
+
+Main.prototype.set_map2_backgroundColor = function ( i,j,color ) {
+	
+if ( ! this.is_map_short ) {
+	return
+	} // if		
+					
+var table = document.getElementById("map2");
+var cell = table.rows[i].cells[j];
+cell.style.backgroundColor = color;
+
+} // set_map2_backgroundColor
+
+
+Main.prototype.display_map1_footer = function () {
+var msg = "at Quadrant " + String(this.game.quadrant.qx) + " , " + String(this.game.quadrant.qy) ;
+
+		$("#map1_footer").html(msg);
+		
+} // isplay_map1_footer
+
+
+Main.prototype.clear_display = function () {
+
+var table1 = document.getElementById("map1");		
+var table2 = document.getElementById("map2");
+var cell1;
+var cell2;
+
+for (i=0; i<8; i++ ) {
+	for ( j=0; j<8; j++ ) {
+cell1 = table1.rows[i].cells[j];
+cell2 = table2.rows[i].cells[j];
+cell1.innerHTML = "";
+cell2.innerHTML = "";
+cell2.style.backgroundColor = "white";
+}} // for i j
+
+		$("#map1_title").html("");
+		$("#map2_title").html("");		
+		$("#map1_footer").html("");
+		$("#map2_report").html("");	
+		$("#report").html("");	
+					
+} // clesr_display
+
+Main.prototype.sleep = function (msec) {
+const d1 = new Date();
+while (true) {
+  const d2 = new Date();
+  if (d2 - d1 > msec) {
+    break;
+    } // if
+ } // while 
+ 
+ } // sleep
+
+ 
+  Main.prototype.check_available = function (id) {
+
+		var ret = false;
+		var msg = "";
+		if ( this.device.is_available(id) ) {
+			ret = true;
+		} else {
+			msg = this.device.DEVICES[id] + " dameged";
+			this.alarm( msg );
+		
+		} // if
+					
+		return ret ;
+
+} // check_available
+
+ 
+  Main.prototype.alert = function (title, content) {
+ 	
+	msgBoxImagePath = "./images/"; 
+	
+			$.msgBox({
+				title: title,
+				content: content,
+				type: "alert",
+			});
+
+} // alert
+
+
+ Main.prototype.info = function (msg) {
+ 	
+	msgBoxImagePath = "./images/"; 
+	
+	// show 5 sec
+			$.msgBox({
+				title: "",
+				content: msg,
+				type: "info",
+        autoClose: true,
+        timeOut: 5000,
+        showButtons: false,
+			});
+
+} // info 
+
+ Main.prototype.error = function (msg) {
+ 	
+	msgBoxImagePath = "./images/"; 
+	
+	// show 3 sec
+			$.msgBox({
+				title: "",
+				content: msg,
+				type: "error",
+        autoClose: true,
+        timeOut: 3000,
+        showButtons: false,
+			});
+
+} // error
+
+
+ Main.prototype.alarm = function (msg) {
+ 	
+	msgBoxImagePath = "./images/"; 
+	
+	// show 5 sec
+			$.msgBox({
+				title: "",
+				content: msg,
+				type: "error",
+			});
+
+} // alarm

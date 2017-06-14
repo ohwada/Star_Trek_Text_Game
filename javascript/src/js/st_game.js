@@ -39,20 +39,21 @@ Game.prototype.setup = function () {
 
 Game.prototype.long_sensor = function (is_computer_available) {
 				
-		return this.quadrant.scan( is_computer_available );
+		return this.quadrant.get_long_map( is_computer_available );
 
 } // long_sensor
 
 
 Game.prototype.short_sensor = function () { 
 
-		return this.sector.scan();
+		return this.sector.get_short_map();
+		
 } // short_sensor	
 
 
 Game.prototype.galaxy_record = function () {
 				
-		return this.quadrant.galaxy_record();
+		return this.quadrant.get_galaxy_map();
 
 } // galaxy_record
 
@@ -108,27 +109,31 @@ Game.prototype.fire_phaser = function (e) {
 
 		this.decrease_energy(e);
 		 
-		this.sector.fire_phaser();  // todo
+		var list = this.sector.fire_phaser();  // todo
 		
 		this.save_num_q();
+		
+		return list;
+		
 } // fire_phaser 
+
 
 Game.prototype.fire_torpedo = function (course) { 			
 		if (( course <1 ) && ( course > 8 )) {
 			return;
 		} // if
 		
-		var code = this.sector.fire_torpedo(course);
+		var list = this.sector.fire_torpedo(course);
 		this.save_num_q();
 		
-		return code;
+		return list;
 		
 } // fire_torpedo
 
 
 Game.prototype.galaxy_record = function () { 
 
-		return this.quadrant.galaxy_record();
+		return this.quadrant.get_galaxy_map();
 } // galaxy_record
 
 
@@ -142,33 +147,11 @@ Game.prototype.torpedo_data = function () {
 
 
 Game.prototype.fight_back = function () { 
-		var list = this.sector.fight_back();
-		
-		var length = list.length;
-		if ( length == 0) {
-			// no result
-			return;
-	} // if
-		
-		var k = 0;
-		var param = [];
-		var x = 0;
-		var y = 0;
-		var beam = 0;
-		var msg = "";
-		
-		for(k=0;k < length;k++){
-			
-			param = list[k];
-			x = param[0];
-			y  = param[1];
-			beam = param[2];
-			this.decrease_shield( beam );
-			msg =  String(beam) + " UNIT HIT ON ENTERPRISE AT SECTOR " + String(x) + " , " + String(y) + " ( " + String(this.shield) + "  LEFT)";
-			alert(msg);
-		} // for
+
+		return this.sector.fight_back();
 		
 } // fight_back		
+
 
 Game.prototype.decrease_shield = function (s) { 
 
@@ -182,7 +165,7 @@ Game.prototype.decrease_shield = function (s) {
 Game.prototype.shield_control = function (e) { 						
 		this.decrease_energy(e ); 
 		this.shield = e; 
-		alert( "shield on" );
+//		alert( "shield on" );
 
 } // shield_control		
 

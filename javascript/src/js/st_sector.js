@@ -154,10 +154,46 @@ map += "<br/>\n";
 } // scan
 
 
+Sector.prototype.get_short_map = function () {
+	
+	var i = 0;
+	var j = 0;
+	
+var map = [] ;
+	
+	var mark = "";	
+	
+	for(i=0;i < 8;i++){
+			map[i] = [] ;
+		
+	for(j=0;j < 8;j++){
+		mark = " ";	
+		if ( this.s_arr[i][j] == this.C_ENTERPRISE ) {
+					mark = "E";
+					
+				} else if ( this.s_arr[i][j] == this.C_KLINGON ) {
+					mark = "K";
+									
+				} else if ( this.s_arr[i][j] == this.C_STARBASE ) {
+					mark = "B";
+										
+				} else if ( this.s_arr[i][j] == this.C_STAR ) {
+					mark = "*";
+				
+			} // if
+			
+			map[i][j] = mark;
+		
+	}} // for i j
+
+	return map;
+
+} // get_short_map
+
 						
 Sector.prototype.torpedo_data = function () {
 	
-	alert("torpedo_data");
+//	alert("torpedo_data");
 	var i = 0;
 	var j = 0;
 	var msg = "";
@@ -188,7 +224,7 @@ Sector.prototype.move = function ( course ) {
 			return this.COURSE_ILLEGAL ;
 		} // if
 		
-		alert("move ...");
+	//	alert("move ...");
 					
 			 
 		var code = this.C_NONE ;
@@ -252,7 +288,7 @@ Sector.prototype.move = function ( course ) {
 	
 Sector.prototype.fire_phaser = function () {
 		
-		alert("fire_phaser");	
+	//	alert("fire_phaser");	
 		
 		var list = [];
 		var i = 0;
@@ -270,8 +306,9 @@ Sector.prototype.fire_phaser = function () {
 	if (Math.random() < 0.5) {
 		this.s_arr[i][j] == this.C_NONE;
 		list.push( [ this.C_KLINGON, i,j ] );
-		 msg = "KLINGON DESTROYED at " +String(i) + " , "+String(j);
-		alert( msg	);	
+		//  msg = "KLINGON DESTROYED at " +String(i) + " , "+String(j);
+		//alert( msg	);
+			
 	} // if random
 
 	} // if C_KLINGON
@@ -330,13 +367,16 @@ Sector.prototype.get_distance = function (x, y) {
 	
 Sector.prototype.fire_torpedo = function (course) {	
 	
-	var code = 	this.C_NONE;
-		
+	// var code = 	this.C_NONE;
+			var list = [];
+				
 		if (( course <1 ) || (  course > 8 ) ) {
 			return  this.COURSE_ILLEGAL ;
 		} // if	
  
-		alert("fire_torpedo");
+	//	alert("fire_torpedo");
+		
+
 		
 		var k = 0;
 		d = this.course.get_delta(course);
@@ -353,26 +393,30 @@ Sector.prototype.fire_torpedo = function (course) {
 			if ( ( x >= 0 ) && ( x < 8 ) &&  ( y >= 0 ) && ( y < 8 ) ) {
 
 					if ( this.s_arr[x][y] == this.C_NONE ) {
-					code = 	this.C_NONE;	
+		//			// code = 	this.C_NONE;
+					list.push( [this.C_NONE, x,y] );	
 					continue;
 						
 				} else if ( this.s_arr[x][y] == this.C_KLINGON ) {
-							code = 	this.C_KLINGON;
+									list.push( [this.C_KLINGON, x,y] );
+							// code = 	this.C_KLINGON;
 	//	alert("KLINGON");					
 					this.decrease_klingon();
 		 this.s_arr[x][y] == this.C_NONE;
 					break;
 					
 				} else if ( this.s_arr[x][y] == this.C_STARBASE ) {
+						list.push( [this.C_STARBASE, x,y] );
 		//			// alert("STARBASE");
-											code = 	this.C_STARBASE;
+											// code = 	this.C_STARBASE;
 					this.decrease_starbase();
 					this.s_arr[x][y] = this.C_NONE;	
 					break;
 					
 				} else if ( this.s_arr[x][y] == this.C_STAR )	{
+								list.push( [this.C_STAR, x,y] );
 						// alert("STAR");
-						code = this.C_STAR ;		
+						// code = this.C_STAR ;		
 					break;
 					
 
@@ -380,15 +424,17 @@ Sector.prototype.fire_torpedo = function (course) {
 	} // if s_arr
 				
 			} else {
+					list.push( [this.TORPEDO_OUT, x,y] );
 				// alert("OUT");
-				code = this.TORPEDO_OUT;
+				// code = this.TORPEDO_OUT;
 		  		break;
 		  	
 		 } // if x y		
 
 	} // for k
 
-	return code;
+	//return code;
+	return list;
 	
 } // fire_torpedo
 	
