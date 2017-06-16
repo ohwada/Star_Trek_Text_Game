@@ -19,17 +19,17 @@ Main.prototype.start_game = function () {
 		this.game.setup();
 		this.device.setup();
 		this.clear_display();
-		this.alert_mission();
+		this.dialog_mission();
 		
 } // start_game
 
 
-Main.prototype.alert_mission = function () {	
+Main.prototype.dialog_mission = function () {	
 
 
-		var title = "=== MISSION ===";
-		var msg = "YOU MUST DESTROY " + this.game.quadrant.num_klingon + " KLINGONS IN " + this.game.days_left + " STARDATES WITH " + this.game.quadrant.num_starbase + " STARBASES";
-		this.alert(title,msg);
+		var title = " MISSION ";
+		var content = "YOU MUST DESTROY " + this.game.quadrant.num_klingon + " KLINGONS IN " + this.game.days_left + " STARDATES WITH " + this.game.quadrant.num_starbase + " STARBASES";
+		this.dialog( title, content );
 		
 } // mission
 
@@ -416,7 +416,7 @@ Main.prototype.check_win = function (course) {
 		var ret = false;
 		if ( this.game.quadrant.num_klingon <= 0 ) {
 			ret = true;
-			this.alert_win();
+			this.dialog_win();
 	} // if
 		
 		return ret;
@@ -424,13 +424,13 @@ Main.prototype.check_win = function (course) {
 } // check_win
 		
 
-Main.prototype.alert_win = function (course) {
+Main.prototype.dialog_win = function (course) {
 	
-	var title = "=== CONGRATULATIONS ===";                            
-	var msg = "THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED \n";
-		msg += "THE FEDERATION HAS BEEN SAVED !!! \n";
-		msg += "YOUR ACTUAL TIME OF MISSION = " + this.game.days_elapsed + " STARDATTES\n"; 
-		this.alert( title, msg );
+	var title = " CONGRATULATIONS ";                            
+	var content = "THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED \n";
+		content += "THE FEDERATION HAS BEEN SAVED !!! \n";
+		content += "YOUR ACTUAL TIME OF MISSION = " + this.game.days_elapsed + " STARDATTES\n"; 
+		this.dialog( title, content );
 				
 } // alert_win
 	
@@ -686,3 +686,21 @@ while (true) {
 			});
 
 } // alarm
+
+
+ Main.prototype.dialog = function ( title, content) {
+ 	
+ 	    var div = $( "#dialog" );
+ 	        div.html( content );
+ 	    div.dialog({
+ 	    	  width: 640,
+         	height: 480,
+            title: title,
+             buttons:{
+    'OK': function() {
+                $(this).dialog('close');
+            } // OK
+        }, // buttons
+    } );   
+
+ 	} // dialog

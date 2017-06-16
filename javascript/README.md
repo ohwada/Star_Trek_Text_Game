@@ -6,7 +6,8 @@ please see wikipedia, for Star Trek Text Game. <br/>
 https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
 
 ## screen shot < br/>
-
+Mission< br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_mission.png" width="300" />  < br/>
 Long renge sensor and Command list< br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_javascript.png" width="300" />  < br/>
 destroy Klingon ships with photon torpedo < br/>
