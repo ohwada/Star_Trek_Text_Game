@@ -54,12 +54,15 @@ for(i=0;i < 8;i++){
  			
  			// enterprise or 50 %
 			if (((i == this.qx) && (j == this.qy)) || (Math.random() < 0.5) ) {
-		this.q_arr[i][j][0] = Math.floor( 3 *　Math.random() ) ;
+				
+		// klingon 1 - 3		
+		this.q_arr[i][j][0] = Math.floor( 2 *　Math.random() ) + 1 ;
 		
-		// strbase 50 %
+		// starbase 0 or 1, 50 %
 		this.q_arr[i][j][1] = ( Math.random() < 0.5 ) ? 1: 0;
 		
-		this.q_arr[i][j][2] = Math.floor( 5 *　Math.random() ) ;
+		// star 1 - 5
+		this.q_arr[i][j][2] = Math.floor( 4 *　Math.random() ) + 1 ;
 		
 		} // if enterprise or 50 %
 } // if3x3 area

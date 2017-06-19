@@ -373,39 +373,79 @@ Main.prototype.proc_torpedo = function (course) {
 	Main.prototype.proc_impulse = function (course) {		
 		
 		var msg = "";				
-		var code = this.game.move(course);
-			if ( code == this.game.sector.MOVE_TO ) {
+		var list = this.game.move(course);
+		var length = list.length ;
+				if ( length == 0 ){
+			// no result
+			return;
+		} // if
+		
+		var k = 0;
+		var param = [];	
+		var code = 0;
+		var x = 0;
+		var y = 0;
+		
+
+		
+		for (k=0; k< length; k++ ) {
+			
+			param = list[k];
+			code = param[0];
+		var x = param[1];
+		var y = param[2];
+		
+						if ( code == this.game.sector.MOVE_FROM ) {
+							// remove current position
+							this.set_map2_html( x, y, " " );
+												continue;
+							
+			} else if ( code == this.game.sector.MOVE_TO ) {
+							// move to
+							this.set_map2_html( x, y, "E" );
 				msg = "move to " + String(this.game.sector.sx) + " , " + String(this.game.sector.sy);
-				this.info( msg );			
+				this.info( msg );
+									break;			
 				
 		} else if ( code == this.game.sector.C_KLINGON ) {
-			this.info ( "onflicted with KLINGON" );
+				// conflicted
+					this.set_map2_backgroundColor( x,y, "red" );
+			this.info ( "conflicted with KLINGON" );
 		// damege
 			this.game.shield = 0;
-			this.device.damege_all();	
+			this.device.damege_all();
+						break;	
 							
 		} else if ( code == this.game.sector.C_STARBASE ) {
 				this.info( "docked in STARBASE" );
 		// repair	
 			this.game.dockin();
 			this.device.repair_all();
+								break;
 			
 			} else if ( code == this.game.sector.C_STAR )	{
 					this.info( "landed on STAR" );
+					break;
 		
 		} else if ( code == this.game.sector.MOVE_OUT_UP ) {
 			this.game.warp( this.course.COURSE_UP, 1 );
-			
+							break;
+								
 		} else if ( code == this.game.sector.MOVE_OUT_DOWN ) {
 			this.game.warp( this.course.COURSE_DOWN, 1 );
-			
+								break;
+								
 		} else if ( code == this.game.sector.MOVE_OUT_LEFT ){
 			this.game.warp( this.course.COURSE_LEFT, 1 );
-			
+								break;
+								
 		} else if ( code == this.game.sector.MOVE_OUT_RIGHT ) {
 			this.game.warp( this.course.COURSE_RIGHT, 1 );
-			
+							break;
+								
 		} // if
+	
+	} // for k
 		
 } // proc_impulse
 
@@ -554,14 +594,26 @@ this.is_map_short = true;
 
 
 
-Main.prototype.set_map2_backgroundColor = function ( i,j,color ) {
+Main.prototype.set_map2_html = function ( x, y, mark ) {
+
+if ( ! this.is_map_short ) {
+	return
+	} // if	
+	
+var table = document.getElementById("map2");
+var cell = table.rows[x].cells[y];
+cell.innerHTML = mark + "&nbsp;";	
+	
+} // set_map2_html
+
+Main.prototype.set_map2_backgroundColor = function ( x, y, color ) {
 	
 if ( ! this.is_map_short ) {
 	return
 	} // if		
 					
 var table = document.getElementById("map2");
-var cell = table.rows[i].cells[j];
+var cell = table.rows[x].cells[y];
 cell.style.backgroundColor = color;
 
 } // set_map2_backgroundColor

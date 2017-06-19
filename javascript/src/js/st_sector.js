@@ -11,11 +11,12 @@ var Sector = function () {
 	this.C_KLINGON = 2;
 	this.C_STARBASE = 3;
 	this.C_STAR = 4;
-	 	this.MOVE_TO = 21;
- 	this.MOVE_OUT_UP = 22;
- 	this.MOVE_OUT_DOWN = 23;
- 	this.MOVE_OUT_LEFT = 24;
- 	this.MOVE_OUT_RIGHT = 25;
+		 	this.MOVE_FROM = 21;
+	 	this.MOVE_TO = 22;
+ 	this.MOVE_OUT_UP = 23;
+ 	this.MOVE_OUT_DOWN = 24;
+ 	this.MOVE_OUT_LEFT = 25;
+ 	this.MOVE_OUT_RIGHT = 26;
  	
  	this.TORPEDO_OUT = 31;
  	
@@ -225,9 +226,10 @@ Sector.prototype.move = function ( course ) {
 		} // if
 		
 	//	alert("move ...");
-					
+	
+	list = [];				
 			 
-		var code = this.C_NONE ;
+	//	var code = this.C_NONE ;
 		var msg = "";
 		
 		var d = this.course.get_delta(course );
@@ -240,47 +242,61 @@ Sector.prototype.move = function ( course ) {
 	
 			if ( this.s_arr[x][y] == this.C_NONE )	{
 				
-				// remove current position
+				// move from, remove current position
+				list.push( [ this.MOVE_FROM, this.sx, this.sy ] );
 		this.s_arr[this.sx][this.sy] = this.C_NONE ;
 		
 					// move to	
-					code = this.MOVE_TO ;
+							list.push( [ this.MOVE_TO, x, y ] );
+					//code = this.MOVE_TO ;
 					this.s_arr[x][y] = this.C_ENTERPRISE ;
 					this.sx = x ;
 					this.sy = y ;
 		
 					
 			} else if ( this.s_arr[x][y] == this.C_KLINGON ) {
-					code = self.C_KLINGON ;
+					// conflct
+								list.push( [ this.C_KLINGON, x, y ] );
+				 	// destroy				
+							this.s_arr[x][y] = this.C_NONE;
+							this.decrease_klingon();	
+					// code = self.C_KLINGON ;
 
 
 			
 			} else if ( this.s_arr[x][y] == this.C_STARBASE ) {
-					code = this.C_STARBASE ;
+												list.push( [ this.C_STARBASE, x, y ] );
+					// code = this.C_STARBASE ;
 				
 
 			} else if ( this.s_arr[x][y] == this.C_STAR )	{
-					code = this.C_STAR ;
+					list.push( [ this.C_STAR, x, y ] );
+					// code = this.C_STAR ;
 					
 			} // s_arr
 	
 		} else if ( x < 0 ) {
-				code = this.MOVE_OUT_UP ;
+								list.push( [ this.MOVE_OUT_UP, x, y ] );
+				// code = this.MOVE_OUT_UP ;
 				
 		 } else if ( x >= 8 ) {
-				code = this.MOVE_OUT_DOWN ;
+		 		list.push( [ this.MOVE_OUT_DOWN, x, y ] );
+				// code = this.MOVE_OUT_DOWN ;
 
 								
 		} else if ( y < 0 ) {
-				code = this.MOVE_OUT_LEFT ;
+				list.push( [ this.MOVE_OUT_LEFT, x, y ] );
+				// code = this.MOVE_OUT_LEFT ;
 				
 		} 	else if ( y >= 8 ) {
-				code = this.MOVE_OUT_RIGHT ;
+							list.push( [ this.MOVE_OUT_RIGHT, x, y ] );
+				// code = this.MOVE_OUT_RIGHT ;
 		
 		} // if x y
 		
 		
-		return code ; 
+		return list;
+		//return code ; 
 	
 } // move
 
