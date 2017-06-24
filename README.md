@@ -22,20 +22,25 @@ Python と JavaScript とAndroid の３つを作りました。<br/>
 ## python <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/python <br/>
 
-screen shot <br/>
+Screen shot <br/>
 short renge sensor
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_short_sensor.png" width="300" />  < br/>
 
 ## JavaScript <br/>
+
+Demo site < br/>
+http://startrek.ohwada.jp/ < br/>
+
+Source code < br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/javascript <br/>
 
-screen shot <br/>
+Screen shot <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_javascript.png" width="300" />  < br/>
 
 ## Android <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/ <br/>
 
-screen shot <br/>
+Screen shot <br/>
 short renge sensor <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
 

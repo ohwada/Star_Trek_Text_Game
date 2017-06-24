@@ -1,11 +1,14 @@
 # JavaScript - Star Trek Text Game
 
-## overview
+## Overview
 this is ported Star Trek Text Game to JavaScript.
 please see wikipedia, for Star Trek Text Game. <br/>
 https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
 
-## screen shot < br/>
+## Demo site < br/>
+http://startrek.ohwada.jp/ < br/>
+
+## Screen shot < br/>
 Mission< br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_mission.png" width="300" />  < br/>
 Long renge sensor and Command list< br/>
@@ -13,7 +16,7 @@ Long renge sensor and Command list< br/>
 destroy Klingon ships with photon torpedo < br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_torpedo.png" width="300" />  < br/>
 
-## usage < br/>
+## sage < br/>
 Please read the rules of the game at first.  < br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md < br/>
 
@@ -32,7 +35,7 @@ or double click on the file index.html with File Brawser< br/>
 HP-BASIC Author Mike Mayfield
 http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1
 
-## suport <br/>
+## Suport <br/>
 FaceBook　Group in Japsnese <br/>
 https://www.facebook.com/groups/174928253035786/
 
