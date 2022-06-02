@@ -1,6 +1,6 @@
-# python - Star Trek Text Game
+# Python - Star Trek Text Game
 
-Star Trek Game using oython <br/>
+Star Trek Game using python <br/>
 
 A tribute to the classic game <br/>
 https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
@@ -37,6 +37,6 @@ python star_trek.py < br/>
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
 ## Original
-HP-BASIC Author Mike Mayfield
+HP-BASIC Star Trek Author Mike Mayfield
 http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1
 
