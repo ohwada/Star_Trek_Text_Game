@@ -646,7 +646,6 @@ void Quadrant::procDock()
         minusDays(10);
 
         energy += PER_ENERGY;
-        shields += PER_SHIELDS;
         torpedos +=  PER_TORPEDOS;
         isTubeAvailable = true;
 

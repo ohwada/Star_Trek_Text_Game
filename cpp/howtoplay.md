@@ -116,7 +116,8 @@ and educet Shields <br/>
 
 ### Feature of the the Base
 
-You can supply energy, shields and torpedoes. <br/>
+You can supply energy and torpedoes. <br/>
+ not supply shields <br/>
 You can repair the TorpedoTubes. <br/>
 The Base protect the Enterprise  and the Enterprise not damaged  <br/>
  You cannot fire torpedoes while docking at the Base  <br/>
