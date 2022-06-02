@@ -7,7 +7,7 @@ https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
 
 this is ported Star Trek Text Game to  JavaScript. <br/>
 
-## Screen Shot < br/>
+## Screen Shot <br/>
 Mission< br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_mission.png" width="300" />  <br/>
 Long renge sensor and Command list <br/>
