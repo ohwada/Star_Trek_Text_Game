@@ -9,10 +9,10 @@ it is a certain Quadrant <br/>
 ### Win or Lose
 
 Win: <br/>
-You destroy all Klingons within the specified number of days. <BR/>
+You destroy all Klingons within the deadline of the mission <br/>
 
 Lose: <br/>
-if exceed the specified number of days. <br/>
+if exceed the deadline of the mission. <br/>
 or if the shield disappears and the Enterprise is destroyed, <br/>
 
 ### Screen
@@ -33,7 +33,7 @@ even if it is zero, You can move Enterprise <br/>
 You can refill at the Base <br/>
 
 Shields : <br/>
-used to protect the Enterprise <br/>
+protect the Enterprise <br/>
 decreased due to collision with Klingons or attack from Klingons <br/>
 if it is zero, the Game is over <br/>
 You can refill from Energy <br/>
