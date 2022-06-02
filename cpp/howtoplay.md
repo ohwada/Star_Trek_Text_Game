@@ -19,7 +19,7 @@ or if the shield disappears and the Enterprise is destroyed, <br/>
 
 on the left <br/>
 the Quadrant map is displayed <br/>
-and Enterprise(E), Klingons(K), Base(B), Stars(*) are displayed.  <br/>
+and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
 on the right, <br/>
 the status report is displayed <br/>
 below, <br/>
@@ -32,7 +32,7 @@ consumed when moving Enterprise or launching Torpedoes <br/>
 even if it is zero, You can move Enterprise <br/>
 You can refill at the Base <br/>
 
-Shield : <br/>
+Shields : <br/>
 used to protect the Enterprise <br/>
 decreased due to collision with Klingons or attack from Klingons <br/>
 if it is zero, the Game is over <br/>
@@ -43,7 +43,8 @@ destroy Klingons <br/>
 occasionally fail to launch <br/>
 You can supply at the Base <br/>
 
-Torpedo Launcher : <br/>
+TorpedoTubes : <br/>
+launch Photon Torpedos <br/>
  occasionally breaks down <br/>
 at that time, You can repair at the Base <br/>
 
@@ -57,11 +58,11 @@ Arrow Key  [↑] [↓] [←] [→] : move the Enterprise <br/>
 [SPACE] : go to Command mode <br/>
     You can use the following commands  <br/>
 
-[t] : enter the angle and launch a Torpedo <br/>
+[t] : enter the angle and fire a Torpedo <br/>
 
-[s] :enter the amount of Energy to refill Shield <br/>
+[s] :enter the amount of Energy to refill Shields <br/>
 
-[z] : exit Command mode  <br/>
+[z] : exit Command Mode  <br/>
     or undock from the Base <br/>
 
 ###  Enterprise Move
@@ -70,7 +71,7 @@ Behavior when colliding　<br/>
 
 Klingons : <br/>
 destroy Klingon if the Enterprise has 200 or more Shields　<br/>
-damage Enterprise and reduces Shield　<br/>
+damage Enterprise and reduces Shields <br/>
 
 Base : <br/>
 Move mode is canceled, <br/>
@@ -111,7 +112,7 @@ randomly counterattack from each Kilingon <br/>
 display as below <br/>
 hit 123 fromK(4, 5) <br/>
 
-and educet Shield <br/>
+and educet Shields <br/>
 
 ### Feature of the Base
 
@@ -120,17 +121,17 @@ repair the Torpedo Launcher. <br/>
 protect the Enterprise  and not damaged  <br/>
 
 
-### Decrease in Days
+### Decrease in StarDates
 
- move The Enterprise : 2 days  <br/>
-fire Torpedo : 1 day  <br/>
-supply at the Base : 10 days  <br/>
+ move The Enterprise : 2 dates  <br/>
+fire Torpedo : 1 date  <br/>
+supply at the Base : 10 dates  <br/>
 
 if 40 days or less <br/>
 display the following message <br/>
-Warning: there are no Days left <br/>
+Warning: there are no Dates left <br/>
 
-### Reduction of Shield 
+### Reduction of Shields 
 
 collide with the Klingon : random value about 150 points <br/> 
 
@@ -138,7 +139,7 @@ counterattack from Klingon : random value about 100 points<br/>
 
 if 200 points or less <br/>
 display the following message <br/>
-Warning: the Shield drops to danger <br/>
+Warning: Shields Dangerously Low <br/>
 
 You can refill from Energy <br/>
 
@@ -146,11 +147,11 @@ You can refill from Energy <br/>
 
  move The Enterprise : 10 points <br/>
 
-launch a Torpedo :  1points <br/>
+fire a Torpedo :  1points <br/>
 
  refresh of  Status Report :  1points <br/>
 
-fill Shield : decrease by that amount. <br/>
+refill Shield : decrease by that amount. <br/>
 
 You can refill at the Base <br/>
 

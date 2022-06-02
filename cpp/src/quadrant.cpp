@@ -22,11 +22,11 @@ const char CHAR_SPACE = ' ';
  */
 Quadrant::Quadrant() 
 {
-    days = 0;
+     dates = 0;
     energy = 0;
-    shield = 0;
-    torpedo = 0;
-    isLauncherAvailable = true;
+    shields = 0;
+    torpedos = 0;
+    isTubeAvailable = true;
 
     e.setChar(CHAR_E);
     b.setChar(CHAR_B); 
@@ -47,7 +47,7 @@ Quadrant::~Quadrant()
  */
 void Quadrant::init() 
 {
-    isLauncherAvailable = true;
+    isTubeAvailable = true;
 
 // from the second time
 // remove the previous element
@@ -71,10 +71,10 @@ void Quadrant::init()
  */
 void Quadrant::start(int num_k) 
 {
-    days = PER_DAYS *  num_k;
+     dates = PER_DATES *  num_k;
     energy = PER_ENERGY  *  num_k;
-    shield = PER_SHIELD  *  num_k;
-    torpedo = PER_TORPEDO *  num_k;
+    shields = PER_SHIELDS  *  num_k;
+    torpedos = PER_TORPEDOS *  num_k;
 
     int num_s = genRand(3, 6);
 
@@ -132,17 +132,17 @@ int  Quadrant::judgeWinLose(bool isMsg)
         return RET_WIN;
     }
 
-    if( ( shield == 0)||(days == 0) ) {
+    if( ( shields == 0)||( dates == 0) ) {
         return RET_LOSE;
     }
 
     if(isMsg) {
         clearMsg4();
-        if(shield < 200) {
-            printMsg4( (char *)"Warning: the Shield drops to danger ");
+        if(shields < 200) {
+            printMsg4( (char *)"Warning: Shields Dangerously Low");
         } 
-        if(days < 40) {
-           printMsg4( (char *)"Warning: there are no Days left" );
+        if( dates < 40) {
+           printMsg4( (char *)"Warning: there are no Dates left" );
         }
     }    
 
@@ -439,19 +439,19 @@ void Quadrant::printReport()
     clearReport();
     int y = RIGHT +2;
     move(1, y);
-    printw("Days: %d ", days);
+    printw("Dates: %d ",  dates);
     move(2, y);
     printw("Klingons: %d ", (int)klingons.size() );
     move(3, y);
     printw("Energy: %d ", energy);
     move(4, y);
-    printw("Shield: %d ", shield);
+    printw("Shields: %d ", shields);
     move(5, y);
-    printw("Torpedos: %d ",   torpedo);
+    printw("Torpedos: %d ",   torpedos);
    move(6, y);
-    addstr("Launcher: ");
+    addstr("Tubes: ");
 
-    if( isLauncherAvailable) {
+    if( isTubeAvailable) {
         addstr("Green ");
     } else {
         addstr("RED   ");
@@ -586,7 +586,7 @@ bool Quadrant::collideKingonsWithT(int x, int y)
 bool Quadrant::collideKingonWithE(int num, int x, int y)
 {
         bool flag = false;
-        if(shield > 200) {
+        if(shields > 200) {
                 eraseKilingon(num);
                 addSpace(x, y);
                stateWithE();
@@ -646,12 +646,12 @@ void Quadrant::procDock()
         minusDays(10);
 
         energy += PER_ENERGY;
-        shield += PER_SHIELD;
-        torpedo +=  PER_TORPEDO;
-        isLauncherAvailable = true;
+        shields += PER_SHIELDS;
+        torpedos +=  PER_TORPEDOS;
+        isTubeAvailable = true;
 
         printReport();
-        printMsg1((char *)"Docked");
+        printMsg1((char *)"Docked in Base");
         printMsg2((char *)"[z] undock");
         return;
 }
@@ -841,6 +841,9 @@ int Quadrant::moveTorpedo(int deg)
 {
 
     if( (deg<0)||(deg>360) ){
+            int x = BOTTOM +4;
+            move(x, 2);
+            printw( (char *)"invalid value : %d", deg);
             return  RET_INVALID;
     }
 
@@ -850,12 +853,12 @@ int Quadrant::moveTorpedo(int deg)
         return RET_T_FAILD;
     }
 
-// the torpedo is fired once a day
+// a torpedo is fired once a day
     minusDays(1);
 
 // break down
         if( isOnceInTimes(20) ){
-            isLauncherAvailable = false;
+            isTubeAvailable = false;
         }
 
     // degree -> radian
@@ -936,7 +939,7 @@ void Quadrant::stateFail()
 {
         int damege  = genRand(50, 120);
         minusShield(damege);
-        printMsg1( (char *)"Not enough shield");
+        printMsg1( (char *)"Not enough shields");
         int x = BOTTOM +3;
         move(x, 2);
         printw("damege: %d", damege);
@@ -974,9 +977,9 @@ void Quadrant::minusEnergy(int num)
  */
 void Quadrant::minusShield(int num)
 {
-    shield -= num;
-    if(shield < 0) {
-        shield = 0;
+    shields -= num;
+    if(shields < 0) {
+        shields = 0;
     }
     return;
 }
@@ -987,9 +990,9 @@ void Quadrant::minusShield(int num)
  */
 void Quadrant::minusTorpedo(int num)
 {
-    torpedo -= num;
-    if(torpedo < 0) {
-        torpedo = 0;
+    torpedos -= num;
+    if(torpedos < 0) {
+        torpedos = 0;
     }
     return;
 }
@@ -1000,9 +1003,9 @@ void Quadrant::minusTorpedo(int num)
  */
 void Quadrant::minusDays(int num)
 {
-    days -= num;
-    if(days < 0) {
-        days = 0;
+     dates -= num;
+    if( dates < 0) {
+         dates = 0;
     }
     return;
 }
@@ -1015,7 +1018,7 @@ void Quadrant::doShield(int num)
 {
 
     if(energy > num){
-                shield += num;
+                shields += num;
                 energy -= num;
                 printReport();
         } else {
@@ -1032,11 +1035,11 @@ void Quadrant::doShield(int num)
 int Quadrant::checkTorpedo()
 {
 
-     if( ! isLauncherAvailable ) {
+     if( ! isTubeAvailable ) {
         return RET_T_BROKEN;
     }
 
-    if (torpedo == 0) {
+    if (torpedos == 0) {
         return RET_T_EMPTY;
     }
  

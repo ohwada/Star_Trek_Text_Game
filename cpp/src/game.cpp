@@ -85,9 +85,7 @@ switch(ch)
         moveE(ch);
         break;
     case KEY_SPACE:
-        if( ! isCommand ){
-            procComand();
-        }
+        procComand();
         break;
     case KEY_S:
         if(isCommand){
@@ -192,13 +190,24 @@ switch(ch)
  */
 void Game::procComand()
 {
+
+   if(isCommand){
+        return;
+    }
+
+   if(isDocked){
+        printMsg1( (char *)"in docking");
+        printMsg2( (char *)"Please undock");
+        return;
+    }
+
    isCommand = true;
     isMove = false;
     isTorpedoDraw = false;
     printComandMode();
-    printMsg2( (char *)"[s] Shied");
-    printMsg3( (char *)"[t] Torpedo");
-    printMsg4( (char *)"[z] release mode");
+    printMsg2( (char *)"[s] refill Shieds");
+    printMsg3( (char *)"[t] fire Torpedo");
+    printMsg4( (char *)"[z] exit Command mode");
 
 }
 
@@ -258,7 +267,7 @@ void Game::printComandMode()
     } else if ( ret == RET_T_EMPTY ) {
             printMsg2( (char *)"no Torpedo");
     } else if ( ret == RET_T_BROKEN) {
-            printMsg2( (char *)"Launcher is out of order");
+            printMsg2( (char *)"Torpedo Tubes are out of order");
             printMsg3( (char *)"Repair at the Base");
     } 
 
@@ -304,8 +313,6 @@ void Game::moveTorpedo(int num)
         isTorpedoDraw = true;
     } else if(ret ==  RET_T_FAILD ) {
         printMsg3( (char *)"failed to launch");
-        } else if(ret ==  RET_INVALID ) {
-            printMsg3( (char *)"invalid value");
         }
 
     return;
@@ -323,12 +330,13 @@ void Game::procZ()
             if( isTorpedoDraw ) {
                 reDraw();
                 isTorpedoDraw = false;
-            }    
+            } else {
+                clearMsgArea();
+            }   
     } else if(isDocked) {
             isDocked = false;
             isMove= true;
-            clearMsg1();
-            clearMsg2();
+            clearMsgArea();
     }
 
     return;

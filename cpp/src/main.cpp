@@ -30,7 +30,7 @@ const char TITLE3[] = "      ,-------------   '---  ------ ";
 const char TITLE4[] = "       '-------- --'      / / ";
 const char TITLE5[] = "       ,---' '-------/ /-- ";
 const char TITLE6[] = "            '---------------- ";
- const char TITLE7[] = "You must destroy %d Klingons in %d Stardates"; 
+ const char TITLE7[] = "You must destroy %d Klingons in %d StarDates"; 
 
  const char TITLE8[] = "Are You ready (y/n) "; 
  
@@ -138,7 +138,7 @@ void printTitle(int num_k)
 
     int y3 = cy - strlen(TITLE7)/2;
     
-    int days = PER_DAYS *  num_k;
+    int days = PER_DATES *  num_k;
 
     clear();
     attron(A_BOLD);	

@@ -11,10 +11,10 @@
  #include "object.hpp"
 
 // number per klingon
-const int PER_DAYS =  20;
+const int PER_DATES =  25;
 const int PER_ENERGY = 140;
-const int PER_SHIELD = 80;
-const int PER_TORPEDO = 7;
+const int PER_SHIELDS = 80;
+const int PER_TORPEDOS = 7;
 
 // return code
 const char RET_WIN = 1;
@@ -93,10 +93,10 @@ private:
    std::vector<Object> klingons; 
     std::vector<Object> stars; 
     int energy;
-    int shield;
-    int torpedo;
-    int days;
-    bool isLauncherAvailable;
+    int shields;
+    int torpedos;
+    int  dates;
+    bool isTubeAvailable;
 
 };
 

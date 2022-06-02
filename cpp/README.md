@@ -27,7 +27,7 @@ https://www.gnu.org/software/make/ <br/>
 ### Build and Run the file <br/>
 
 % make <br/>
-% ./bin/game <br/>
+% bin/game <br/>
 
 ### How to Play <br/>
 
