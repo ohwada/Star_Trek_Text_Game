@@ -8,13 +8,13 @@ https://en.wikipedia.org/wiki/Star_Trek_(text_game)
 
 ## Screen Shot < br/>
 Title <br/>
-<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/scrrenshot_cpp_title.png" width="300" />  < br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/scrrenshot_cpp_title.png" width="300" />  <br/>
 
 Command [t] <br/>
-<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_cmd_torpedo.png" width="300" />  < br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_cmd_torpedo.png" width="300" />  <br/>
 
 Torpedo Trajectory <br/>
-<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_trajectory.png" width="300" />  < br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_trajectory.png" width="300" />  <br/>
 
 ### Requires <br/>
 - ncurses <br/>
