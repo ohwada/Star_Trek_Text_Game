@@ -1,11 +1,13 @@
 # python - Star Trek Text Game
 
-## overview
-this is ported Star Trek Text Game to python.
-please see wikipedia, for Star Trek Text Game. <br/>
-https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
+Star Trek Game using oython <br/>
 
-## screen shot < br/>
+A tribute to the classic game <br/>
+https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
+
+this is ported Star Trek Text Game to python. <br/>
+
+## Screen Shot < br/>
 
 mission
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_mission.png" width="300" />  < br/>
@@ -24,10 +26,11 @@ short renge sensor
 Please read the rules of the game at first.  < br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md < br/>
 
-### require < br/>
+### Require < br/>
 python 2.7 < br/>
+https://www.python.org/< br/>
 
-### run < br/>
+### Run the file < br/>
 python star_trek.py < br/>
 
 ## License 
@@ -37,9 +40,3 @@ python star_trek.py < br/>
 HP-BASIC Author Mike Mayfield
 http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1
 
-## suport <br/>
-FaceBook　Group in Japsnese <br/>
-https://www.facebook.com/groups/174928253035786/
-
-blog (in Japsnese) <br/>
-http://android.ohwada.jp/archives/7416 <br/>

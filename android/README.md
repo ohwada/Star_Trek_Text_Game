@@ -1,20 +1,13 @@
 # Android - Star Trek Text Game
 
-## Star Trek<br/>
-this application ported [Star Trek Text Game](https://en.wikipedia.org/wiki/Star_Trek_(text_game)) to Android.
+Star Trek Game using  Android <br/>
 
-## how to get app <br/> 
-(1)Build yourself from the source code
-(2)download pre-built apps
+A tribute to the classic game <br/>
+https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
 
-アプリの入手方法 <br/>
-（１）ソースコードから自分でビルドする <br/>
-https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/StarTrek
+this is ported Star Trek Text Game to  Android <br/>
 
-(2)ビルド済みのアプリをダウンロードする
-https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/
-
-### screen shot <br/>
+### Screen Shot <br/>
 long renge sensor <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  /> <br/>
 
@@ -24,12 +17,20 @@ short renge sensor <br/>
 destroy Klingon ships with photon torpedo　<br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
 
+### Require < br/>
+Android Stadio < br/>
+https://developer.android.com/studio < br/>
 
+## How to get app <br/> 
+(1)Build yourself from the source code  <br/>
 
-## suport <br/>
-FaceBook　Group in Japsnese <br/>
-https://www.facebook.com/groups/174928253035786/
+(2)download pre-built apps
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/ <br/>
 
+## License 
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
-blog (in Japsnese) <br/>
-http://android.ohwada.jp/archives/7370 <br/>
+## Reference
+HP-BASIC Stsr Trek  < br/>
+http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1  < br/>
+

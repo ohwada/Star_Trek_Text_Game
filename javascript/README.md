@@ -1,14 +1,13 @@
 # JavaScript - Star Trek Text Game
 
-## Overview
-this is ported Star Trek Text Game to JavaScript.
-please see wikipedia, for Star Trek Text Game. <br/>
-https://en.wikipedia.org/wiki/Star_Trek_(text_game) < br/>
+Star Trek Game using  JavaScript <br/>
 
-## Demo site < br/>
-http://startrek.ohwada.jp/ < br/>
+A tribute to the classic game <br/>
+https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
 
-## Screen shot < br/>
+this is ported Star Trek Text Game to  JavaScript. <br/>
+
+## Screen Shot < br/>
 Mission< br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_mission.png" width="300" />  < br/>
 Long renge sensor and Command list< br/>
@@ -16,28 +15,23 @@ Long renge sensor and Command list< br/>
 destroy Klingon ships with photon torpedo < br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/screenshot_js_torpedo.png" width="300" />  < br/>
 
-## sage < br/>
+## Usage < br/>
 Please read the rules of the game at first.  < br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md < br/>
 
-### require < br/>
+### Require < br/>
 - Web Browser < br/>
 - jQuery < br/>
+https://jquery.com/ < br/>
 
-### run < br/>
+### run the file < br/>
 open the file index.html with Web Brawser < br/>
 or double click on the file index.html with File Brawser< br/>
 
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
-## Original
-HP-BASIC Author Mike Mayfield
-http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1
+## Reference
+HP-BASIC Stsr Trek  < br/>
+http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1  < br/>
 
-## Suport <br/>
-FaceBook　Group in Japsnese <br/>
-https://www.facebook.com/groups/174928253035786/
-
-blog (in Japsnese) <br/>
-http://android.ohwada.jp/archives/7429 <br/>
