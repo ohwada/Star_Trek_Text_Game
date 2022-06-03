@@ -27,6 +27,13 @@ https://developer.android.com/studio <br/>
 (2)download pre-built apps
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/ <br/>
 
+#### Note:  <br/>
+other than me, there are people who made the Android version.  <br/>
+It seems that the source and apk are not released.  <br/>
+  
+youtube : Star Trek Text Game for Android  <br/>
+https://www.youtube.com/watch?v=SIb9Qbl1dIw)  <br/>
+
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
 
