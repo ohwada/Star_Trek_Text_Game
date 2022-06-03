@@ -467,8 +467,8 @@ void Quadrant::printReport()
 void Quadrant::clearReport()
 {
     int y = RIGHT +2;
-    for(int x=1; x<6; x++) {
-        clearLine(x,y, 50);
+    for(int x=1; x<7; x++) {
+        clearLine(x, y, 50);
     }
 }
 
@@ -823,8 +823,7 @@ void Quadrant::counterAttackPos(int x, int y, bool isMsg)
 
     if( isMsg ) {
         clearMsg1();
-        int px = BOTTOM +2;
-        move(px, 2);
+        move(MSG_X1, 2);
         printw("hit %d from K(%d, %d)", damege, x, y);
         printReport();
     }
@@ -840,8 +839,7 @@ int Quadrant::moveTorpedo(int deg)
 {
 
     if( (deg<0)||(deg>360) ){
-            int x = BOTTOM +4;
-            move(x, 2);
+            move(MSG_X3, 2);
             printw( (char *)"invalid value : %d", deg);
             return  RET_INVALID;
     }
@@ -923,8 +921,7 @@ void Quadrant::stateWithE()
     minusShield(damege);
     printMsg1( (char *)"destroy Klingon" );
 
-    int x = BOTTOM +3;
-    move(x, 2);
+    move(MSG_X2, 2);
     printw("damege: %d", damege);
 
     printReport();
@@ -939,8 +936,8 @@ void Quadrant::stateFail()
         int damege  = genRand(50, 120);
         minusShield(damege);
         printMsg1( (char *)"Not enough shields");
-        int x = BOTTOM +3;
-        move(x, 2);
+
+        move(MSG_X2, 2);
         printw("damege: %d", damege);
 
         printReport();

@@ -12,13 +12,21 @@
 #define LEFT 0
 #define RIGHT 25
 
+const int MSG_X1 = BOTTOM + 2; 
+const int MSG_X2 = BOTTOM + 3; 
+const int MSG_X3 = BOTTOM + 4; 
+const int MSG_X4 = BOTTOM + 5; 
+
+const int CLEAR_MSG_MAX = RIGHT + 20; 
+
 bool matchBorder(int x, int y);
 bool nearBorder(int x, int y);
-int drawBorder();
+void drawBorder();
 void printMsg1( char *msg);
 void printMsg2( char *msg);
 void printMsg3( char *msg);
 void printMsg4( char *msg);
+void printMsg( int x, int y, char *msg);
 void clearMsg1();
 void clearMsg2();
 void clearMsg3();

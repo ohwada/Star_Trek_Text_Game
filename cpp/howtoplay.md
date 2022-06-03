@@ -17,13 +17,15 @@ or if the shield disappears and the Enterprise is destroyed, <br/>
 
 ### Screen
 
-on the left <br/>
-the Quadrant map is displayed <br/>
-and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
 on the right, <br/>
 the status report is displayed <br/>
 below, <br/>
 some  messages are displayed. <br/>
+
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_cmd_torpedo.png" width="300" />  <br/>
+on the left <br/>
+the Quadrant map is displayed <br/>
+and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
 
 ###  Equipment of the Enterprise
 
@@ -65,7 +67,7 @@ Arrow Key  [↑] [↓] [←] [→] : move the Enterprise <br/>
 [z] : exit Command Mode  <br/>
     or undock from the Base <br/>
 
-###  Enterprise Move
+###  move Enterprise
 
 Behavior when colliding　<br/>
 
@@ -83,7 +85,7 @@ Stars and borders : <br/>
 You can't move on. <br/>
 plese detour, <br/>
 
-### Torpedo Launch and Action
+### fire Torpedo
 
  Launch : <br/>
 enter the angle and launch <br/>
@@ -102,6 +104,8 @@ or until hit Klingons, Base, or Stars <br/>
 if hit, that will be destroyed <br/>
 
 the trajectory is displayed as @ <br/>
+
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_trajectory.png" width="300" />  <br/>
 
  ###  Operation of Klingon
 

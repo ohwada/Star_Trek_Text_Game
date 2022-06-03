@@ -4,8 +4,6 @@
  */
 
 
-// g++  main.cpp game.cpp board.cpp object.cpp border.cpp input_num.cpp  -o  game  `pkg-config --cflags --libs ncurses`
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

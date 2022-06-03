@@ -1,6 +1,9 @@
 /**
  * border.cpp
- * 2020-05-01 K.OHWADA
+ * 2020-05-01 K.OHWADA 
+*
+ * draw Border
+ * utility : curses, random, timer
  */
 
 #include <stdlib.h>
@@ -43,7 +46,7 @@ if( matchBorder(x, y) ) {
 /**
  * drawBorder
  */
-int drawBorder()
+void drawBorder()
 {
     int x, y;
 
@@ -71,8 +74,10 @@ int drawBorder()
         addch(CHAR_LEFT);
     }
 
-    return 0;
 }
+
+
+// === curses utility ===
 
 
 /**
@@ -81,11 +86,7 @@ int drawBorder()
 void printMsg1( char *msg)
 {
     clearMsg1();
-
-    int x = BOTTOM +2;
-    move(x, 2);
-    addstr(msg);
-    return;
+    printMsg( MSG_X1, 2, msg);
 }
 
 
@@ -95,11 +96,7 @@ void printMsg1( char *msg)
 void printMsg2( char *msg)
 {
     clearMsg2();
-
-    int x = BOTTOM +3;
-    move(x, 2);
-    addstr(msg);
-    return;
+    printMsg( MSG_X2, 2, msg);
 }
 
 
@@ -109,11 +106,7 @@ void printMsg2( char *msg)
 void printMsg3( char *msg)
 {
     clearMsg3();
-
-    int x = BOTTOM +4;
-   move(x, 2);
-    addstr(msg);
-    return;
+    printMsg( MSG_X3, 2, msg);
 }
 
 /**
@@ -122,19 +115,27 @@ void printMsg3( char *msg)
 void printMsg4( char *msg)
 {
     clearMsg4();
+    printMsg( MSG_X4, 2, msg);
+}
 
-    int x = BOTTOM +5; 
-    move(x, 2);
+
+/**
+ * printMsg
+ */
+void printMsg( int x, int y, char *msg)
+{
+    move(x, y);
     addstr(msg);
     return;
 }
+
 
 /**
  * clearMsg1
  */
 void clearMsg1()
 {
-    clearLine( (BOTTOM +2), 0, 50);
+    clearLine( MSG_X1, 0, CLEAR_MSG_MAX );
 }
 
 
@@ -143,7 +144,7 @@ void clearMsg1()
  */
 void clearMsg2()
 {
-    clearLine( (BOTTOM +3), 0, 50);
+    clearLine( MSG_X2, 0, CLEAR_MSG_MAX );
 }
 
 
@@ -152,7 +153,7 @@ void clearMsg2()
  */
 void clearMsg3()
 {
-    clearLine( (BOTTOM +4), 0, 50);
+    clearLine( MSG_X3, 0, CLEAR_MSG_MAX );
 }
 
 
@@ -161,7 +162,7 @@ void clearMsg3()
  */
 void clearMsg4()
 {
-    clearLine( (BOTTOM +5), 0, 100);
+    clearLine( MSG_X4, 0, CLEAR_MSG_MAX );
 }
 
 
@@ -186,6 +187,9 @@ void clearLine(int x, int y, int max)
         addch(SPACE);
     }
 }
+
+
+// === random utility ===
 
 
 /**
@@ -238,6 +242,9 @@ bool isOnceInTimes(int max)
     }
     return false;
 }
+
+
+// === timer utility ===
 
 
 /**

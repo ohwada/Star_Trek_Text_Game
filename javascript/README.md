@@ -21,10 +21,8 @@ https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
 ### Require <br/>
 - Web Browser <br/>
-- jQuery < br/>
-https://jquery.com/ <br/>
 
-### run the file <br/>
+### Run the file <br/>
 open the file index.html with Web Brawser <br/>
 or double click on the file index.html with File Brawser< br/>
 
