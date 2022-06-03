@@ -1,7 +1,7 @@
 cpp How to Play
 ===============
 
-You control the Enterprise and destroy the Klingons
+You fly the Enterprise and destroy the Klingons
 
 Your battlefield is not the whole galaxy, <br/>
 it is a certain Quadrant <br/>
@@ -17,15 +17,16 @@ or if the shield disappears and the Enterprise is destroyed, <br/>
 
 ### Screen
 
-on the right, <br/>
-the status report is displayed <br/>
+on the left <br/>
+the Quadrant map is displayed <br/>
+and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
+on the left <br/>
+the Quadrant map is displayed <br/>
+and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
 below, <br/>
 some  messages are displayed. <br/>
 
 <img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_cmd_torpedo.png" width="300" />  <br/>
-on the left <br/>
-the Quadrant map is displayed <br/>
-and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
 
 ###  Equipment of the Enterprise
 
@@ -50,7 +51,7 @@ launch Photon Torpedos <br/>
  occasionally breaks down <br/>
 at that time, You can repair at the Base <br/>
 
-### How to Control the Enterprise
+### How to fly the Enterprise
 
 There is a Move mode and a Command mode <br/>
 In Command mode, the Arrow Key is invalid and cannot be moved <br/>

@@ -28,7 +28,7 @@ https://www.gnu.org/software/make/ <br/>
 
 ### How to Play <br/>
 
-You control the Enterprise and destroy the Klingons <br/>
+You fly the Enterprise and destroy the Klingons <br/>
 
 detail see below <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/cpp/howtoplay.md <br/>
