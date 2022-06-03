@@ -1,4 +1,5 @@
-# JavaScript - Star Trek Text Game
+JavaScript - Star Trek Text Game
+===============
 
 Star Trek Game using  JavaScript <br/>
 

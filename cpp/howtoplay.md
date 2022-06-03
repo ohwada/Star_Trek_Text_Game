@@ -1,7 +1,7 @@
 cpp How to Play
 ===============
 
-You fly the Enterprise and destroy the Klingons
+You command the Enterprise and destroy the Klingons <br/>
 
 Your battlefield is not the whole galaxy, <br/>
 it is a certain Quadrant <br/>
@@ -50,10 +50,10 @@ launch Photon Torpedos <br/>
  occasionally breaks down <br/>
 at that time, You can repair at the Base <br/>
 
-### How to fly the Enterprise
+### How to command the Enterprise
 
 There is a Move mode and a Command mode <br/>
-In Command mode, the Arrow Key is invalid and cannot be moved <br/>
+in Command mode, the Arrow Key is invalid and cannot be moved <br/>
 
 Arrow Key  [↑] [↓] [←] [→] : move the Enterprise <br/>
 
@@ -134,7 +134,7 @@ supply at the Base : 10 dates  <br/>
 
 if 40 days or less <br/>
 display the following message <br/>
-Warning: there are no Dates left <br/>
+Warning: there are no Date left <br/>
 
 ### Reduction of Shields 
 

@@ -1,4 +1,5 @@
-# Android - Star Trek Text Game
+Android - Star Trek Text Game
+===============
 
 Star Trek Game using  Android <br/>
 

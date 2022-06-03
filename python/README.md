@@ -1,4 +1,5 @@
-# Python - Star Trek Text Game
+Python - Star Trek Text Game
+===============
 
 Star Trek Game using python <br/>
 
