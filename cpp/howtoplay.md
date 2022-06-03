@@ -20,9 +20,8 @@ or if the shield disappears and the Enterprise is destroyed, <br/>
 on the left <br/>
 the Quadrant map is displayed <br/>
 and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
-on the left <br/>
-the Quadrant map is displayed <br/>
-and Enterprise(E), Klingons(K), StarBase(B), Stars(*) are displayed.  <br/>
+on the right <br/>
+Status Report is displayed. <br/>
 below, <br/>
 some  messages are displayed. <br/>
 
