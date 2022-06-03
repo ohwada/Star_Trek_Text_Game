@@ -24,8 +24,13 @@ https://developer.android.com/studio <br/>
 ## How to get app <br/> 
 (1)Build yourself from the source code  <br/>
 
-(2)download pre-built apps
+(2)download pre-built apps <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/ <br/>
+
+#### Usage:  <br/>
+
+see below <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/usage.md   <br/>
 
 #### Note:  <br/>
 other than me, there are people who made the Android version.  <br/>
