@@ -59,10 +59,9 @@ while the game is in progress,  it will be display Short Range Sensor and Status
 
 *(8) Impulse Engine  <br/>
 
-
 (9) Status Report  <br/>
 
-< img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/status_report.png" width="300" /> <br/>
+< img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/android/docs/status_report.png" width="300" /> <br/>
 
 (10) Cumulative Galactic Record  <br/>
 
