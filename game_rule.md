@@ -28,7 +28,7 @@ the player destroy all Klingon warships within the deadline of the mission <br/>
 
 the following is displayed. <br/>
 
-THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED  <br/>
+> THE LAST KLINGON BATTLE CRUISER IN THE GALAXY HAS BEEN DESTROYED  <br/>
 THE FEDERATION HAS BEEN SAVED !!!  <br/>
 
 Lose: <br/>
@@ -170,8 +170,8 @@ when the Enterprise dock in the StarBase <br/>
 
 display as below <br/>
 
-> docked in STARBASE
-> SHIELDS DROPPED FOR DOCKING PURPOSES
+> docked in STARBASE  <br/>
+> SHIELDS DROPPED FOR DOCKING PURPOSES <br/>
 
 
 You can supply Energy and Photon Torpedoes. <br/>
@@ -204,12 +204,12 @@ it feels like an old RPG. <br/>
 if there are Klingon warhips around the Enterprise  <br/>
 display a warning is as below <br/>
 
-> COMBAT AREA      CONDITION RED
+> COMBAT AREA      CONDITION RED <br/>
 
 and if shields are 200 or less, <br/>
 display a warning is as below <br/>
 
-> SHIELDS DANGEROUSLY LOW
+> SHIELDS DANGEROUSLY LOW <br/>
 
 
 ## Command List 
@@ -225,42 +225,42 @@ for example, "205" means 2 Klingons, no StarBase, 5 stars. <br/>
 
 display as below <br/>
 
-> LONG RENGE SENSOR
->   0   1   2   3   4   5   6   7 
-> 0 *** *** *** *** *** *** *** ***
-> 1 *** *** *** *** *** *** *** ***
-> 2 *** *** *** *** *** *** *** ***
-> 3 *** *** *** 000 213 000 *** ***
-> 4 *** *** *** 013 E010 000 *** ***
-> 5 *** *** *** 102 013 000 *** ***
-> 6 *** *** *** *** *** *** *** ***
-> 7 *** *** *** *** *** *** *** ***
- > at Quadrant 4 , 4 
+> LONG RENGE SENSOR <br/>
+>   0   1   2   3   4   5   6   7  <br/>
+> 0 *** *** *** *** *** *** *** ***  <br/>
+> 1 *** *** *** *** *** *** *** *** <br/>
+> 2 *** *** *** *** *** *** *** ***  <br/>
+> 3 *** *** *** 000 213 000 *** ***  <br/>
+> 4 *** *** *** 013 E010 000 *** ***  <br/>
+> 5 *** *** *** 102 013 000 *** ***  <br/>
+> 6 *** *** *** *** *** *** *** ***  <br/>
+> 7 *** *** *** *** *** *** *** ***  <br/>
+ > at Quadrant 4 , 4  <br/> 
 
 
 #### (2) the Short Range Sensor
 
 display as below <br/>
 
-> SHORT RENGE SENSOR
->  0 1 2 3 4 5 6 7
-> 0                
-> 1   E   K B      
-> 2                
-> 3             *  
-> 4                
-> 5   *            
-> 6           *    
-> 7                
->
-> STARDATE 312
-> CONDITION RED
-> QUADRANT 4 , 3 
-> SECTOR 1 , 1 
-> ENERGY 2800 
-> PHOTON TORPEDOES 10 
-> SHIELDS 200 
-> COMPUTER ACTIVE
+> SHORT RENGE SENSOR  <br/>
+>  0 1 2 3 4 5 6 7 <br/>
+> 0  <br/> 
+> 1   E   K B  <br/>
+> 2  <br/>
+> 3  <br/>
+> 4 <br/>
+> 5   *  <br/>
+> 6           *   <br/>
+> 7 <br/>
+>  <br/>
+> STARDATE 312  <br/>
+> CONDITION RED  <br/>
+> QUADRANT 4 , 3  <br/>
+> SECTOR 1 , 1  <br/>
+> ENERGY 2800  <br/>
+> PHOTON TORPEDOES 10  <br/>
+> SHIELDS 200  <br/>
+> COMPUTER ACTIVE  <br/>
 
 
 #### (3) fire Phasers
@@ -269,11 +269,11 @@ You enter the amount of Energy. <br/>
 
 display as below <br/>
 
-> PHASERS LOCKED ON TARGET
-> ENERGY AVAILABLE= 2800 
-> ENTER NUMBER OF UNITS TO FIRE
-> 
-> energy>
+> PHASERS LOCKED ON TARGET  <br/>
+> ENERGY AVAILABLE= 2800  <br/>
+> ENTER NUMBER OF UNITS TO FIRE  <br/>
+>   <br/>
+> energy>  <br/>
 
 
 in the simplified version, <br/>
@@ -293,13 +293,13 @@ You enter the course of Torpedo. <br/>
 
 display as below <br/>
 
->  === SELECT COURSE ===
+>  === SELECT COURSE ===  <br/>
+>  <br/>
+ > 4 3 2  <br/>
+ > 5 E 1  <br/>
+ > 6 7 8  <br/>
 >
- > 4 3 2
- > 5 E 1
- > 6 7 8
->
-> course(1-8) >
+> course(1-8) >  <br/>
 
 
 the Torpedo goes straight until it hits a Klingon warship, a StarBase , a star, or goes out of range. <br/>
@@ -310,10 +310,10 @@ if it is out of order or when Torpedos runs out, it do not launch. <br/>
 
 display the trajectory of Torpedo as below <br/>
 
-> TORPEDO TRACK:
-> 1 , 2
-> 1 , 3
-> *** KLINGON DESTROYED ***
+> TORPEDO TRACK:  <br/>
+> 1 , 2  <br/>
+> 1 , 3  <br/>
+> *** KLINGON DESTROYED ***  <br/>
 
 
 when You fire a  Torpedo,  Klingon warships counterattack  <br/>
@@ -325,11 +325,11 @@ You enter the amount of energy. <br/>
 
 display as below  <br/>
 
-> YOU HAVE  2790 UNITS OF ENERGY
-> YOUR SHIELDS HAVE 161 UNITS LEFT
-> ENTER NUMBER OF UNITS FOR SHIELD
-> 
-> nergy>
+> YOU HAVE  2790 UNITS OF ENERGY  <br/>
+> YOUR SHIELDS HAVE 161 UNITS LEFT  <br/>
+> ENTER NUMBER OF UNITS FOR SHIELD  <br/>
+>   <br/>
+> nergy>  <br/>
 
 
 in the simplified version, <br/>
@@ -340,16 +340,16 @@ the amount of energy is 200. <br/>
 
 display as below <br/>
 
-> DAMAGE CONTROL REPORT
-> L.R. SENSOR : Normal
-> S.R. SENSOR : Normal
-> PHASER CNTRL : Normal
-> TORPEDO TUBES : Normal
-> SHIELD CNTRL : Normal
-> DAMAGE CNTRL : Normal
-> WARP ENGINE : Normal
-> IMPULSE ENGINE : Normal
-> COMPUTER : Normal
+> DAMAGE CONTROL REPORT  <br/>
+> L.R. SENSOR : Normal  <br/>
+> S.R. SENSOR : Normal  <br/>
+> PHASER CNTRL : Normal  <br/>
+> TORPEDO TUBES : Normal  <br/>
+> SHIELD CNTRL : Normal  <br/>
+> DAMAGE CNTRL : Normal  <br/>
+> WARP ENGINE : Normal  <br/>
+> IMPULSE ENGINE : Normal  <br/>
+> COMPUTER : Normal  <br/>
 
 
 #### (7) Warp Engine 
@@ -358,13 +358,13 @@ You enter the course, distance and Energy. <br/>
 
 display as below <br/>
 
- > === SELECT COURSE ===
+ > === SELECT COURSE ===  <br/>
+>  <br/>
+ > 4 3 2  <br/>
+ > 5 E 1  <br/>
+ > 6 7 8  <br/>
 >
- > 4 3 2
- > 5 E 1
- > 6 7 8
->
-> course(1-8) >
+> course(1-8) >  <br/>
 
 
 in the simplified version, <br/>
@@ -381,13 +381,13 @@ You enter the course and distance. <br/>
 
 display as below <br/>
 
- > === SELECT COURSE ===
+ > === SELECT COURSE ===  <br/>
+>  <br/>
+ > 4 3 2  <br/>
+ > 5 E 1  <br/>
+ > 6 7 8  <br/>
 >
- > 4 3 2
- > 5 E 1
- > 6 7 8
->
-> course(1-8) >
+> course(1-8) > <br/>
 
 
 in the simplified version, <br/>
@@ -416,36 +416,36 @@ the Enterprise can move one section. <br/>
 
 display as below <br/>
 
-> STATUS REPORT
-> NUMBER OF KLINGONS LEFT = 6
-> NUMBER OF STARDATES LEFT = 312 
-> NUMBER OF STARBASES LEFT = 7 
+> STATUS REPORT  <br/>
+> NUMBER OF KLINGONS LEFT = 6  <br/>
+> NUMBER OF STARDATES LEFT = 312  <br/>
+> NUMBER OF STARBASES LEFT = 7  <br/>
 
 
   #### (10) Photon Torpedo Data
 
 display as below <br/>
 
-> SHIP'S & TARGET'S COORDINATES ARE
-> x= 1 , y= 6 : course= 0 
-> x= 5 , y= 6 : course= 0 
+> SHIP'S & TARGET'S COORDINATES ARE  <br/>
+> x= 1 , y= 6 : course= 0  <br/>
+> x= 5 , y= 6 : course= 0  <br/>
 
 
  #### (11)  Cumulative Galactic Record
 
 display as below <br/>
 
-> COMPUTER RECORD OF GALAXY 
->   0   1   2   3   4   5   6   7 
-> 0 *** *** *** *** *** *** *** ***
-> 1 *** *** *** *** *** *** *** ***
-> 2 *** *** *** 000 000 000 *** ***
-> 3 *** *** *** 000 E213 000 *** ***
-> 4 *** *** *** 013 010 000 *** ***
-> 5 *** *** *** 102 013 000 *** ***
-> 6 *** *** *** *** *** *** *** ***
-> 7 *** *** *** *** *** *** *** ***
- >at Quadrant 3 , 4
+> COMPUTER RECORD OF GALAXY   <br/>
+>   0   1   2   3   4   5   6   7  <br/>
+> 0 *** *** *** *** *** *** *** ***  <br/>
+> 1 *** *** *** *** *** *** *** ***  <br/>
+> 2 *** *** *** 000 000 000 *** ***  <br/>
+> 3 *** *** *** 000 E213 000 *** ***  <br/>
+> 4 *** *** *** 013 010 000 *** ***  <br/>
+> 5 *** *** *** 102 013 000 *** ***  <br/>
+> 6 *** *** *** *** *** *** *** ***  <br/>
+> 7 *** *** *** *** *** *** *** ***  <br/>
+ >at Quadrant 3 , 4  <br/>
 
 
 ### enter Course <br />
