@@ -39,11 +39,13 @@ https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/ <br/>
 
 Screen shot <br/>
 short renge sensor <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_short_renge_sensor.png" width="150"  /> <br/>
 
-destroy KLINGON ships with a photon torpedo <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
 
 ## rules of game
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
+
+## Original
+HP-BASIC Star Trek Author Mike Mayfield <br/>
+http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1 <br/>
