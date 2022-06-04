@@ -10,13 +10,13 @@ this is ported Star Trek Text Game to python. <br/>
 
 ## Screen Shot <br/>
 
-title
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_title.png" width="300" />  < br/>
+title  <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_title.png" width="300" />  <br/>
 
-long renge sensor
+long renge sensor  <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_long_sensor.png" width="300" />  < br/>
 
-short range sensor
+short range sensor <br/>
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_short_sensor.png" width="300" />  < br/>
 
 ### Require <br/>
