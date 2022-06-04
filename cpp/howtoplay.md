@@ -1,7 +1,7 @@
 cpp How to Play
 ===============
 
-the outline is same as python version
+the outline is same as python version <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
 You command the Enterprise and destroy the Klingons <br/>
