@@ -52,13 +52,11 @@ while the game is in progress,  it will be display Short Range Sensor and Status
 it display Torpedo trail in yellow, <br/>
 it display in red. when it hits Klingon <br/>
 
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/torpedo.png" width="300" /> <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/torpedo_course.png" width="300" /> <br/>
 
 (5) Shield Control  <br/>
 
 (6) Damage Report <br/>
-
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/damege_report.png" width="300" /> <br/>
 
 (7) Warp Engine <br/>
 
