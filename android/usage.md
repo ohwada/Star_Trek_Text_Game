@@ -67,7 +67,7 @@ it display in red. when it hits Klingon <br/>
 
 (9) Status Report  <br/>
 
-< img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/usage_status_report.png" width="300" /> <br/>
+< img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/status_report.png" width="300" /> <br/>
 
 (10) Cumulative Galactic Record  <br/>
 
