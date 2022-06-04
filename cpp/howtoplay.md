@@ -1,19 +1,24 @@
 cpp How to Play
 ===============
 
+the outline is same as python version
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
+
 You command the Enterprise and destroy the Klingons <br/>
 
 Your battlefield is not the whole galaxy, <br/>
 it is a certain Quadrant <br/>
 
+
 ### Win or Lose
 
 Win: <br/>
-You destroy all Klingons within the deadline of the mission <br/>
+the player destroy all Klingons within the deadline of the mission <br/>
 
 Lose: <br/>
 if exceed the deadline of the mission. <br/>
 or if the shield disappears and the Enterprise is destroyed, <br/>
+
 
 ### Screen
 
@@ -27,6 +32,7 @@ some  messages are displayed. <br/>
 
 <img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/screenshot_cpp_cmd_torpedo.png" width="300" />  <br/>
 
+
 ###  Equipment of the Enterprise
 
 Energy : <br/>
@@ -35,13 +41,17 @@ even if it is zero, You can move Enterprise <br/>
 You can refill at the Base <br/>
 
 Shields : <br/>
-protect the Enterprise <br/>
-decreased due to collision with Klingons or attack from Klingons <br/>
+
+it protect the Enterprise from Klingon warships attacking 
+ or collision with Klingons
+
+those events reduce Shields <br/>
 if it is zero, the Game is over <br/>
 You can refill from Energy <br/>
 
 Photon Torpedos ;
-destroy Klingons <br/>
+attack Klingon. </br>
+if hit, it destroys Klingon. <br/>
 occasionally fail to launch <br/>
 You can supply at the Base <br/>
 
@@ -49,6 +59,7 @@ TorpedoTubes : <br/>
 launch Photon Torpedos <br/>
  occasionally breaks down <br/>
 at that time, You can repair at the Base <br/>
+
 
 ### How to command the Enterprise
 
@@ -67,6 +78,7 @@ Arrow Key  [↑] [↓] [←] [→] : move the Enterprise <br/>
 [z] : exit Command Mode  <br/>
     or undock from the Base <br/>
 
+
 ###  move Enterprise
 
 Behavior when colliding　<br/>
@@ -84,6 +96,7 @@ equipment is replenished <br/>
 Stars and borders : <br/>
 You can't move on. <br/>
 plese detour, <br/>
+
 
 ### fire Torpedo
 
@@ -118,13 +131,17 @@ hit 123 fromK(4, 5) <br/>
 
 and educet Shields <br/>
 
+
 ### Feature of the the Base
 
 You can supply energy and torpedoes. <br/>
  not supply shields <br/>
 You can repair the TorpedoTubes. <br/>
-The Base protect the Enterprise  and the Enterprise not damaged  <br/>
+
+it protect the Enterprise and Not damaged by Klingons attacking <br/>
+
  You cannot fire torpedoes while docking at the Base  <br/>
+
 
 ### Decrease in StarDates
 
@@ -135,6 +152,7 @@ supply at the Base : 10 dates  <br/>
 if 40 days or less <br/>
 display the following message <br/>
 Warning: there are no Date left <br/>
+
 
 ### Reduction of Shields 
 
@@ -147,6 +165,7 @@ display the following message <br/>
 Warning: Shields Dangerously Low <br/>
 
 You can refill from Energy <br/>
+
 
 ### Consumption of Energy
 

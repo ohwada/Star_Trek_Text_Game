@@ -24,7 +24,7 @@ destroy Klingon ships with photon torpedo <br/>
 open the file index.html with Web Brawser <br/>
 or double click on the file index.html with File Brawser< br/>
 
-## How to Play < br/>
+## How to Play <br/>
 
 You command the Enterprise and destroy the Klingons <br/>
 
