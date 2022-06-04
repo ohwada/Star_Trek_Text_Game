@@ -11,21 +11,16 @@ this is ported Star Trek Text Game to python. <br/>
 ## Screen Shot <br/>
 
 mission
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_mission.png" width="300" />  < br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_mission.png" width="300" />  < br/>
 
 long renge sensor
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_long_sensor.png" width="300" />  < br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_long_sensor.png" width="300" />  < br/>
 
 mission
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_mission.png" width="300" />  < br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_mission.png" width="300" />  < br/>
 
 short renge sensor
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/screenshot_python_short_sensor.png" width="300" />  < br/>
-
-## usage
-
-Please read the rules of the game at first.  <br/>
-https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
+<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_short_sensor.png" width="300" />  < br/>
 
 ### Require <br/>
 python 2.7 <br/>
@@ -33,6 +28,13 @@ https://www.python.org/<br/>
 
 ### Run the file <br/>
 python star_trek.py <br/>
+
+### How to Play <br/>
+
+You command the Enterprise and destroy the Klingons <br/>
+
+detail see below <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
 ## License 
 [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0) <br/>
