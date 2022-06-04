@@ -9,14 +9,9 @@ https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
 this is ported Star Trek Text Game to  Android <br/>
 
 ### Screen Shot <br/>
-long renge sensor <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_long_renge_sensor.png" width="150"  /> <br/>
 
-short renge sensor <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_lshort_renge_sensor.png" width="150"  /> <br/>
-
-destroy Klingon ships with photon torpedo　<br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_photon_torpedo.png" width="150"  / > <br/>
+short range sensor <br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/android/docs/usage_short_renge_sensor.png" width="150"  /> <br/>
 
 ### Require <br/>
 Android Stadio <br/>
@@ -28,9 +23,14 @@ https://developer.android.com/studio <br/>
 (2)download pre-built apps <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/ <br/>
 
-#### Usage:  <br/>
+#### How to Play <br/>
 
-see below <br/>
+You command the Enterprise and destroy the Klingons <br/>
+
+the outline is the same as python version <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
+
+detail see below <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/usage.md   <br/>
 
 #### Note:  <br/>
