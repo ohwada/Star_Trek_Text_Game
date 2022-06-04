@@ -72,8 +72,6 @@ while the game is in progress,  it will be display Short Range Sensor and Status
 ## Menu  <br/>
 
 (1) About   <br/>
-
- <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/menu_about.png" width="300" /> <br/>
  
 (2) Usage  <br/>
 
