@@ -49,9 +49,6 @@ while the game is in progress,  it will be display Short Range Sensor and Status
 
 (4) Photon Torpedo  <br/>
 
-it display Torpedo trail in yellow, <br/>
-it display in red. when it hits Klingon <br/>
-
 <img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/docs/torpedo_course.png" width="300" /> <br/>
 
 (5) Shield Control  <br/>
