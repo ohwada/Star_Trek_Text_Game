@@ -1,51 +1,49 @@
-# Star Trek Text Game
+Android - Star Trek Text Game
 ===============
 
-Star Trek Star Trek Text Game is a computer game popular in the 1970s. <br/>
+Star Trek Game using  Android <br/>
 
-Please see wikipedia, for Star Trek Text Game, <br/>
-https://en.wikipedia.org/wiki/Star_Trek_(text_game) <br/>
+A tribute to the classic game <br/>
+https://en.wikipedia.org/wiki/Star_Trek_(text_game)  <br/>
 
-even now it still has a strong popularity. <br/>
-I have played with minicomputer in college days,  <br/>
-I have nostalgia, I tried my own work <br/>
-for python JavaScript, and Android. <br/>
+this is ported Star Trek Text Game to  Android <br/>
 
-## python <br/>
+### Screen Shot <br/>
 
-https://github.com/ohwada/Star_Trek_Text_Game/tree/master/python <br/>
+short range sensor <br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/android/docs/short_range_sensor.png" width="150"  /> <br/>
 
-Screen shot <br/>
-short renge sensor
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/python/docs/python_short_sensor.png" width="300" />  < br/>
+### Require <br/>
+Android Stadio <br/>
+https://developer.android.com/studio <br/>
 
-## C++ <br/>
+## How to get app <br/> 
+(1)Build yourself from the source code  <br/>
 
-https://github.com/ohwada/Star_Trek_Text_Game/tree/master/cpp <br/>
+(2)download pre-built apps <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/build/ <br/>
 
-Screen shot <br/>
-<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/cpp/doc/cpp_cmd_torpedo.png" width="300" />  <br/>
+#### How to Play <br/>
 
-## JavaScript <br/>
+You command the Enterprise and destroy the Klingons <br/>
 
-https://github.com/ohwada/Star_Trek_Text_Game/tree/master/javascript <br/>
-
-Screen shot <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/javascript/docs/javascript.png" width="300" />  < br/>
-
-## Android <br/>
-
-https://github.com/ohwada/Star_Trek_Text_Game/tree/master/android/ <br/>
-
-Screen shot <br/>
-short renge sensor <br/>
-<img src="https://github.com/ohwada/Star_Trek_Text_Game/blob/master/docs/star_trek_android_screenshot_short_renge_sensor.png" width="150"  /> <br/>
-
-
-## rules of game
+the outline is the same as python version <br/>
 https://github.com/ohwada/Star_Trek_Text_Game/blob/master/game_rule.md <br/>
 
+detail see below <br/>
+https://github.com/ohwada/Star_Trek_Text_Game/blob/master/android/usage.md   <br/>
 
-## Original
-HP-BASIC Star Trek Author Mike Mayfield <br/>
-http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1 <br/>
+#### Note:  <br/>
+other than me, there are people who made the Android version.  <br/>
+It seems that the source and apk are not released.  <br/>
+  
+youtube : Star Trek Text Game for Android  <br/>
+https://www.youtube.com/watch?v=SIb9Qbl1dIw)  <br/>
+
+## License 
+[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)
+
+## Reference
+HP-BASIC Stsr Trek  <br/>
+http://web.archive.org/web/20150214230559/http://www.dunnington.u-net.com/public/startrek/STTR1  <br/>
+
