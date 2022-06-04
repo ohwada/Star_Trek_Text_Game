@@ -11,7 +11,7 @@ this is ported Star Trek Text Game to  Android <br/>
 ### Screen Shot <br/>
 
 short range sensor <br/>
-<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/android/docs/usage_short_renge_sensor.png" width="150"  /> <br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/android/docs/usage_short_range_sensor.png" width="150"  /> <br/>
 
 ### Require <br/>
 Android Stadio <br/>
