@@ -2,7 +2,7 @@ BASIC - Star Trek Text Game
 ===============
 
 ScreenShot of Super Star Trek <br/>
-<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/basic/docs/basic_superstartrekt.png" width="300" />  <br/>
+<img src="https://raw.githubusercontent.com/ohwada/Star_Trek_Text_Game/master/basic/docs/basic_superstartrek.png" width="300" />  <br/>
 
 this is Archive  <br/>
 
